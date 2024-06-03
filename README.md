@@ -1,1 +1,1 @@
-# Badminton_fictipnal_club
+# Badminton_fictional_club
