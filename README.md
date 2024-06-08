@@ -1,1 +1,5 @@
-# Badminton_fictional_club
+# Racket Club
+
+### Database structure
+
+<img src="readme/database.png">
