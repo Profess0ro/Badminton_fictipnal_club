@@ -28,10 +28,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['racketclub.herokuapp.com', 'http://127.0.0.1:8000/', '127.0.0.1']
-PORT = 8000
+ALLOWED_HOSTS = ['.herokuapp.com', 'http://127.0.0.1:8000/', '127.0.0.1']
+
 
 # Application definition
 
