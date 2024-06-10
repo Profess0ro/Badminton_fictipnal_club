@@ -13,9 +13,14 @@
 
 ### Resources
 
-After every time `pip3 install <package>` are used, ensure to use `pip3 freeze --local > requirements.txt` 
+
 
 ### Technologies
+
+[Django](https://www.djangoproject.com/) 
+
+
+After every time `pip3 install <package>` are used, ensure to use `pip3 freeze --local > requirements.txt` 
 
 ### Deployment
 
