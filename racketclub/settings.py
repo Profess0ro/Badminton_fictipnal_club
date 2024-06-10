@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['racketclub.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['racketclub-d78eaddb5d10.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
