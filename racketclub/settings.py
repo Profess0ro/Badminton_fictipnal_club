@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['racketclub.herokuapp.com', 'http://127.0.0.1:8000/', '127.0.0.1']
-
+PORT = 8000
 
 # Application definition
 
