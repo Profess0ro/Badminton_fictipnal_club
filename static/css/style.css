@@ -9,50 +9,95 @@ html, body {
     flex-direction: column;
 }
 
+.small-nav-bg {
+    background-color: #F0FBFF;
+    border-bottom: 3px solid #2B3960;
+    color:#2B3960;
+}
+
+.small-nav-title {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.navbar-expand-lg {
+    font-size: 20px;
+}
+
 header {
     height: 200px;
     display: none;
-    background-color: #fbee64;
+    background-image: url(../images/header.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    border-bottom: 3px solid #2B3960;
+    float: left;
 }
 .no-gutters {
     margin: 0;
 }
-.blue {
-    background-color: #0026ff;
+.footer {
+    background-color: #2B3960;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 0;
+    color: #E8B272;
+    font-size: 30px;
 }
-.black {
-    background-color: #000000;
+.right-section {
+    background-color: #FFFFFF;
 }
-.main-container {
+.big-screens-nav {
     flex: 1;
     display: flex;
     flex-direction: row;
 }
-
-nav {
-    flex-shrink: 0;
+.logo {
+    width: 100%;
+    height: auto;
 }
-.green {
-    background-color: #4e9a11;
+
+.big-nav {
+    background-color: #F0FBFF;
     height: 100%;
     min-height: calc(100vh - 200px);
     display: none;
+    color:#2B3960;
+    border-right: 3px solid #2B3960; 
+    font-size: 30px;
+}
+
+.nav-font {
+    text-transform: capitalize;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.big-nav a {
+    color:#2B3960;
+    
+}
+
+.big-nav a:hover {
+    color:#E8B272;
+}
+
+.main-content {
+    padding: 10px;
 }
 
 
 @media screen and (min-width: 480px) {
 
-    header, .green {
+    header, .big-nav {
         display: none;
     }
 }
 @media screen and (min-width: 768px) {
-    header, .green {
+    header, .big-nav {
         display: block;
     }
     .navbar {

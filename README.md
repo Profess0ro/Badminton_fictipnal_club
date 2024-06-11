@@ -13,7 +13,9 @@
 
 ### Resources
 
-
+[Pexels](https://www.pexels.com) - Image library
+[Google Fonts](https://fonts.google.com/)
+[Font Awesome](https://www.fontawesome.com)
 
 ### Technologies
 
