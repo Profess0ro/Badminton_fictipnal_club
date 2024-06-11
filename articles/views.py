@@ -7,6 +7,7 @@ def index(request):
     context = {
         'article_list': articles,
     }
+    
     return render(request, 'index.html', context)
 
 def article_detail(request, slug):
