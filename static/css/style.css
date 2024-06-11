@@ -33,6 +33,10 @@ header {
     border-bottom: 3px solid #2B3960;
     float: left;
 }
+.header-visual {
+    height: 200px;
+    z-index: 2;
+}
 .no-gutters {
     margin: 0;
 }
