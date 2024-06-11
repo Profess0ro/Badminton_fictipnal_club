@@ -33,6 +33,7 @@ header {
     border-bottom: 3px solid #2B3960;
     float: left;
 }
+
 .header-visual {
     height: 200px;
     z-index: 2;
@@ -91,6 +92,9 @@ header {
 
 .main-content {
     padding: 10px;
+}
+.card-img-top {
+    max-width: 160px;
 }
 
 
