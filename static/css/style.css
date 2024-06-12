@@ -43,9 +43,6 @@ header {
 }
 .footer {
     background-color: #2B3960;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     padding: 0;
     color: #E8B272;
@@ -97,6 +94,46 @@ header {
     max-width: 160px;
 }
 
+.article-link {
+    color: #2B3960;
+    text-decoration: none;
+}
+.article-link:hover {
+    color: #E8B272;
+}
+.card-body {
+    border: 3px solid #2B3960;
+    border-radius: 10px;
+}
+.card-text {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+.author {
+    font-weight: 900;
+}
+.article-post {
+    background-color: #F0FBFF;
+}
+
+.page-link {
+    background-color: #F0FBFF;
+    color: #2B3960;
+    border: 3px solid #2B3960;
+    border-radius: 10px;
+}
+
+.page-link:hover {
+    background-color: #2B3960;
+    border: 3px solid #E8B272;
+    color: #E8B272;
+}
+
+.card {
+    --bs-card-border-width: none;
+}
 
 @media screen and (min-width: 480px) {
 
@@ -111,4 +148,10 @@ header {
     .navbar {
         display: none;
     }
+}
+
+@media screen and (max-width: 1025px) {
+    .right-section {
+        display: none;
+    }    
 }

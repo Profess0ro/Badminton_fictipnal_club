@@ -9,26 +9,34 @@
             <div class="row">
                 {% for article in article_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4 article-post">
                         <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in article.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/logo.png' %}"
-                                  alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src="{{ article.featured_image.url }}"
-                                  alt="{{ article.title }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ article.author }}</p>
+                            <div class="row">
+                                <a href="#" class="article-link">
+                                    <h2 class="card-title">{{ article.title }}</h2>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="image-container">
+                                        {% if "placeholder" in article.featured_image.url %}
+                                        <img class="card-img-top" src="{% static 'images/logo.png' %}"
+                                        alt="logo">
+                                        {% else %}
+                                        <img class="card-img-top" src="{{ article.featured_image.url }}"
+                                        alt="{{ article.title }}">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-6 card-text">
+                                    <div class="image-flash">
+                                        <p class="author">Author: {{ article.author }}</p>
+                                    </div>
+                                        <p>{{ article.excerpt }}</p>
+                                    <hr class ="">
+                                    <p class="card-text text-muted h6">{{ article.created_on }}</p>
                                 </div>
                             </div>
-                            <!-- <a href="{% url 'article_detail' article.slug %}" class="post-link"> -->
-                                <h2 class="card-title">{{ article.title }}</h2>
-                                <p class="card-text">{{ article.excerpt }}</p>
-                            </a>
-                            <hr />
-                            <p class="card-text text-muted h6">{{ article.created_on }}</p>
                         </div>
                     </div>
                 </div>
