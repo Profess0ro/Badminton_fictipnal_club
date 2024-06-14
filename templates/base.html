@@ -46,13 +46,16 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
+                <i class="fa-solid fa-user"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else
-                    here</a></li>
+                <li><a class="dropdown-item" href="#">Signup</a></li>
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">My bookings</a></li>
+                {% endif %}
               </ul>
             </li>
           </ul>
@@ -81,6 +84,21 @@
             <a class="nav-link disabled" aria-disabled="true">Link</a>
           </li>
         </ul>
+        <hr class="text-separator">
+          <div class="profile">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Signup</a></li>
+              <li><a class="dropdown-item" href="#">Login</a></li>
+              {% if user.is_authenticated %}
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">My bookings</a></li>
+              {% endif %}
+            </ul>
+          </div>
       </div>
       <!-- main content here -->
       <div class="col-lg-11 col-md-8 main-content no-gutters">

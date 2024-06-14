@@ -169,6 +169,15 @@ header {
     margin-left: 0;
 }
 
+.dropdown-menu {
+    --bs-dropdown-min-width: 150px;
+    text-align: center;
+}
+
+.profile {
+    align-content: center;
+}
+
 @media screen and (min-width: 480px) {
 
     header, .big-nav {
