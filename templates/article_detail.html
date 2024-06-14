@@ -22,44 +22,63 @@
         {{ article.content | safe }}
     </article>
     <hr class="text-separator">
-    
   </div>
 </div>
+
 <div class="container comments">
   <div class="row card-body">
-    <i class="far fa-comments"></i> {{ comment_count }}
-    <h3>Comments:</h3>
-    <hr class="text-separator">
-    {% for comment in comments %}
-    <div class="p-2 comments
-      {% if not comment.approved and comment.author == user %}
-      faded{% elif not comment.approved %} d-none{% endif %}">
-      <p class="font-weight-bold">
-        {{ comment.author }}
-        <span class="font-weight-normal">
-          {{ comment.created_on }}
-        </span> wrote:
-      </p>
-      <div id="comment{{ comment.id }}">
-        {{ comment.body | linebreaks }}
+    <div class="col-md-8">
+      <div class="">
+        <i class="far fa-comments"></i> {{ comment_count }}
+        <h3>Comments:</h3>
+        <hr class="text-separator">
+        {% for comment in comments %}
+        <div class="p-2 comments
+          {% if not comment.approved and comment.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
+          <p class="font-weight-bold">
+            {{ comment.author }}
+            <span class="font-weight-normal">
+              {{ comment.created_on }}
+            </span> wrote:
+          </p>
+          <div id="comment{{ comment.id }}" class="comment-text">
+            {{ comment.body | linebreaks }}
+          </div>
+          {% if not comment.approved and comment.author == user %}
+          <p class="approval">
+            This comment is awaiting approval
+          </p>
+          {% endif %}
+          {% if user.is_authenticated and comment.author == user %}
+          <button class="btn btn-delete"
+          data-comment_id="{{ comment.id }}">Delete</button>
+          <button class="btn btn-edit"
+            data-comment_id="{{ comment.id }}">Edit</button>
+            <hr class="text-separator text-separator-comments">
+          {% endif %}
+        </div>
+        <!-- Our for loop ends here -->
+        {% endfor %}
+              
       </div>
-      {% if not comment.approved and comment.author == user %}
-      <p class="approval">
-        This comment is awaiting approval
-      </p>
-      {% endif %}
-      {% if user.is_authenticated and comment.author == user %}
-      <button class="btn btn-delete"
-      data-comment_id="{{ comment.id }}">Delete</button>
-      <button class="btn btn-edit"
-        data-comment_id="{{ comment.id }}">Edit</button>
+    </div>
+    <div class="col-md-4 commenting">
+      {% if user.is_authenticated %}
+      <h3>Leave a comment:</h3>
+      <p>commenting as: {{ user.username }}</p>
+      <form id="commentForm" method="article"
+        style="margin-top: 1.3em;">
+        {{ comment_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
+          class="btn btn-signup btn-lg">Submit</button>
+      </form>
+      {% else %}
+      <p>Log in to leave a comment</p>
       {% endif %}
     </div>
-    <!-- Our for loop ends here -->
-    {% endfor %}
   </div>
-  </div>
-</div>
 </div>
 
 

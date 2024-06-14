@@ -124,9 +124,10 @@ header {
 .author {
     font-weight: 900;
 }
-.article-post {
+.article-post, .commenting {
     background-color: #F0FBFF;
 }
+
 
 .page-link {
     background-color: #F0FBFF;
@@ -160,13 +161,28 @@ header {
     margin: auto;
     margin-bottom: 10px;
     width: 70%;
-    color: #2B3960;
-    
+    color: #2B3960;   
 }
 
 .comments {
     margin-top: 10px;
     margin-left: 0;
+}
+
+.comment-text {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 20px;
+}
+.text-separator-comments {
+    width: 50%; 
+    margin-top: 10px;
+}
+.commenting {
+    border-top: 2px solid #2B3960;
+    padding-top: 10px;
 }
 
 .dropdown-menu {
@@ -193,6 +209,10 @@ header {
     }
     .article-image {
         height: 300px;
+    }
+    .commenting {
+        border-left: 2px solid #2B3960;
+        border-top: none;
     }
 }
 
