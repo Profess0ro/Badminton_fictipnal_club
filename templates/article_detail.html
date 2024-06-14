@@ -8,8 +8,8 @@
             <div class="col-md-6 masthead-text">
                 <!-- article title goes in these h1 tags -->
                 <h1 class="article-title">{{ article.title }}</h1>
-                <!-- article author goes before the | the article's created date goes after -->
-                <p class="article-subtitle">{{ article.author }} | {{ article.created_on }}</p>
+                <!--  -->
+                <p class="article-subtitle">{{ article.created_on }}, {{ article.author }} </p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/logo.png' %}" class="scale" alt="logo">
