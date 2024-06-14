@@ -166,6 +166,7 @@ header {
 
 .comments {
     margin-top: 10px;
+    margin-left: 0;
 }
 
 @media screen and (min-width: 480px) {
