@@ -9,6 +9,14 @@ html, body {
     flex-direction: column;
 }
 
+.container-nav {
+    margin:0;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
 .small-nav-bg {
     background-color: #F0FBFF;
     border-bottom: 3px solid #2B3960;
@@ -104,12 +112,14 @@ header {
 .card-body {
     border: 3px solid #2B3960;
     border-radius: 10px;
+    padding: 5px;
 }
 .card-text {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+    margin-top: 20px;
 }
 .author {
     font-weight: 900;
@@ -134,6 +144,29 @@ header {
 .card {
     --bs-card-border-width: none;
 }
+.no-margin-left {
+    margin-left: 0;
+}
+.article-image {
+    height: 150px;
+    width: auto;
+}
+.text-created {
+    top: 120px;
+    vertical-align: middle;
+}
+
+.text-separator {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 70%;
+    color: #2B3960;
+    
+}
+
+.comments {
+    margin-top: 10px;
+}
 
 @media screen and (min-width: 480px) {
 
@@ -147,6 +180,9 @@ header {
     }
     .navbar {
         display: none;
+    }
+    .article-image {
+        height: 300px;
     }
 }
 

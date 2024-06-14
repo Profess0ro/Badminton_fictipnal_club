@@ -23,7 +23,7 @@
   <body class="d-flex flex-column h-100 main-bg">
     <!-- navigation bar for smaller screens -->
     <nav class="navbar navbar-expand-lg small-nav-bg nav-font">
-      <div class="container">
+      <div class="container container-nav">
         <a class="navbar-brand" href="#"><img
             src="{% static 'images/logo_small.png' %}" alt="logo"></a>
         <p class="small-nav-title">Racket CLub</p>
@@ -83,14 +83,14 @@
         </ul>
       </div>
       <!-- main content here -->
-      <div class="col-md-8 main-content no-gutters">
+      <div class="col-lg-11 col-md-8 main-content no-gutters">
         <main class="flex-shrink-0 main-bg">
           {% block content %}
           <!-- content goes here -->
           {% endblock content %}
         </main>
       </div>
-      <div class="col-md-3 right-section"></div>
+      <div class="col-lg-3 right-section"></div>
     </div>
     <footer class="footer mt-auto py-3 text-center nav-font">
       <p class="m-0 text-center">Follow us: <br>
