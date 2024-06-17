@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404 
 from django.views import generic, View
 from .models import Article
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def index(request):
     articles = Article.objects.all().order_by('-created_on')
     context = {

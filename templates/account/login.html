@@ -6,8 +6,8 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-
-<div class="col-md-8 signup-body no-margin-left">
+<div class="fullview-small">
+<div class="container no-margin-left signup-body">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2 card-text">
             <h3 class="nav-font">{% trans "Sign In" %}</h3>
@@ -17,8 +17,9 @@
                 first.{% endblocktrans %}</p>
         </div>
     </div>
+    <hr class="text-separator">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2 signin-form left">
+        <div class="col-md-8 mt-3 offset-md-2 signin-form">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -29,5 +30,6 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
