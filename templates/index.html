@@ -20,10 +20,10 @@
                                 <div class="col-6">
                                     <div class="image-container">
                                         {% if "placeholder" in article.featured_image.url %}
-                                        <img class="card-img-top" src="{% static 'images/logo.png' %}"
+                                        <img class="card-img-top-small" src="{% static 'images/logo.png' %}"
                                         alt="logo">
                                         {% else %}
-                                        <img class="card-img-top" src="{{ article.featured_image.url }}"
+                                        <img class="card-img-top-small" src="{{ article.featured_image.url }}"
                                         alt="{{ article.title }}">
                                         {% endif %}
                                     </div>

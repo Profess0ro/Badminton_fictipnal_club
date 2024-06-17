@@ -5,7 +5,7 @@
 <div class="">
 <div class="container card-body no-margin-left">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col">
       {% if "placeholder" in article.featured_image.url %}
       <img class="card-img-top" src="{% static 'images/logo.png' %}"
       alt="logo">
@@ -15,7 +15,10 @@
       {% endif %}
 
     </div>
-    <div class="col-md-6 text-created">
+  </div>
+  <hr class="text-separator-img">
+  <div class="row">
+    <div class="col text-created">
       <!-- article title goes in these h1 tags -->
       <h1 class="article-title ">{{ article.title }}</h1>
       <hr class="text-separator">

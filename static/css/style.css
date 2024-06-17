@@ -98,8 +98,20 @@ header {
 .main-content {
     padding: 10px;
 }
-.card-img-top {
+
+.card-img-top-small, .card-img-top  {
+    border: 3px solid #2B3960;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card-img-top-small {
     max-width: 160px;
+}
+
+.card-img-top {
+    max-width: 400px;
+    margin-top: 15px;
 }
 
 .article-link {
@@ -147,20 +159,20 @@ header {
 .no-margin-left {
     margin-left: 0;
 }
-.article-image {
-    height: 150px;
-    width: auto;
-}
+
 .text-created {
     top: 120px;
     vertical-align: middle;
 }
 
-.text-separator {
+.text-separator, .text-separator-img {
     margin: auto;
     margin-bottom: 10px;
     width: 70%;
     color: #2B3960;   
+}
+.text-separator-img {
+    margin-top: 10px;
 }
 
 .comments {
