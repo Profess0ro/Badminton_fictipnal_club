@@ -49,10 +49,10 @@
                 <i class="fa-solid fa-user"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="#">Signup</a></li>
-                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="#">Login</a></li>
+                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
+                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_login' %}">Login</a></li>
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">My bookings</a></li>
                 {% endif %}
