@@ -133,6 +133,11 @@ header {
     font-style: normal;
     margin-top: 20px;
 }
+
+.text-left {
+    text-align: left;
+}
+
 .author {
     font-weight: 900;
 }

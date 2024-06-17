@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 <div class="">
-<div class="container card-body no-margin-left">
+<div class="container card-body no-margin-left article-post">
   <div class="row">
     <div class="col">
       {% if "placeholder" in article.featured_image.url %}
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="row">
-    <article class="card-text">
+    <article class="card-text text-left">
         {{ article.content | safe }}
     </article>
     <hr class="text-separator">
