@@ -170,13 +170,13 @@ header {
     vertical-align: middle;
 }
 
-.text-separator, .text-separator-img {
+.text-separator, .text-separator-img, .text-separator-reset {
     margin: auto;
     margin-bottom: 10px;
     width: 70%;
     color: #2B3960;   
 }
-.text-separator-img {
+.text-separator-img, .text-separator-reset {
     margin-top: 10px;
 }
 
