@@ -79,7 +79,7 @@ header {
     font-size: 30px;
 }
 
-.nav-font {
+.nav-font, .btn-signup {
     text-transform: capitalize;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
@@ -109,7 +109,7 @@ header {
 .article-link:hover {
     color: #E8B272;
 }
-.card-body {
+.card-body, .signup-body {
     border: 3px solid #2B3960;
     border-radius: 10px;
     padding: 5px;
@@ -124,19 +124,18 @@ header {
 .author {
     font-weight: 900;
 }
-.article-post, .commenting {
+.article-post, .commenting, .signup-body {
     background-color: #F0FBFF;
 }
 
-
-.page-link {
+.page-link, .btn-signup {
     background-color: #F0FBFF;
     color: #2B3960;
     border: 3px solid #2B3960;
     border-radius: 10px;
 }
 
-.page-link:hover {
+.page-link:hover, .btn-signup:hover {
     background-color: #2B3960;
     border: 3px solid #E8B272;
     color: #E8B272;
@@ -194,10 +193,22 @@ header {
     align-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
+.link, .signin-form a {
+    text-decoration: none;
+    color: #E8B272;
+}
+
 @media screen and (min-width: 480px) {
 
     header, .big-nav {
         display: none;
+    }
+    .signup-body {
+        font-size: 12px;
     }
 }
 @media screen and (min-width: 768px) {
@@ -216,8 +227,11 @@ header {
     }
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 769px) {
     .right-section {
         display: none;
-    }    
+    } 
+    .card-text {
+        font-size: 10px;
+    }
 }

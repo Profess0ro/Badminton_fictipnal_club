@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+<!-- {% load i18n %} -->
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="container no-margin-left signup-body">
+  <div class="row">
+    <div class="col card-text">
+      <h3 class="nav-font">{% trans "Sign Up" %}</h3>
+
+      <p>{% blocktrans %}
+        Welcome back to the Racket Club<br>
+        Do you already have an account?<br>Then please
+        <a class="link" href="{{ login_url }}">sign in</a>
+        instead.
+      {% endblocktrans %}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card-text">
+      <form class="signup" id="signup_form" method="post"
+        action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}"
+          value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-signup right" type="submit">
+          {% trans "Sign Up" %} </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
