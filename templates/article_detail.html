@@ -6,7 +6,13 @@
 <div class="container card-body no-margin-left">
   <div class="row">
     <div class="col-md-6">
-      <img src="{% static 'images/logo.png' %}" class="article-image" alt="logo">
+      {% if "placeholder" in article.featured_image.url %}
+      <img class="card-img-top" src="{% static 'images/logo.png' %}"
+      alt="logo">
+      {% else %}
+      <img class="card-img-top" src="{{ article.featured_image.url }}"
+      alt="{{ article.title }}">
+      {% endif %}
 
     </div>
     <div class="col-md-6 text-created">
