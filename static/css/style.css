@@ -218,6 +218,9 @@ header {
     text-decoration: none;
     color: #E8B272;
 }
+.form-label {
+    display: none;
+}
 
 @media screen and (min-width: 480px) {
 
