@@ -14,7 +14,6 @@ class Article(models.Model):
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='article_likes', blank=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -30,7 +29,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Article, on_delete=models.CASCADE,
                              related_name="comments")
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="author_id")
+        User, on_delete=models.CASCADE, related_name="commenter")
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)

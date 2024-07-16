@@ -32,8 +32,11 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['racketclub-d78eaddb5d10.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['racketclub-d78eaddb5d10.herokuapp.com', '127.0.0.1', 
+    '8000-profess0ro-racketclub-dc9g14fi9ii.ws.codeinstitute-ide.net']
 
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-profess0ro-racketclub-dc9g14fi9ii.ws.codeinstitute-ide.net']
 
 # Application definition
 
