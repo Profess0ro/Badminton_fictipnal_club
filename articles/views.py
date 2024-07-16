@@ -55,16 +55,14 @@ class ArticleDetail(View):
             liked = True
 
         comment_form = CommentForm(data=request.POST)
-        
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
-            comment.article = article
+            comment.post = article
             comment.save()
-            commented = True
         else:
-            commented = False
+            comment_form = CommentForm()
 
         return render(
             request,
@@ -72,8 +70,8 @@ class ArticleDetail(View):
             {
                 "article": article,
                 "comments": comments,
-                "commented": commented,
+                "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": comment_form,
             },
         )
