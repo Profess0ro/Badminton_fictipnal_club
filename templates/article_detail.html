@@ -52,8 +52,8 @@
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}" class="comment-text">
-            {{ comment.body | linebreaks }}
-          </div>
+            {{ comment.content | linebreaks }}
+        </div>
           {% if not comment.approved and comment.author == user %}
           <p class="approval">
             This comment is awaiting approval

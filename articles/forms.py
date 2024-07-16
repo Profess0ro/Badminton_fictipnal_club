@@ -11,4 +11,4 @@ class CommentForm(forms.ModelForm):
         Specify the django model and order of the fields
         """
         model = Comment
-        fields = ('body',)
+        fields = ('content',)

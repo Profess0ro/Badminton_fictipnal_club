@@ -3,18 +3,13 @@ from django.views import generic, View
 from .models import Article
 from .forms import CommentForm
 
-
-
-
-
 class ArticleList(generic.ListView):
     model = Article
     queryset = Article.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
-    
+
 class ArticleDetail(View):
-    # 
     def get(self, request, slug, *args, **kwargs):
         queryset = Article.objects.filter(status=1)
         article = get_object_or_404(queryset, slug=slug)
@@ -29,8 +24,7 @@ class ArticleDetail(View):
                 "comment_form": CommentForm()
             },
         )
-        
-        
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Article.objects.filter(status=1)
         article = get_object_or_404(queryset, slug=slug)
@@ -43,6 +37,7 @@ class ArticleDetail(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.article = article
+            comment.author = request.user
             comment.save()
             commented = True
         else:
