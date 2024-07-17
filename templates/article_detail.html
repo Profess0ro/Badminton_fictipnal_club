@@ -60,9 +60,9 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete"
+          <button id="btn-delete" class="btn btn-delete"
           data-comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit"
+          <button id="btn-edit" class="btn btn-edit"
             data-comment_id="{{ comment.id }}">Edit</button>
             <hr class="text-separator text-separator-comments">
           {% endif %}

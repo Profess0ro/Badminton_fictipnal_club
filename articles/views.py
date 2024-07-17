@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404 
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from .models import Article
+from .models import Article, Comment
 from .forms import CommentForm
+from django.contrib import messages
 
 class ArticleList(generic.ListView):
     model = Article
@@ -11,8 +12,7 @@ class ArticleList(generic.ListView):
 
 class ArticleDetail(View):
     def get(self, request, slug, *args, **kwargs):
-        queryset = Article.objects.filter(status=1)
-        article = get_object_or_404(queryset, slug=slug)
+        article = get_object_or_404(Article, slug=slug, status=1)
         comments = article.comments.filter(approved=True).order_by('created_on')
         return render(
             request,
@@ -26,9 +26,17 @@ class ArticleDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        queryset = Article.objects.filter(status=1)
-        article = get_object_or_404(queryset, slug=slug)
+        article = get_object_or_404(Article, slug=slug, status=1)
         comments = article.comments.filter(approved=True).order_by('created_on')
+
+        if 'edit_comment_content' in request.POST:
+            comment_id = request.POST.get('comment_id')
+            new_content = request.POST.get('edit_comment_content')
+            comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+            comment.body = new_content
+            comment.save()
+            messages.success(request, "Comment updated successfully")
+            return redirect('article_detail', slug=slug)
 
         comment_form = CommentForm(data=request.POST)
 
@@ -39,17 +47,17 @@ class ArticleDetail(View):
             comment.article = article
             comment.author = request.user
             comment.save()
-            commented = True
+            messages.success(request, "Comment posted successfully")
+            return redirect('article_detail', slug=slug)
         else:
-            commented = False
-
-        return render(
-            request,
-            "article_detail.html",
-            {
-                "article": article,
-                "comments": comments,
-                "commented": commented,
-                "comment_form": CommentForm()
-            },
-        )
+            messages.error(request, "Failed to post comment. Please check the form.")
+            return render(
+                request,
+                "article_detail.html",
+                {
+                    "article": article,
+                    "comments": comments,
+                    "commented": False,
+                    "comment_form": comment_form
+                },
+            )
