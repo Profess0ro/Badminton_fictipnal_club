@@ -26,14 +26,14 @@ if (commentText === null) {
      * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
      */
     for (let button of editButtons) {
-        button.addEventListener("click", (e) => {
-            let commentId = e.target.getAttribute("data-comment_id");
-            let commentContent = document.getElementById(`comment${commentId}`).innerText.trim();
-            commentText.value = commentContent;
-            submitButton.innerText = "Update";
-            commentForm.setAttribute("action", `edit_comment/${commentId}`);
-            console.log("edit button pressed");
-        });
+      button.addEventListener("click", (e) => {
+        let commentId = e.target.getAttribute("data-comment_id");
+        let commentContent = document.getElementById(`comment${commentId}`).innerText.trim();
+        commentText.value = commentContent;
+        submitButton.innerText = "Update";
+        commentForm.setAttribute("action", `/edit_comment/${commentId}/`); 
+        console.log("edit button pressed");
+      });
     }
 }
 
