@@ -12,17 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const deleteCommentContent = document.getElementById("deleteCommentContent");
   const deleteCommentId = document.getElementById("deleteCommentId");
 
+  
   for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
       let commentId = e.target.getAttribute("data-comment_id");
       let commentContent = e.target.getAttribute("data-comment_content");
-      let articleSlug = e.target.getAttribute("data-article_slug");
-
-      // Set form action to the delete URL
-      deleteForm.action = `/${articleSlug}/delete_comment/${commentId}/`;
-
-      // Display the comment content in the modal
-      deleteCommentContent.textContent = commentContent;
+      deleteCommentContent.innerText = commentContent;
+      deleteForm.setAttribute("action", `/delete_comment/${commentId}/`);
       deleteModal.show();
     });
   }
@@ -47,10 +43,9 @@ if (commentText === null) {
       button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("data-comment_id");
         let commentContent = document.getElementById(`comment${commentId}`).innerText.trim();
-        commentText.value = commentContent;
-        submitButton.innerText = "Update";
-        commentForm.setAttribute("action", `/edit_comment/${commentId}/`); 
-        console.log("edit button pressed");
+        document.getElementById("comment").value = commentContent;
+        document.getElementById("submitButton").innerText = "Update";
+        document.getElementById("commentForm").setAttribute("action", `/edit_comment/${commentId}/`);
       });
     }
 }

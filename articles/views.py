@@ -74,12 +74,17 @@ def edit_comment(request, comment_id):
     
     return render(request, 'edit_comment.html', {'form': form})
 
-def delete_comment(request, slug, comment_id):
+def delete_comment(request, comment_id):
     if request.method == 'POST':
         comment = get_object_or_404(Comment, id=comment_id)
-        article = get_object_or_404(Article, slug=slug)
-        comment.delete()
-        messages.success(request, 'Comment deleted successfully.')
+        article = get_object_or_404(Article, id=comment.article.id)
+        
+        if comment.author == request.user:
+            comment.delete()
+            messages.success(request, 'Comment deleted successfully.')
+        else:
+            messages.error(request, 'You do not have permission to delete this comment.')
+
         return redirect('article_detail', slug=article.slug)
     else:
-        return redirect('article_detail', slug=slug)
+        return redirect('article_detail', slug=article.slug)
