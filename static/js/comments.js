@@ -5,11 +5,29 @@ const commentText = document.getElementById("id_content");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
 
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
-const deleteConfirm = document.getElementById("deleteConfirm");
+document.addEventListener('DOMContentLoaded', function() {
+  const deleteButtons = document.getElementsByClassName("btn-delete");
+  const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+  const deleteForm = document.getElementById("deleteForm");
+  const deleteCommentContent = document.getElementById("deleteCommentContent");
+  const deleteCommentId = document.getElementById("deleteCommentId");
 
-// Check if elements are correctly selected
+  for (let button of deleteButtons) {
+    button.addEventListener("click", (e) => {
+      let commentId = e.target.getAttribute("data-comment_id");
+      let commentContent = e.target.getAttribute("data-comment_content");
+      let articleSlug = e.target.getAttribute("data-article_slug");
+
+      // Set form action to the delete URL
+      deleteForm.action = `/${articleSlug}/delete_comment/${commentId}/`;
+
+      // Display the comment content in the modal
+      deleteCommentContent.textContent = commentContent;
+      deleteModal.show();
+    });
+  }
+});
+
 console.log(editButtons, commentText, commentForm, submitButton, deleteModal, deleteButtons, deleteConfirm);
 
 if (commentText === null) {
@@ -39,22 +57,4 @@ if (commentText === null) {
 
 if (deleteConfirm === null) {
     console.error("Element with ID 'deleteConfirm' not found");
-} else {
-    /**
-     * Initializes deletion functionality for the provided delete buttons.
-     * 
-     * For each button in the `deleteButtons` collection:
-     * - Retrieves the associated comment's ID upon click.
-     * - Updates the `deleteConfirm` link's href to point to the 
-     * deletion endpoint for the specific comment.
-     * - Displays a confirmation modal (`deleteModal`) to prompt 
-     * the user for confirmation before deletion.
-     */
-    for (let button of deleteButtons) {
-        button.addEventListener("click", (e) => {
-            let commentId = e.target.getAttribute("data-comment_id");
-            deleteConfirm.href = `delete_comment/${commentId}`;
-            deleteModal.show();
-        });
-    }
 }

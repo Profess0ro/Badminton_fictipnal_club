@@ -73,3 +73,13 @@ def edit_comment(request, comment_id):
         form = CommentForm(instance=comment)
     
     return render(request, 'edit_comment.html', {'form': form})
+
+def delete_comment(request, slug, comment_id):
+    if request.method == 'POST':
+        comment = get_object_or_404(Comment, id=comment_id)
+        article = get_object_or_404(Article, slug=slug)
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully.')
+        return redirect('article_detail', slug=article.slug)
+    else:
+        return redirect('article_detail', slug=slug)
