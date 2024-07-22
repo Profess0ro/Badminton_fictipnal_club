@@ -221,6 +221,9 @@ header {
 .form-label {
     display: none;
 }
+#id_body {
+    width: auto;
+}
 
 @media screen and (min-width: 480px) {
 

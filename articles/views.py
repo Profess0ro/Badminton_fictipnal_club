@@ -61,3 +61,15 @@ class ArticleDetail(View):
                     "comment_form": comment_form
                 },
             )
+
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == "POST":
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('article_detail', slug=comment.article.slug)  
+    else:
+        form = CommentForm(instance=comment)
+    
+    return render(request, 'edit_comment.html', {'form': form})
