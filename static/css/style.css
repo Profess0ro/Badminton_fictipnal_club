@@ -135,7 +135,7 @@ header {
     border-radius: 10px;
     padding: 5px;
 }
-.card-text {
+.card-text, .slice-text {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
@@ -143,12 +143,18 @@ header {
     margin-top: 20px;
 }
 
+.slice-text, a:has(.slice-text) {
+    margin-top: 5px;
+    text-decoration: none;
+    color: #2B3960;
+}
+
 .text-left {
     text-align: left;
 }
 
 .author {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .article-post, .commenting, .signup-body {
@@ -208,7 +214,7 @@ header {
     font-style: normal;
 }
 
-.big-nav a {
+.big-nav a, .author {
     color:#2B3960;   
 }
 

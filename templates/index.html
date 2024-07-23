@@ -19,18 +19,23 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="image-container">
-                                        {% if "placeholder" in article.featured_image.url %}
-                                        <img class="card-img-top-small" src="{% static 'images/logo.png' %}"
-                                        alt="logo">
-                                        {% else %}
-                                        <img class="card-img-top-small" src="{{ article.featured_image.url }}"
-                                        alt="{{ article.title }}">
-                                        {% endif %}
+                                        <a href="{% url 'article_detail' article.slug %}">
+                                            {% if "placeholder" in article.featured_image.url %}
+                                            <img class="card-img-top-small" src="{% static 'images/logo.png' %}"
+                                            alt="logo">
+                                            {% else %}
+                                            <img class="card-img-top-small" src="{{ article.featured_image.url }}"
+                                            alt="{{ article.title }}">
+                                            {% endif %}
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-6 card-text">
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ article.author }}</p>
+                                        <a href="{% url 'article_detail' article.slug %}" class="article-link">
+                                            {{ article.content|striptags|slice:":60" }}...
+                                        </a><br><br>
+                                        <p class="author">Written by:<br>{{ article.author }}</p>
                                     </div>
                                         <p>{{ article.excerpt }}</p>
                                     <hr class ="">

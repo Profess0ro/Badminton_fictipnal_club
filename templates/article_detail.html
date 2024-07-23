@@ -20,11 +20,11 @@
       <div class="col text-created">
         <h1 class="article-title">{{ article.title }}</h1>
         <hr class="text-separator">
-        <p class="article-subtitle">{{ article.created_on }}, {{ article.author }} </p>
+        <p class="article-subtitle">{{ article.created_on }}, <br>Written by:{{ article.author }} </p>
       </div>
     </div>
     <div class="row">
-      <article class="card-text text-left">
+      <article class="card-text">
         {{ article.content | safe }}
       </article>
       <hr class="text-separator">
