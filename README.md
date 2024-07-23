@@ -16,11 +16,13 @@
 [Pexels](https://www.pexels.com) - Image library<br>
 [Google Fonts](https://fonts.google.com/) - Font library<br>
 [Font Awesome](https://www.fontawesome.com) - Icon library<br>
-[Kittl](https://www.kittl.com/) - Logo creator
+[Kittl](https://www.kittl.com/) - Logo creator<br>
+[Neon](https://neon.tech/) - Database
 
 # Technologies
 
-[Django](https://www.djangoproject.com/) 
+**Languages used:**<br>- Django<br>- Python<br>- HTML<br>- CSS<br>- JavaScript
+ 
 
 **Packages installed:**<br>
 After every time `pip3 install <package>` are used, ensure to use `pip3 freeze --local > requirements.txt` 
