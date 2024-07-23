@@ -1,55 +1,53 @@
-console.log("comments.js is loaded");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("comments.js is loaded");
 
-const editButtons = document.getElementsByClassName("btn-edit");
-const commentText = document.getElementById("id_content"); 
-const commentForm = document.getElementById("commentForm");
-const submitButton = document.getElementById("submitButton");
+  const commentEntries = document.getElementsByClassName("comment-entry");
+  for (let i = 0; i < commentEntries.length; i++) {
+    if (i % 2 === 0) {
+      commentEntries[i].style.backgroundColor = "#F0FBFF";
+    } else {
+      commentEntries[i].style.backgroundColor = "#FFFFFF";
+    }
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
+  const editButtons = document.getElementsByClassName("btn-edit");
   const deleteButtons = document.getElementsByClassName("btn-delete");
   const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
   const deleteForm = document.getElementById("deleteForm");
   const deleteCommentContent = document.getElementById("deleteCommentContent");
-  const deleteCommentId = document.getElementById("deleteCommentId");
+  const commentText = document.getElementById("id_content");
+  const submitButton = document.getElementById("submitButton");
+  const commentForm = document.getElementById("commentForm");
 
-  
+  for (let button of editButtons) {
+    button.addEventListener("click", (e) => {
+      let commentId = e.target.getAttribute("data-comment_id");
+      let commentContent = document.getElementById(`comment${commentId}`).innerText.trim();
+      if (commentText) {
+        commentText.value = commentContent;
+      } else {
+        console.error("Element with id 'id_content' not found");
+      }
+      if (submitButton) {
+        submitButton.innerText = "Update";
+      }
+      if (commentForm) {
+        commentForm.setAttribute("action", `/edit_comment/${commentId}/`);
+      }
+    });
+  }
+
   for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
       let commentId = e.target.getAttribute("data-comment_id");
       let commentContent = e.target.getAttribute("data-comment_content");
-      deleteCommentContent.innerText = commentContent;
-      deleteForm.setAttribute("action", `/delete_comment/${commentId}/`);
+      if (deleteCommentContent) {
+        deleteCommentContent.innerText = commentContent;
+      }
+      if (deleteForm) {
+        deleteForm.setAttribute("action", `/delete_comment/${commentId}/`);
+      }
       deleteModal.show();
     });
   }
 });
-
-console.log(editButtons, commentText, commentForm, submitButton, deleteModal, deleteButtons, deleteConfirm);
-
-if (commentText === null) {
-    console.error("Element with ID 'id_body' not found");
-} else {
-    /**
-     * Initializes edit functionality for the provided edit buttons.
-     * 
-     * For each button in the `editButtons` collection:
-     * - Retrieves the associated comment's ID upon click.
-     * - Fetches the content of the corresponding comment.
-     * - Populates the `commentText` input/textarea with the comment's content for editing.
-     * - Updates the submit button's text to "Update".
-     * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
-     */
-    for (let button of editButtons) {
-      button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
-        let commentContent = document.getElementById(`comment${commentId}`).innerText.trim();
-        document.getElementById("comment").value = commentContent;
-        document.getElementById("submitButton").innerText = "Update";
-        document.getElementById("commentForm").setAttribute("action", `/edit_comment/${commentId}/`);
-      });
-    }
-}
-
-if (deleteConfirm === null) {
-    console.error("Element with ID 'deleteConfirm' not found");
-}

@@ -145,6 +145,10 @@ header {
     background-color: #F0FBFF;
 }
 
+.btn-delete, .btn-edit {
+    border: 1px solid #2B3960;
+}
+
 .page-link, .btn-signup {
     background-color: #F0FBFF;
     color: #2B3960;
@@ -190,7 +194,7 @@ header {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .text-separator-comments {
     width: 50%; 
@@ -199,6 +203,11 @@ header {
 .commenting {
     border-top: 2px solid #2B3960;
     padding-top: 10px;
+}
+.font-weight-normal {
+    text-transform: none;
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
 }
 
 .dropdown-menu {
@@ -224,6 +233,7 @@ header {
 #deleteCommentContent {
     background-color: #E8B272;
 }
+
 
 @media screen and (min-width: 480px) {
 
