@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+
   const editButtons = document.getElementsByClassName("btn-edit");
   const deleteButtons = document.getElementsByClassName("btn-delete");
   const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -51,3 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

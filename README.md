@@ -11,6 +11,16 @@
 <img src="readme/wireframe_tablet.png"><br>
 <img src="readme/wireframe_big_screens.png"><br>
 
+# Design
+
+### Logo
+This logo was created by me with [Kittl´s](https://www.kittl.com/) creator tool. Very user friendly site with templates that makes it easier to start creating.<br>
+<img src="static\images\logo.png" height="300"><br>
+
+### Colorscheme
+
+<img src="readme/colorscheme.png">
+
 # Resources
 
 [Pexels](https://www.pexels.com) - Image library<br>
