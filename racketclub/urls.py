@@ -16,13 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from articles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('articles.urls'), name='articles_url'),
-    # path('edit_comment/<int:comment_id>/', views.edit_comment, name='edit_comment'),
-    # path('delete_comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('accounts/', include('allauth.urls')),
 ]

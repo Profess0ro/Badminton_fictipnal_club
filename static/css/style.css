@@ -9,27 +9,15 @@ html, body {
     flex-direction: column;
 }
 
-.container-nav {
-    margin:0;
-    padding-left: 10px;
-    padding-right: 10px;
-    
+.no-gutters {
+    margin: 0;
 }
-
-
-.small-nav-bg {
-    background-color: #F0FBFF;
-    border-bottom: 3px solid #2B3960;
-    color:#2B3960;
-}
-
-.small-nav-title {
+.footer {
+    background-color: #2B3960;
+    width: 100%;
+    padding: 0;
+    color: #E8B272;
     font-size: 30px;
-    margin-bottom: 0;
-}
-
-.navbar-expand-lg {
-    font-size: 20px;
 }
 
 header {
@@ -46,27 +34,59 @@ header {
     height: 200px;
     z-index: 2;
 }
-.no-gutters {
-    margin: 0;
-}
-.footer {
-    background-color: #2B3960;
-    width: 100%;
-    padding: 0;
-    color: #E8B272;
-    font-size: 30px;
-}
+
 .right-section {
     background-color: #FFFFFF;
 }
+
+.no-margin-left {
+    margin-left: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-label {
+    display: none;
+}
+
+.main-content {
+    padding: 10px;
+}
+
+/* ------------------------------------------------------------------------ Navigation bar */
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+.container-nav {
+    margin:0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.small-nav-bg {
+    background-color: #F0FBFF;
+    border-bottom: 3px solid #2B3960;
+    color:#2B3960;
+}
+
+.small-nav-title {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.navbar-expand-lg {
+    font-size: 20px;
+}
+
 .big-screens-nav {
     flex: 1;
     display: flex;
     flex-direction: row;
-}
-.logo {
-    width: 100%;
-    height: auto;
 }
 
 .big-nav {
@@ -79,24 +99,19 @@ header {
     font-size: 30px;
 }
 
-.nav-font, .btn-signup {
-    text-transform: capitalize;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+.dropdown-menu {
+    --bs-dropdown-min-width: 150px;
+    text-align: center;
 }
 
-.big-nav a {
-    color:#2B3960;
-    
+.profile {
+    align-content: center;
 }
 
-.big-nav a:hover {
-    color:#E8B272;
-}
+/* ------------------------------------------------------------------------ Article cards */
 
-.main-content {
-    padding: 10px;
+.card {
+    --bs-card-border-width: none;
 }
 
 .card-img-top-small, .card-img-top  {
@@ -114,13 +129,7 @@ header {
     margin-top: 15px;
 }
 
-.article-link {
-    color: #2B3960;
-    text-decoration: none;
-}
-.article-link:hover {
-    color: #E8B272;
-}
+
 .card-body, .signup-body {
     border: 3px solid #2B3960;
     border-radius: 10px;
@@ -141,12 +150,24 @@ header {
 .author {
     font-weight: 900;
 }
+
 .article-post, .commenting, .signup-body {
     background-color: #F0FBFF;
 }
 
-.btn-delete, .btn-edit {
-    border: 1px solid #2B3960;
+.text-created {
+    top: 120px;
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------------------------------ Buttons */
+
+.article-link {
+    color: #2B3960;
+    text-decoration: none;
+}
+.article-link:hover {
+    color: #E8B272;
 }
 
 .page-link, .btn-signup {
@@ -162,17 +183,45 @@ header {
     color: #E8B272;
 }
 
-.card {
-    --bs-card-border-width: none;
-}
-.no-margin-left {
-    margin-left: 0;
+.btn-delete, .btn-edit {
+    border: 1px solid #2B3960;
+    padding: 2px 5px 2px 5px;
+    font-size: 13px;
 }
 
-.text-created {
-    top: 120px;
-    vertical-align: middle;
+.btn-edit:hover {
+    border: 1px solid #E8B272;
+    background-color: #2B3960;
+    color: #E8B272;
 }
+
+.btn-delete:hover {
+    border: 1px solid #602b2b;
+    color: #602b2b;
+    background-color: #d15151;
+}
+
+.nav-font, .btn-signup {
+    text-transform: capitalize;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.big-nav a {
+    color:#2B3960;   
+}
+
+.big-nav a:hover {
+    color:#E8B272;
+}
+
+.link, .signin-form a {
+    text-decoration: none;
+    color: #E8B272;
+}
+
+/* ------------------------------------------------------------------------ Horizontal lines */
 
 .text-separator, .text-separator-img, .text-separator-reset {
     margin: auto;
@@ -183,7 +232,7 @@ header {
 .text-separator-img, .text-separator-reset {
     margin-top: 10px;
 }
-
+/* ------------------------------------------------------------------------ Comments on article */
 .comments {
     margin-top: 10px;
     margin-left: 0;
@@ -196,44 +245,31 @@ header {
     font-style: normal;
     margin-top: 10px;
 }
+
 .text-separator-comments {
     width: 50%; 
     margin-top: 10px;
 }
+
 .commenting {
     border-top: 2px solid #2B3960;
     padding-top: 10px;
 }
+
 .font-weight-normal {
     text-transform: none;
     font-family: "Raleway", sans-serif;
     font-size: 13px;
 }
 
-.dropdown-menu {
-    --bs-dropdown-min-width: 150px;
-    text-align: center;
-}
-
-.profile {
-    align-content: center;
-}
-
-.hidden {
-    display: none;
-}
-
-.link, .signin-form a {
-    text-decoration: none;
-    color: #E8B272;
-}
-.form-label {
-    display: none;
-}
 #deleteCommentContent {
     background-color: #E8B272;
 }
 
+.signout-text {
+    font-family: "Raleway", sans-serif;
+    text-transform: none;
+}
 
 @media screen and (min-width: 480px) {
 
