@@ -4,6 +4,7 @@ from .models import Article, Comment
 from .forms import CommentForm
 from django.contrib import messages
 
+
 class ArticleList(generic.ListView):
     model = Article
     queryset = Article.objects.filter(status=1).order_by('-created_on')
@@ -92,3 +93,10 @@ def delete_comment(request, comment_id):
         return redirect('article_detail', slug=article.slug)
     else:
         return redirect('article_detail', slug=article.slug)
+    
+    
+def error_404(request, exception):
+    return render(request, '404.html', status=404)
+ 
+def error_500(request):
+    return render(request, '404.html', status=500)

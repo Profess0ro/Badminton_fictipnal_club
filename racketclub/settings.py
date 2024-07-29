@@ -28,13 +28,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['racketclub-d78eaddb5d10.herokuapp.com', '127.0.0.1', 
-    '8000-profess0ro-racketclub-dc9g14fi9ii.ws.codeinstitute-ide.net']
-
+# ALLOWED_HOSTS = ['racketclub-d78eaddb5d10.herokuapp.com', '127.0.0.1', 
+#     '8000-profess0ro-racketclub-dc9g14fi9ii.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-profess0ro-racketclub-dc9g14fi9ii.ws.codeinstitute-ide.net']
 
