@@ -14,12 +14,14 @@ class ArticleDetail(View):
     def get(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
         comments = article.comments.filter(approved=True).order_by('created_on')
+        comment_count = comments.count()
         return render(
             request,
             "article_detail.html",
             {
                 "article": article,
                 "comments": comments,
+                "comment_count": comment_count,
                 "commented": False,
                 "comment_form": CommentForm()
             },
@@ -28,6 +30,7 @@ class ArticleDetail(View):
     def post(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
         comments = article.comments.filter(approved=True).order_by('created_on')
+        comment_count = comments.count()
 
         if 'edit_comment_content' in request.POST:
             comment_id = request.POST.get('comment_id')
@@ -58,7 +61,8 @@ class ArticleDetail(View):
                     "article": article,
                     "comments": comments,
                     "commented": False,
-                    "comment_form": comment_form
+                    "comment_form": comment_form,
+                    "comment_count": comment_count
                 },
             )
 
