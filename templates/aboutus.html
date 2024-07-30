@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container card-body no-margin-left article-post">
+    <h1>Racket club</h1>
+    <p class="card-text">Under construction.</p>
+    {{ content.content }}
+    <h2><a href="{% url 'index' %}" class="article-link">Return to the homepage</a></h2>
+</div>
+{% endblock %}

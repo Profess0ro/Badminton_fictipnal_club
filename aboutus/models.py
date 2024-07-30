@@ -1,7 +1,7 @@
 from django.db import models
 
-class Aboutus(models.Model):
+class AboutUs(models.Model):
     content = models.TextField()
-    
+
     def __str__(self):
-        return self.title
+        return "About Us Content"

@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.views import View
+from .models import AboutUs
 
-# Create your views here.
+class AboutUsView(View):
+    def get(self, request):
+        content = AboutUs.objects.first()
+        if content:
+            return render(request, "aboutus.html", {"content": content})
+        else:
+            return render(request, "aboutus.html", {"content": "Content not found."})
