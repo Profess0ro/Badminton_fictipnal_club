@@ -55,6 +55,12 @@ header {
     padding: 10px;
 }
 
+/* ------------------------------------------------------------------------ Text */
+
+h1 {
+    color: #2B3960;
+}
+
 /* ------------------------------------------------------------------------ Navigation bar */
 
 .logo {
@@ -135,7 +141,7 @@ header {
     border-radius: 10px;
     padding: 5px;
 }
-.card-text, .slice-text {
+.card-text, .slice-text, .about-text {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;

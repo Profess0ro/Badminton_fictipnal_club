@@ -4,4 +4,4 @@ class AboutUs(models.Model):
     content = models.TextField()
 
     def __str__(self):
-        return "About Us Content"
+        return f"About Us - {self.id}"
