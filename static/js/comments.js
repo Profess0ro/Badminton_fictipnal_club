@@ -1,4 +1,3 @@
-
   /*
   This const "commentEntries" are used to divide the comments by different
   backgroundcolors. Comments with even entry has a backgroundcolor of #F0FBFF
@@ -20,7 +19,6 @@
   }
 
 
-
   const editButtons = document.getElementsByClassName("btn-edit");
   const deleteButtons = document.getElementsByClassName("btn-delete");
   const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -29,6 +27,8 @@
   const commentText = document.getElementById("id_content");
   const submitButton = document.getElementById("submitButton");
   const commentForm = document.getElementById("commentForm");
+
+
   /*
   When a user wants to edit their own comment by pressing the edit button, this specific
   comment will appear in the commenting form and the submit button will change to 
@@ -51,6 +51,8 @@
       }
     });
   }
+
+
   /* 
   When pressing "delete" on a comment a modal will be shown. 
   In that modal this specific comment will be shown and asking 
@@ -68,5 +70,5 @@
       }
       deleteModal.show();
     });
-  };
+  }
 

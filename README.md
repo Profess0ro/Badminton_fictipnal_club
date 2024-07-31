@@ -163,14 +163,17 @@ pip3 freeze > requirements.txt
 # Problems encountered
 
 <img src="readme/problem1.png"><br><br>
-- Suddenly the database didn´t cooperate with the page and started to search for other columns.
+- Suddenly the database didn´t cooperate with the page and started to search for other columns.<br>
 **Solution:**<br>
 Deleted and created a new database and migrated my models. Then the page found the right columns and content without changing anything of the codes.
-<hr>
+
 
 - When trying to edit a comment on an article nothing happened when I pressed the button. No content appeared in the commentform to edit.<br>
 **Solution:**<br>
 Noticed that the `comments.js` searched for the wrong classnames and that´s why nothing happened. Changed name in `document.getElementsByClassName("")` and all worked again.
+
+- When I created "About us" and was going to preview how the content was shown after installing the `SummernoteModelAdmin` I saw that all codetags was visual.<br>**Solution:**<br>
+Adding `|safe` after, so that the code looks like this in the html-file: `{{ content.content|safe }}`
 
 ### Credits
 
