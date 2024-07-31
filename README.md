@@ -16,10 +16,32 @@
 ### Logo
 This logo was created by me with [Kittl´s](https://www.kittl.com/) creator tool. Very user friendly site with templates that makes it easier to start creating.<br>
 <img src="static\images\logo.png" height="300"><br>
+<hr> 
 
 ### Colorscheme
 
 <img src="readme/colorscheme.png">
+
+This is the colors I´ve chosen to use through the whole page, except for the black content text (#000000).<br>
+**#2B3860**
+This color are the darkest of them all and are used on the borders that divides the pages content such as the paginated list of articles and images. The color are also used on titles and links so they stand out as well.<br>
+**#E8B272**
+The usage of this color except from the logo is the hovering effect on links and social links at the footer.<br>
+**#F0FBFF**
+This is the background color of the navigation bars and the content divs. It´s not far from the white color (#FFFFFF) but enough difference so that it divides the comment entries from eachoter.<br> 
+**#789EA7**
+This color has a honorable mention since it´s only in the logo as a small line.
+**#FFFFFF**
+This is the background color of the "main content" area and also background color of the uneven comment entries on articles.
+<hr>
+
+### Fonts
+**[Raleway](https://fonts.google.com/specimen/Raleway?query=raleway)**
+This font is in my opinion a very readable font, thats why I choosed to have that on the content texts.<br>
+**[Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=Bebas+Neue)**
+This font are used on titles, links and the author info on articles. The font catched my eye when I browsed through fonts and really looked nice as a title text.
+
+
 
 # Resources
 

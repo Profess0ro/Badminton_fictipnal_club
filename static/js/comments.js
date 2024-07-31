@@ -1,6 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("comments.js is loaded");
-
 
   /*
   This const "commentEntries" are used to divide the comments by different
@@ -71,6 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       deleteModal.show();
     });
-  }
-});
+  };
 
