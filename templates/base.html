@@ -59,6 +59,8 @@
                 <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
                 <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_login' %}">Login</a></li>
                 {% if user.is_authenticated %}
+                <li>Logged in as: {{ user.username }}</li>
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">My bookings</a></li>
@@ -106,6 +108,8 @@
               <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
               <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_login' %}">Login</a></li>
               {% if user.is_authenticated %}
+              <li>Logged in as: {{ user.username }}</li>
+              <li><hr class="dropdown-divider dropdown-item"></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">My bookings</a></li>

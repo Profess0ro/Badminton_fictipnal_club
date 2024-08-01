@@ -35,6 +35,9 @@ There are also a contact form that users can send questions to the club.
 
 ## Wireframes
 
+This was my vision on how this project would be visual for the user.
+Worked after this model as much as I could for the basic structure.<br>
+
 <img src="readme/wireframe_mobile.png"><br>
 <img src="readme/wireframe_tablet.png"><br>
 <img src="readme/wireframe_big_screens.png"><br>
@@ -211,4 +214,5 @@ Adding `|safe` after, so that the code looks like this in the html-file: `{{ con
 
 # Credits
 
+[Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)
 
