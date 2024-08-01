@@ -49,7 +49,8 @@ This font are used on titles, links and the author info on articles. The font ca
 [Google Fonts](https://fonts.google.com/) - Font library<br>
 [Font Awesome](https://www.fontawesome.com) - Icon library<br>
 [Kittl](https://www.kittl.com/) - Logo creator<br>
-[Neon](https://neon.tech/) - Database
+[Neon](https://neon.tech/) - Database<br>
+[Mailtrap](https://mailtrap.io/) - SMTP for the contactform
 
 # Technologies
 

@@ -141,7 +141,7 @@ h1, .nav-link {
     border-radius: 10px;
     padding: 5px;
 }
-.card-text, .slice-text, .about-text, .comment-text {
+.card-text, .slice-text, .about-text, .comment-text, input {
     font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -278,8 +278,9 @@ h1, .nav-link {
 }
 /* ------------------------------------------------------------------------ ContactForm */
 
-.fieldWrapper {
-    margin-top: 10px;
+.fieldWrapper input, select{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .fieldWrapper label {

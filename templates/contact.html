@@ -7,9 +7,13 @@
 <div class="container card-body no-margin-left article-post">
     <div class="row">
         <div class="col-md-4 col-s-12">
-            <img src="{% static 'images/tennisballs.jpg' %}" class="card-img-top" alt="tennisballs">
+            <img src="{% static 'images/contact.jpg' %}" class="card-img-top" alt="tennisballs">
         </div>
         <div class="col-md-8 col-s-12">
+            <h1 class="title">Contact us!</h1>
+            <p class="card-text">
+                If you have any questions, please fill in the form below.
+            </p>
             <form action="/contact/" method="post">
                 {% csrf_token %}
                 {% for field in form %}
