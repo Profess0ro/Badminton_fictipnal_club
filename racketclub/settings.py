@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'articles',
     'aboutus',
+    'contact',
 ]
 
 SITE_ID = 1
@@ -67,6 +68,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '9ebf9b157d2e4b'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
+EMAIL_PORT = '2525'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
