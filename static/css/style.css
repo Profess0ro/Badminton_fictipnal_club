@@ -276,6 +276,15 @@ h1, .nav-link {
 #deleteCommentContent {
     background-color: #E8B272;
 }
+/* ------------------------------------------------------------------------ ContactForm */
+
+.fieldWrapper {
+    margin-top: 10px;
+}
+
+.fieldWrapper label {
+    display: block;
+}
 
 .signout-text {
     font-family: "Raleway", sans-serif;

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container card-body no-margin-left article-post">
+    <div class="row">
+        <div class="col-md-4 col-s-12">
+            <img src="{% static 'images/tennisballs.jpg' %}" class="card-img-top" alt="tennisballs">
+        </div>
+        <div class="col-md-8 col-s-12">
+            <form action="/contact/" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        {{ field.label_tag }} {{ field }}
+                    </div>
+                {% endfor %}
+                <button class="btn btn-signup right" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

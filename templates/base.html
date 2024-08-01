@@ -42,13 +42,13 @@
               <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Book our court</a>
+              <a class="nav-link disabled" href="#">Book our court</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'aboutus' %}">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact us</a>
+              <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -86,7 +86,7 @@
             <hr class="text-separator">
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" aria-disabled="true">Book our court</a>
+            <a class="nav-link disabled" href="#">Book our court</a>
             <hr class="text-separator">
           </li>
           <li class="nav-item">
@@ -94,7 +94,7 @@
             <hr class="text-separator">
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Contact us</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
           </li>
         </ul>
         <hr class="text-separator">
