@@ -1,11 +1,39 @@
 # Racket Club
 
-# Database structure
+This is a page about a fictional Racket club that have some tennis courts that everyone can book to play on.
+The Club also have members that play semi-professional Tennis with great results.
+As a visitor to this page you can register an account so that you can book a court and comment on articles.
+There are also a contact form that users can send questions to the club.
+
+# Content
+- [Introduction](#racket-club)
+- [Project planning](#project-planning)
+    * [Database structure](#database-structure)
+    * [Wireframes](#wireframes)
+    * [User stories](https://https://github.com/users/Profess0ro/projects/6)
+- [Design](#design)
+    * [Logo](#logo)
+    * [Colorscheme](#colorscheme)
+    * [Fonts](#fonts)
+- [Resources](#resources)
+- [Technologies](#technologies)
+    * [Languages used](#languages-used)
+    * [Packages](#packages-installed)
+- [Deployment](#deployment)
+    * [Github](#github)
+    * [Deploy in development environment](#deploy-in-development-environment)
+    * [Heroku](#heroku)
+- [Problems encountered](#problems-encountered)
+- [Credits](#credits)
+
+# Project planning
+
+## Database structure
 
 <img src="readme/database.png">
 <hr>
 
-# Wireframes
+## Wireframes
 
 <img src="readme/wireframe_mobile.png"><br>
 <img src="readme/wireframe_tablet.png"><br>
@@ -13,12 +41,12 @@
 
 # Design
 
-### Logo
+## Logo
 This logo was created by me with [Kittl´s](https://www.kittl.com/) creator tool. Very user friendly site with templates that makes it easier to start creating.<br>
 <img src="static\images\logo.png" height="300"><br>
 <hr> 
 
-### Colorscheme
+## Colorscheme
 
 <img src="readme/colorscheme.png">
 
@@ -35,7 +63,7 @@ This color has a honorable mention since it´s only in the logo as a small line.
 This is the background color of the "main content" area and also background color of the uneven comment entries on articles.
 <hr>
 
-### Fonts
+## Fonts
 **[Raleway](https://fonts.google.com/specimen/Raleway?query=raleway)**
 This font is in my opinion a very readable font, thats why I choosed to have that on the content texts.<br>
 **[Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=Bebas+Neue)**
@@ -54,10 +82,15 @@ This font are used on titles, links and the author info on articles. The font ca
 
 # Technologies
 
-**Languages used:**<br>- Django<br>- Python<br>- HTML<br>- CSS<br>- JavaScript
+### **Languages used:** 
+- Django
+- Python
+- HTML
+- CSS
+- JavaScript
  
 
-**Packages installed:**<br>
+### **Packages installed:**<br>
 After every time `pip3 install <package>` are used, ensure to use `pip3 freeze --local > requirements.txt` 
 
 - [cloudinary](https://pypi.org/project/cloudinary/)
@@ -176,6 +209,6 @@ Noticed that the `comments.js` searched for the wrong classnames and that´s why
 - When I created "About us" and was going to preview how the content was shown after installing the `SummernoteModelAdmin` I saw that all codetags was visual.<br>**Solution:**<br>
 Adding `|safe` after, so that the code looks like this in the html-file: `{{ content.content|safe }}`
 
-### Credits
+# Credits
 
 
