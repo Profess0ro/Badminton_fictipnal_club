@@ -1,4 +1,7 @@
- // Assign background colors to comment entries based on their index.
+document.addEventListener('DOMContentLoaded', function () {
+  console.log("DOM fully loaded and parsed.");
+
+  // Assign background colors to comment entries based on their index.
   const commentEntries = document.getElementsByClassName("comment-entry");
   for (let i = 0; i < commentEntries.length; i++) {
       if (i % 2 === 0) {
@@ -17,11 +20,29 @@
   const submitButton = document.getElementById("submitButton");
   const commentForm = document.getElementById("commentForm");
 
+  const reviewMessage = document.getElementById("reviewMessage");
 
   /*
-  When a user wants to edit their own comment by pressing the edit button, this specific
-  comment will appear in the commenting form and the submit button will change to 
-  "update".
+  When a user clicks the submit button, show a message at the top of the page
+  indicating that the comment is under review.
+  */
+  if (submitButton) {
+      submitButton.addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent the default form submission
+          console.log("Submit button clicked");
+          
+          // Show the review message
+          reviewMessage.style.display = "block";
+
+          // Optionally, you can submit the form after showing the message
+          setTimeout(function () {
+              commentForm.submit();
+          }, 2000); // Delay to allow the user to see the message
+      });
+  }
+
+  /*
+  Handle edit button click - similar to previous implementation
   */
   for (let button of editButtons) {
       button.addEventListener("click", (e) => {
@@ -42,9 +63,7 @@
   }
 
   /* 
-  When pressing "delete" on a comment a modal will be shown. 
-  In that modal this specific comment will be shown and asking 
-  the user if they are sure to delete their comment or not.
+  Handle delete button click - similar to previous implementation
   */
   for (let button of deleteButtons) {
       button.addEventListener("click", (e) => {
@@ -59,4 +78,4 @@
           deleteModal.show();
       });
   }
-
+});

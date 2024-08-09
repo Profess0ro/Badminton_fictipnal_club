@@ -23,7 +23,7 @@ html, body {
 header {
     height: 200px;
     display: none;
-    background-image: url(../images/header.png);
+    background-image: url("../images/header.d051fc8b9045.png");
     background-size: auto;
     background-repeat: no-repeat;
     border-bottom: 3px solid #2B3960;
@@ -136,12 +136,8 @@ h1, .nav-link {
 }
 
 .review-text {
-    font-size: 12px;
+    font-size: 8px;
     text-transform: none;
-}
-
-.comment-username {
-    margin-bottom: 5px;
 }
 
 .card-body, .signup-body {

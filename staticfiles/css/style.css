@@ -135,17 +135,26 @@ h1, .nav-link {
     margin-top: 15px;
 }
 
+.review-text {
+    font-size: 12px;
+    text-transform: none;
+}
+
+.comment-username {
+    margin-bottom: 5px;
+}
 
 .card-body, .signup-body {
     border: 3px solid #2B3960;
     border-radius: 10px;
     padding: 5px;
 }
-.card-text, .slice-text, .about-text, .comment-text {
+.card-text, .slice-text, .about-text, .comment-text, input, textarea {
     font-family: "Raleway", sans-serif;
     font-weight: 600;
     font-style: normal;
     margin-top: 20px;
+    text-transform: none;
 }
 
 .slice-text, a:has(.slice-text) {
@@ -276,10 +285,18 @@ h1, .nav-link {
 #deleteCommentContent {
     background-color: #E8B272;
 }
+
+#reviewMessage {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
 /* ------------------------------------------------------------------------ ContactForm */
 
-.fieldWrapper {
-    margin-top: 10px;
+.fieldWrapper input, select{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .fieldWrapper label {

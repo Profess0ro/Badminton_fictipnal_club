@@ -4,6 +4,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
 <div>
   <div class="container card-body no-margin-left article-post">
     <div class="row">
@@ -59,7 +60,9 @@
         <div class="col-md-4 commenting">
           {% if user.is_authenticated %}
             <h3>Leave a comment:</h3>
-            <p>Commenting as: {{ user.username }}</p>
+            <p class="comment-text comment-username">Commenting as:</p>{{ user.username }}
+            <hr class="text-separator text-separator-comments">
+            <p class="comment-text review-text">Your comment will be reviewed before shown on the page</p>
             <form id="commentForm" method="post" style="margin-top: 1.3em;" class="comment-text">
               {% csrf_token %}
               {{ comment_form | crispy }}
@@ -69,8 +72,8 @@
             <p>Log in to leave a comment</p>
           {% endif %}
         </div>
+      </div>
     </div>
-  </div>
 
   <!-- Delete confirmation modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -99,4 +102,5 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+
 {% endblock %}
