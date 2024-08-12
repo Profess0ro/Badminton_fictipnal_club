@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from aboutus.views import AboutUsView
 from contact.views import contact, success
+from booking.urls import urlpatterns as booking_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('success/', success, name='success'),
     path('accounts/', include('allauth.urls')),
+    path('booking/', include(booking_urls)),
     path('', include('articles.urls'), name='articles_url'),
 ]
