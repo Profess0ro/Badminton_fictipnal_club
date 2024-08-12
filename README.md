@@ -212,6 +212,19 @@ Noticed that the `comments.js` searched for the wrong classnames and that´s why
 - When I created "About us" and was going to preview how the content was shown after installing the `SummernoteModelAdmin` I saw that all codetags was visual.<br>**Solution:**<br>
 Adding `|safe` after, so that the code looks like this in the html-file: `{{ content.content|safe }}`
 
+- Noticed after I´ve created the modal for deleting a comment this error occured:<br>
+`modal.js:158 Uncaught TypeError: Cannot read properties of undefined (reading 'backdrop')
+    at ne._initializeBackDrop (modal.js:158:39)
+    at new ne (modal.js:69:27)
+    at HTMLDocument.<anonymous> (comments.js:14:23)`<br>
+Since `comments.js` are loaded into `base.html` it kept searching for the modal named `deleteModal` in every extended html-file. With this error it also blocked users from logging in.<br>
+**Solution:**<br>
+`const deleteModalElement = document.getElementById("deleteModal");
+    let deleteModal = null;
+    if (deleteModalElement) {
+        deleteModal = new bootstrap.Modal(deleteModalElement);
+    }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.
+
 # Credits
 
 [Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)

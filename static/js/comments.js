@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const editButtons = document.getElementsByClassName("btn-edit");
     const deleteButtons = document.getElementsByClassName("btn-delete");
     
-    // Check if deleteModal exists before initializing it
+    /* Check if deleteModal exists before initializing it. 
+    Otherwise there will be an error when there are no 'deleteModal'
+    in the html code.
+    */
     const deleteModalElement = document.getElementById("deleteModal");
     let deleteModal = null;
     if (deleteModalElement) {
