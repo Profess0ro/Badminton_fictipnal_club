@@ -3,5 +3,13 @@
 {% block content %}
 {% load static %}
 
+<h2>Select a Court to Book</h2>
+<ul>
+    {% for court in courts %}
+    <li>
+        <a href="{% url 'make_booking' court.id %}">{{ court.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

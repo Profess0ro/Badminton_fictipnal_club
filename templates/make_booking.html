@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
-
 {% block content %}
 {% load static %}
 
-<h2>Make a Booking</h2>
 
+<h2>Make a Booking</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% for field in form %}
+        {% if field.name != "start_time" and field.name != "end_time" %}
+            {{ field.label_tag }} {{ field }}
+        {% endif %}
+    {% endfor %}
+    <br><label for="booking-time">Choose a Time:</label>
+    <select name="booking-time" id="booking-time">
+        {% for time in available_times %}
+        <option value="{{ time }}">{{ time }}</option>
+        {% endfor %}
+    </select><br>
     <button type="submit">Book Now</button>
 </form>
 
