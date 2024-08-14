@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h2>Court Booking Information</h2>
+
+<!-- Display court details -->
+<div>
+    <h3>Types of Courts Available:</h3>
+    <ul>
+        <li>Grass Court: $15 per hour</li>
+        <li>Gravel Court: $10 per hour</li>
+        
+    </ul>
+</div>
+
+<div>
+    <h3>Rules and Regulations:</h3>
+    
+    
+</div>
+
+<a href="{% url 'select_court' %}">Go to Booking</a>
+
+{% endblock %}

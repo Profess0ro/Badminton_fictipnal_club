@@ -4,15 +4,20 @@ from .models import Court, Booking
 from django.utils import timezone
 from datetime import datetime
 from .forms import BookingForm
-from .utils import calculate_available_times
+from .utils import calculate_available_times, calculate_available_times_for_date
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+
+def booking_info(request):
+    return render(request, 'booking.html')
+
+
 @login_required
-def list_courts(request):
+def select_court(request):
     courts = Court.objects.all()
-    return render(request, 'list_courts.html', {'courts': courts})
+    return render(request, 'select_court.html', {'courts': courts})
 
 
 
@@ -22,46 +27,55 @@ def make_booking(request, court_id=None):
         return redirect('list_courts')
     
     court = get_object_or_404(Court, pk=court_id)
-    available_times = calculate_available_times(court)
+    available_times = []  # Initialize an empty list for available times
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
         
-        booking_time_str = request.POST.get('booking-time')
-        duration = int(form.data['duration'])
+        # Extract the selected date from the form data
+        selected_date = request.POST.get('booking-date')
+        
+        # Call the adjusted function with the selected date
+        available_times = calculate_available_times_for_date(court, selected_date)
 
-        # Parse the time in 24-hour format using datetime.time()
-        booking_time = datetime.strptime(booking_time_str, "%H:%M").time()
-        start_datetime = timezone.make_aware(
-            datetime.combine(timezone.now().date(), booking_time)
-        )
-        end_datetime = start_datetime + timezone.timedelta(hours=duration)
-        
-        # Update the form's instance with start_time and end_time
-        form.instance.start_time = start_datetime
-        form.instance.end_time = end_datetime
-        form.instance.court = court
-
-        # Check if the selected time slot overlaps with existing bookings
-        overlapping_bookings = Booking.objects.filter(
-            court=court,
-            start_time__lt=end_datetime,
-            end_time__gt=start_datetime,
-        )
-        
-        if overlapping_bookings.exists():
-            form.add_error(None, "This time slot is already booked. Please choose another time.")
-        
         if form.is_valid():
-            booking = form.save(commit=False)
-            booking.user = request.user
-            booking.save()
+            booking_time_str = request.POST.get('booking-time')
+            duration = int(form.data['duration'])
+
+            # Parse the time in 24-hour format using datetime.time()
+            booking_time = datetime.strptime(booking_time_str, "%H:%M").time()
+            start_datetime = timezone.make_aware(
+                datetime.combine(selected_date, booking_time)
+            )
+            end_datetime = start_datetime + timezone.timedelta(hours=duration)
             
-            # Redirect to booking success page
-            return redirect('booking_success', booking_id=booking.id)
+            # Update the form's instance with start_time and end_time
+            form.instance.start_time = start_datetime
+            form.instance.end_time = end_datetime
+            form.instance.court = court
+
+            # Check if the selected time slot overlaps with existing bookings
+            overlapping_bookings = Booking.objects.filter(
+                court=court,
+                start_time__lt=end_datetime,
+                end_time__gt=start_datetime,
+            )
+            
+            if overlapping_bookings.exists():
+                form.add_error(None, "This time slot is already booked. Please choose another time.")
+            
+            if form.is_valid():
+                booking = form.save(commit=False)
+                booking.user = request.user
+                booking.save()
+                
+                # Redirect to booking success page
+                return redirect('booking_success', booking_id=booking.id)
     else:
         form = BookingForm(initial={'court': court.id, 'duration': 1})
+        available_times = calculate_available_times_for_date(court, timezone.now().date())
 
+    print("Context variables:", locals())
     return render(request, 'make_booking.html', {'court': court, 'available_times': available_times, 'form': form})
 
 
@@ -82,16 +96,43 @@ class MyBookingsView(LoginRequiredMixin, ListView):
 
 @login_required
 def edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+    booking = get_object_or_404(Booking, pk=booking_id)
+
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
+
         if form.is_valid():
-            form.save()
+            booking_time_str = request.POST.get('booking-time')
+            duration = int(form.cleaned_data['duration'])
+
+            # Parse the time in 24-hour format using datetime.time()
+            booking_time = datetime.strptime(booking_time_str, "%H:%M").time()
+            start_datetime = timezone.make_aware(
+                datetime.combine(timezone.now().date(), booking_time)
+            )
+            end_datetime = start_datetime + timezone.timedelta(hours=duration)
+
+            # Update the booking instance with the new times
+            booking.start_time = start_datetime
+            booking.end_time = end_datetime
+
+            # Save the updated booking
+            booking.save()
+
+            # Redirect to the 'my_bookings' page after saving
             return redirect('my_bookings')
     else:
         form = BookingForm(instance=booking)
-    
-    return render(request, 'edit_booking.html', {'form': form, 'booking': booking})
+
+    # Prepare the context with form and any other data
+    context = {
+        'form': form,
+        'booking': booking,
+        'available_times': calculate_available_times(booking.court)  # Assuming you have this function
+    }
+
+    # Render the edit_booking.html template
+    return render(request, 'edit_booking.html', context)
 
 
 @login_required
