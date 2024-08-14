@@ -40,11 +40,6 @@ def calculate_available_times_for_date(court, date):
     available_times = []
     current_time = datetime.combine(date, start_time)
     
-    # Adjust the current_time to the next hour if it's not already there
-    if current_time.time() > start_time:
-        current_time += timedelta(minutes=current_time.minute % 60, seconds=current_time.second, microseconds=current_time.microsecond)
-    
-    # Fetch existing bookings for the selected court on the given date
     existing_bookings = court.booking_set.filter(
         start_time__date=date
     )
@@ -57,11 +52,6 @@ def calculate_available_times_for_date(court, date):
                 break
         
         if not overlap:
-            # Skip over the current time if it's already booked
-            if current_time.time() >= start_time and current_time.time() <= end_time:
-                current_time += slot_duration
-                continue
-            
             available_times.append(current_time.strftime('%H:%M'))
         
         current_time += slot_duration

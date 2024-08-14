@@ -4,36 +4,39 @@
 
 <h2>Select a Date and Time for Booking</h2>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <input type="date" id="booking-date" name="booking-date" min="{{ current_date }}" max="{{ max_future_date }}">
-        </div>
-        <div class="col-md-6">
-            <label for="booking-time">Select a Time:</label><br>
-            <select name="booking-time" id="booking-time">
-                {% for time in available_times %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="booking-date">Pick a Date:</label>
+        <input type="date" id="booking-date" name="booking-date" min="{{ current_date }}" max="{{ max_future_date }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="booking-time">Pick a Start Time:</label>
+        <select name="booking-time" id="booking-time">
+            {% for time in available_times %}
                 <option value="{{ time }}">{{ time }}</option>
-                {% endfor %}
-            </select>
-        </div>
+            {% endfor %}
+        </select>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-12 text-center">
-            <button type="submit">Book Now</button>
-        </div>
+
+    <div class="form-group">
+        {{ form.duration.label_tag }} {{ form.duration }}
     </div>
-</div>
+
+    <button type="submit">Book Now</button>
+</form>
 
 {% if form.errors %}
     <div class="alert alert-danger">
         <ul>
-            {% for error in form.non_field_errors %}
-                <li>{{ error }}</li>
+            {% for field, errors in form.errors.items %}
+                <li>{{ field }}: {{ errors }}</li>
             {% endfor %}
         </ul>
     </div>
 {% endif %}
+
 
 
 {% endblock %}

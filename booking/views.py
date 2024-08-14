@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Court, Booking
 from django.utils import timezone
-from datetime import datetime
+from datetime import datetime, timedelta
 from .forms import BookingForm
 from .utils import calculate_available_times, calculate_available_times_for_date
 from django.views.generic import ListView
@@ -31,57 +31,45 @@ def make_booking(request, court_id=None):
 
     if request.method == 'POST':
         form = BookingForm(request.POST)
+        selected_date_str = request.POST.get('booking-date')
         
-        # Extract the selected date from the form data
-        selected_date = request.POST.get('booking-date')
-        
-        # Call the adjusted function with the selected date
-        available_times = calculate_available_times_for_date(court, selected_date)
+        if selected_date_str:
+            selected_date = timezone.datetime.strptime(selected_date_str, "%Y-%m-%d").date()
+            available_times = calculate_available_times_for_date(court, selected_date)
 
         if form.is_valid():
-            booking_time_str = request.POST.get('booking-time')
-            duration = int(form.data['duration'])
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.court = court
 
-            # Parse the time in 24-hour format using datetime.time()
-            booking_time = datetime.strptime(booking_time_str, "%H:%M").time()
-            start_datetime = timezone.make_aware(
-                datetime.combine(selected_date, booking_time)
-            )
-            end_datetime = start_datetime + timezone.timedelta(hours=duration)
+            # Set start_time and end_time manually if needed
+            booking.start_time = form.cleaned_data['start_time']
+            booking.end_time = form.cleaned_data['end_time']
             
-            # Update the form's instance with start_time and end_time
-            form.instance.start_time = start_datetime
-            form.instance.end_time = end_datetime
-            form.instance.court = court
+            booking.save()
 
-            # Check if the selected time slot overlaps with existing bookings
-            overlapping_bookings = Booking.objects.filter(
-                court=court,
-                start_time__lt=end_datetime,
-                end_time__gt=start_datetime,
-            )
-            
-            if overlapping_bookings.exists():
-                form.add_error(None, "This time slot is already booked. Please choose another time.")
-            
-            if form.is_valid():
-                booking = form.save(commit=False)
-                booking.user = request.user
-                booking.save()
-                
-                # Redirect to booking success page
-                return redirect('booking_success', booking_id=booking.id)
+            # Redirect to the booking success page
+            return redirect('booking_success', booking_id=booking.id)
+        else:
+            print("Form errors:", form.errors)  # Debugging line to print form errors
     else:
         form = BookingForm(initial={'court': court.id, 'duration': 1})
         available_times = calculate_available_times_for_date(court, timezone.now().date())
 
-    print("Context variables:", locals())
-    return render(request, 'make_booking.html', {'court': court, 'available_times': available_times, 'form': form})
+    return render(request, 'make_booking.html', {
+        'court': court, 
+        'form': form, 
+        'available_times': available_times, 
+        'current_date': timezone.now().date(),
+        'max_future_date': (timezone.now() + timedelta(days=30)).date(),
+    })
+
 
 
 @login_required
 def booking_success(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+    print("Redirecting to booking success page with booking_id:", booking.id)
     return render(request, 'booking_success.html', {'booking': booking})
 
 class MyBookingsView(LoginRequiredMixin, ListView):

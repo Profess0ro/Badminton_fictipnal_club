@@ -4,7 +4,7 @@ from .views import MyBookingsView, edit_booking, cancel_booking
 
 urlpatterns = [
     path('make_booking/<int:court_id>/', views.make_booking, name='make_booking'),
-    path('booking_success/<int:booking_id>/', views.booking_success, name='booking_success'),
+    path('booking/success/<int:booking_id>/', views.booking_success, name='booking_success'),
     path('booking/', views.booking_info, name='booking'),
     path('select_court/', views.select_court, name='select_court'),
     path('my_bookings/', MyBookingsView.as_view(), name='my_bookings'),
