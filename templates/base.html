@@ -42,7 +42,7 @@
               <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Book our court</a>
+              <a class="nav-link disabled" href="{% url 'list_courts' %}">Book our court</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'aboutus' %}">About us</a>
@@ -63,7 +63,7 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">My bookings</a></li>
+                <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My bookings</a></li>
                 {% endif %}
               </ul>
             </li>
@@ -112,7 +112,7 @@
               <li><hr class="dropdown-divider dropdown-item"></li>
               <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">My bookings</a></li>
+              <li><a class="dropdown-item" href="{% url 'my_bookings' %}">My bookings</a></li>
               {% endif %}
             </ul>
           </div>
