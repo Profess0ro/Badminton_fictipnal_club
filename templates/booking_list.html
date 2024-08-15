@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h2>Choose Court Type</h2>
+
+<form action="{% url 'booking-create' %}" method="get">
+    <input type="radio" id="grass" name="court_type" value="GR" checked>
+    <label for="grass">Grass</label><br>
+    <input type="radio" id="gravel" name="court_type" value="GV">
+    <label for="gravel">Gravel</label><br>
+    <button type="submit">Select Court</button>
+</form>
+
+
+{% endblock %}

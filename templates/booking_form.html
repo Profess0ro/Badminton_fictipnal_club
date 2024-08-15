@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book a Court</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <!-- Render court_type field -->
+    <div>
+        {{ form.court_type.label_tag }} {{ form.court_type }}
+    </div>
+    
+    <!-- Render booking_date field with checkboxes for each upcoming date -->
+    <div>
+        <label for="booking_date">Select a date:</label>
+        <select name="booking_date" id="booking_date">
+            {% for date in available_dates %}
+                <option value="{{ date }}">{{ date|date:"F j, Y" }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Time Slot Selection -->
+    <div id="time-slots">
+        {% for slot in available_slots %}
+            <label>
+                <input type="checkbox" name="time_slot" value="{{ slot|date:'H:i' }}">
+                {{ slot|date:'g:i a' }} - {{ slot|add:"1 hour"|date:'g:i a' }} (1 hour slot)
+            </label><br>
+        {% endfor %}
+    </div>
+
+    <button type="submit">Book Court</button>
+</form>
+
+<!-- Include jQuery for AJAX functionality -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script>
+    $('#booking_date').change(function() {
+        var selectedDate = $(this).val();
+        var url = '/path/to/your/view/' + selectedDate; // Ensure this URL is correct
+    
+        $.getJSON(url, function(data) {
+            // Assuming 'slots' is the key in the returned JSON object containing the available times
+            var timeSlotsContainer = $('#time-slots');
+            timeSlotsContainer.empty(); // Clear existing time slots
+    
+            $.each(data.slots, function(index, slot) {
+                var slotElement = $('<label/>');
+                slotElement.html('<input type="checkbox" name="time_slot" value="' + slot + '">' +
+                                  slot + ' - ' + (new Date(slot).setHours(new Date(slot).getHours() + 1)).toString());
+                timeSlotsContainer.append(slotElement);
+            });
+        });
+    });
+</script>
+{% endblock %}
