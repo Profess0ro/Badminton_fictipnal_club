@@ -21,7 +21,6 @@ from contact.views import contact, success
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bookingsystem.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('about/', AboutUsView.as_view(), name='aboutus'),
     path('contact/', contact, name='contact'),
