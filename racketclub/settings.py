@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'articles',
     'aboutus',
     'contact',
+    'bookings',
 ]
 
 SITE_ID = 1

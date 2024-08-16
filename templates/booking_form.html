@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container card-body no-margin-left article-post">
+    <div class="row">
+        <h1>Book Our Court</h1>
+        <div class="col-md-6 col-s-12">
+            <form id="booking-form" method="POST" action="{% url 'create_booking' %}">
+                {% csrf_token %}
+                <!-- Court Type Selection -->
+                <div id="court-selection">
+                    <label for="court-type">Select Court Type:</label>
+                    <select id="court-type" name="court_type">
+                        {% for court_type in court_types %}
+                            <option value="{{ court_type.id }}">{{ court_type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Date Selection -->
+                <div id="date-selection">
+                    <p>Select a Date:</p>
+                    {% for date in dates %}
+                        <label>
+                            <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" />
+                            {{ date|date:"F j, Y" }} <!-- Display date in user-friendly format -->
+                        </label><br/>
+                    {% endfor %}
+                </div>
+                
+                <!-- Hidden Input for Selected Date -->
+                <input type="hidden" id="selected-date" name="date" value="">
+                
+                <!-- Hidden Input for Selected Time -->
+                <input type="hidden" id="selected-time" name="time" value="">
+                
+                <!-- Submit Button -->
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+
+        <div class="col-md-6 col-s-12">
+            <!-- Time Slot Selection -->
+            <div id="time-selection">
+                <p>Available times:</p>
+                <div id="available-times" class="time-slot-grid">
+                    <!-- Available times will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

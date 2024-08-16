@@ -308,6 +308,26 @@ h1, .nav-link {
     text-transform: none;
 }
 
+/* ------------------------------------------------------------------------ Booking form */
+
+.time-slot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-slot {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.time-slot:hover {
+    background-color: #f0f0f0;
+}
+
 @media screen and (min-width: 480px) {
 
     header, .big-nav {

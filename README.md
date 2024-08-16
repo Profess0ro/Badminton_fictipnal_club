@@ -107,7 +107,7 @@ After every time `pip3 install <package>` are used, ensure to use `pip3 freeze -
 - [gunicorn](https://pypi.org/project/gunicorn/)
 - [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
 - [whitenoise](https://pypi.org/project/whitenoise/)
-
+- [python-dateutil](https://pypi.org/project/python-dateutil/)
 
 
 # Deployment

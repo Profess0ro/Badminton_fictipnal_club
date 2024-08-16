@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h1>Booking Rules</h1>
+    <p>Here you can explain the rules and regulations of booking the court.</p>
+    <a href="{% url 'booking_form' %}">Go to Booking</a>
+{% endblock %}

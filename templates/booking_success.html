@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container card-body no-margin-left article-post">
+    <div class="row">
+        <div class="container">
+            <h1>Booking Confirmed!</h1>
+            <p>Thank you for your booking. Here are your booking details:</p>
+    
+            <ul>
+                <li><strong>Court Type:</strong> {{ booking.court_type.name }}</li>
+                <li><strong>Date:</strong> {{ booking.date }}</li>
+                <li><strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}</li>
+            </ul>
+    
+            <a href="{% url 'booking_form' %}">Make another booking</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
