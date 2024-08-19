@@ -6,10 +6,10 @@
     <div class="row">
         <div class="container">
             <h1>Booking Confirmed!</h1>
-            <p>Thank you for your booking. Here are your booking details:</p>
+            <p>Thank you {{ user.username }} for your booking. Here are your booking details:</p>
     
             <ul>
-                <li><strong>Court Type:</strong> {{ booking.court_type.name }}</li>
+                <li><strong>Court Type:</strong> {{ booking.court_type_id.name }}</li>
                 <li><strong>Date:</strong> {{ booking.date }}</li>
                 <li><strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}</li>
             </ul>

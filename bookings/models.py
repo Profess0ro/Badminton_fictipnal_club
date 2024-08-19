@@ -31,4 +31,5 @@ class Booking(models.Model):
     booked_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.court_type} - {self.booking_date}"
+        return f"{self.court_type} - {self.date} from {self.start_time} to {self.end_time}"
+

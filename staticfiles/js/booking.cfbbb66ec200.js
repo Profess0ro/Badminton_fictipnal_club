@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 timeOption.innerHTML = `
                                     <label>
                                         <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                        ${startTime12Hour} - <br>${endTime12Hour}
+                                        ${startTime12Hour} - ${endTime12Hour}
                                     </label>
                                 `;
 

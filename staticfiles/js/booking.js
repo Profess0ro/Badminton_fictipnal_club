@@ -6,25 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedTimeInput = document.getElementById('selected-time');
     const bookingForm = document.getElementById('booking-form');
 
-    // Event listener for court type change
     courtTypeSelect.addEventListener('change', fetchAvailableTimes);
-
-    // Event listener for date selection
     dateRadios.forEach(radio => {
         radio.addEventListener('change', () => {
             const selectedDate = document.querySelector('input[name="date"]:checked');
             if (selectedDate) {
                 const formattedDate = selectedDate.value;
-                selectedDateInput.value = formattedDate; // Set hidden input with formatted date
+                selectedDateInput.value = formattedDate;
                 fetchAvailableTimes();
             }
         });
     });
 
-    // Event listener for time slot change
     availableTimesDiv.addEventListener('change', (event) => {
         if (event.target.name === 'time') {
-            selectedTimeInput.value = event.target.value; // Set hidden input with time
+            selectedTimeInput.value = event.target.value;
         }
     });
 
@@ -38,38 +34,37 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data); // Debugging: Log the data received from the server
+                    console.log(data); 
 
-                    // Clear previous times
                     availableTimesDiv.innerHTML = '';
 
-                    // Check if data.time_grid exists and is not empty
                     if (data.time_grid && Array.isArray(data.time_grid)) {
                         let row = document.createElement('div');
                         row.classList.add('row');
 
                         data.time_grid.forEach((slots, rowIndex) => {
                             slots.forEach((slot, index) => {
+                                const startTime12Hour = convertTo12HourFormat(slot.start_time);
+                                const endTime12Hour = convertTo12HourFormat(slot.end_time);
+
                                 const timeOption = document.createElement('div');
-                                timeOption.classList.add('col-md-4'); // 3 columns per row
+                                timeOption.classList.add('col-md-6'); 
                                 timeOption.innerHTML = `
                                     <label>
                                         <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                        ${slot.start_time} - ${slot.end_time}
+                                        ${startTime12Hour} - <br>${endTime12Hour}
                                     </label>
                                 `;
 
                                 row.appendChild(timeOption);
 
-                                // Start a new row every 3 items
-                                if ((index + 1) % 3 === 0) {
+                                if ((index + 1) % 2 === 0) {
                                     availableTimesDiv.appendChild(row);
                                     row = document.createElement('div');
                                     row.classList.add('row');
                                 }
                             });
 
-                            // Append the last row if it's not empty
                             if (row.childNodes.length > 0) {
                                 availableTimesDiv.appendChild(row);
                             }
@@ -82,5 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             availableTimesDiv.innerHTML = '<p>Please select a date first.</p>';
         }
+    }
+
+    function convertTo12HourFormat(timeStr) {
+        const [hour, minute] = timeStr.split(':');
+        let hourInt = parseInt(hour);
+        const ampm = hourInt >= 12 ? 'PM' : 'AM';
+        hourInt = hourInt % 12 || 12;
+        return `${hourInt}:${minute} ${ampm}`;
     }
 });
