@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container card-body no-margin-left article-post">
+    <div class="row">
+        <h1>Edit Booking</h1>
+        <div class="col-md-6 col-s-12">
+            <form method="POST" action="{% url 'edit_booking' booking.id %}">
+                {% csrf_token %}
+                
+                <div id="court-selection">
+                    <label for="court-type">Select Court Type:</label>
+                    <select id="court-type" name="court_type">
+                        {% for court_type in court_types %}
+                            <option value="{{ court_type.id }}" {% if court_type.id == booking.court_type.id %}selected{% endif %}>
+                                {{ court_type }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div id="date-selection">
+                    <p>Select a Date:</p>
+                    {% for date in dates %}
+                        <label>
+                            <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" {% if date == booking.date %}checked{% endif %} />
+                            {{ date|date:"F j, Y" }}
+                        </label><br/>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 col-s-12">
+                <div id="time-selection">
+                    <p>Available times:</p>
+                    <div id="available-times" class="time-slot-grid">
+                        <!-- Available times will be populated here by JavaScript -->
+                    </div>
+                    <button type="submit">Update Booking</button>
+                </div>
+
+                <!-- Hidden inputs for JavaScript -->
+                <input type="hidden" id="selected-date" value="">
+                <input type="hidden" id="selected-time" name="time" value="{{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}">
+
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script src="{% static 'js/booking.js' %}"></script>

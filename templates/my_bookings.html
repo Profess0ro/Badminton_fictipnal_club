@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container card-body no-margin-left article-post">
+    <h1>My Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                Court Type: {{ booking.court_type }} | Date: {{ booking.date }} | Time: {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}
+                <a href="{% url 'edit_booking' booking.id %}">Edit</a>
+                <a href="{% url 'delete_booking' booking.id %}">Delete</a>
+            </li>
+        {% empty %}
+            <li>You have no bookings.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

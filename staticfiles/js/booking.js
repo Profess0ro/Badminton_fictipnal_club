@@ -1,41 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const courtTypeSelect = document.getElementById('court-type');
-    const dateRadios = document.getElementsByName('date');
+    const dateRadios = document.querySelectorAll('input[name="date"]');
     const availableTimesDiv = document.getElementById('available-times');
     const selectedDateInput = document.getElementById('selected-date');
     const selectedTimeInput = document.getElementById('selected-time');
-    const bookingForm = document.getElementById('booking-form');
-
-    courtTypeSelect.addEventListener('change', fetchAvailableTimes);
-    dateRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            const selectedDate = document.querySelector('input[name="date"]:checked');
-            if (selectedDate) {
-                const formattedDate = selectedDate.value;
-                selectedDateInput.value = formattedDate;
-                fetchAvailableTimes();
-            }
-        });
-    });
-
-    availableTimesDiv.addEventListener('change', (event) => {
-        if (event.target.name === 'time') {
-            selectedTimeInput.value = event.target.value;
-        }
-    });
 
     function fetchAvailableTimes() {
         const courtTypeId = courtTypeSelect.value;
         const date = selectedDateInput.value;
 
-        if (date) {
+        if (date && courtTypeId) {
             const url = `/bookings/get-available-times/?court_type=${courtTypeId}&date=${date}`;
             
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data); 
-
                     availableTimesDiv.innerHTML = '';
 
                     if (data.time_grid && Array.isArray(data.time_grid)) {
@@ -75,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => console.error('Error fetching available times:', error));
         } else {
-            availableTimesDiv.innerHTML = '<p>Please select a date first.</p>';
+            availableTimesDiv.innerHTML = '<p>Please select a date and court type first.</p>';
         }
     }
 
@@ -85,5 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const ampm = hourInt >= 12 ? 'PM' : 'AM';
         hourInt = hourInt % 12 || 12;
         return `${hourInt}:${minute} ${ampm}`;
+    }
+
+    courtTypeSelect.addEventListener('change', fetchAvailableTimes);
+    dateRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const selectedDate = document.querySelector('input[name="date"]:checked');
+            if (selectedDate) {
+                const formattedDate = selectedDate.value;
+                selectedDateInput.value = formattedDate;
+                fetchAvailableTimes();
+            }
+        });
+    });
+
+    // Initial fetch when the page loads
+    const initialDate = document.querySelector('input[name="date"]:checked');
+    if (initialDate) {
+        selectedDateInput.value = initialDate.value;
+        fetchAvailableTimes();
     }
 });
