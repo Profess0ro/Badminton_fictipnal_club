@@ -2,8 +2,29 @@
 
 {% block content %}
 {% load static %}
-
-<h1>Booking Rules</h1>
-    <p>Here you can explain the rules and regulations of booking the court.</p>
-    <a href="{% url 'booking_view' %}">Go to Booking</a>
+<div class="container card-body no-margin-left article-post">
+    <div class="row">
+        <div class="col-md-6 col-s-12">
+            <h1>Booking Rules</h1>
+            <h5>Clean Up After Yourself:</h5>
+            <p class="card-text">Please ensure that you clean up any personal items, trash, or equipment after your session. 
+            Leave the area in the same condition as you found it to ensure a pleasant experience for everyone.</p>
+            <h5>Arrive on Time:</h5>
+            <p class="card-text">Be punctual for your booking. Arriving on time ensures that everyone gets their full allotted time and helps maintain a smooth schedule.</p>
+            <h5>Access Code:</h5>
+            <p class="card-text">The access code to the door will be sent to your email 10 minutes before your scheduled start time. 
+            Please check your email for this information to ensure you can enter the facility.</p>
+            <h5>Pricing and Invoices:</h5>
+            <p class="card-text">The price for booking the court is $10 per hour. An invoice will be sent to your accounts email once your booking is confirmed. 
+            Payment must be made within 1 day after your session. Failure to pay the invoice will result in the suspension of your account, 
+            preventing further bookings until the outstanding balance is settled.</p>
+            <h5>Borrowing Equipment:</h5>
+            <p class="card-text">Equipment can be borrowed from a box located inside the door. Please handle all equipment with care and return it to the box after use.</p>
+            <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg">Book Now</button></a>
+        </div>
+        <div class="col-md-6 booking-image">
+            <img src="{% static 'images/rules.png' %}" class="card-img-top" alt="Rules">
+        </div>
+    </div>
+</div>
 {% endblock %}

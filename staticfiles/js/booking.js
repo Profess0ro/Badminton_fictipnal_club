@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const slotStartTime = slot.start_time;
                                 const slotEndTime = slot.end_time;
 
-                                // Convert times to 24-hour format for comparison
+                                
                                 const slotStartTime24 = convertTo24HourFormat(slotStartTime);
 
-                                // Only show slots that are in the future, but only if the selected date is today
+                                
                                 if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
                                     availableSlots.push(`
                                         <div class="col-md-6">
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         </div>
                                     `);
                                 } else if (date > currentDate) {
-                                    // For future dates, show all slots
+                                    
                                     availableSlots.push(`
                                         <div class="col-md-6">
                                             <label>
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Helper function to convert time to 24-hour format
+    
     function convertTo24HourFormat(timeStr) {
         const [time, modifier] = timeStr.split(' ');
         let [hours, minutes] = time.split(':');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initial fetch when the page loads
+    
     const initialDate = document.querySelector('input[name="date"]:checked');
     if (initialDate) {
         selectedDateInput.value = initialDate.value;
