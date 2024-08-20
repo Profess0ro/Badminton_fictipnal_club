@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedDateInput = document.getElementById('selected-date');
     const selectedTimeInput = document.getElementById('selected-time');
 
+    function convertTo12HourFormat(timeStr) {
+        let [hour, minute] = timeStr.split(':');
+        hour = parseInt(hour, 10);
+        const ampm = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12;  // Adjust hour to 12-hour format
+        return `${hour}:${minute} ${ampm}`;
+    }
+
     function fetchAvailableTimes() {
         const courtTypeId = courtTypeSelect.value;
         const date = selectedDateInput.value;
@@ -29,26 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const slotStartTime = slot.start_time;
                                 const slotEndTime = slot.end_time;
 
-                                
-                                const slotStartTime24 = convertTo24HourFormat(slotStartTime);
+                                // Only show slots that are in the future
+                                if (date > currentDate || (date === currentDate && slotStartTime >= currentTimeStr)) {
+                                    const startTime12Hour = convertTo12HourFormat(slotStartTime);
+                                    const endTime12Hour = convertTo12HourFormat(slotEndTime);
 
-                                
-                                if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
                                     availableSlots.push(`
                                         <div class="col-md-6">
                                             <label>
-                                                <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                                ${slotStartTime} - ${slotEndTime}
-                                            </label>
-                                        </div>
-                                    `);
-                                } else if (date > currentDate) {
-                                    
-                                    availableSlots.push(`
-                                        <div class="col-md-6">
-                                            <label>
-                                                <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                                ${slotStartTime} - ${slotEndTime}
+                                                <input type="radio" name="time" value="${slotStartTime}-${slotEndTime}" />
+                                                ${startTime12Hour} - ${endTime12Hour}
                                             </label>
                                         </div>
                                     `);
@@ -71,22 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
-    function convertTo24HourFormat(timeStr) {
-        const [time, modifier] = timeStr.split(' ');
-        let [hours, minutes] = time.split(':');
-
-        if (hours === '12') {
-            hours = '00';
-        }
-
-        if (modifier === 'PM') {
-            hours = parseInt(hours, 10) + 12;
-        }
-
-        return `${String(hours).padStart(2, '0')}:${minutes}`;
-    }
-
     courtTypeSelect.addEventListener('change', fetchAvailableTimes);
     dateRadios.forEach(radio => {
         radio.addEventListener('change', () => {
@@ -98,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
+    // Initial fetch when the page loads
     const initialDate = document.querySelector('input[name="date"]:checked');
     if (initialDate) {
         selectedDateInput.value = initialDate.value;

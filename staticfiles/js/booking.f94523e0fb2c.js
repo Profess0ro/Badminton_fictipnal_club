@@ -29,25 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const slotStartTime = slot.start_time;
                                 const slotEndTime = slot.end_time;
 
-                                
-                                const slotStartTime24 = convertTo24HourFormat(slotStartTime);
-
-                                
-                                if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
+                                // Only show slots that are in the future
+                                if (date > currentDate || (date === currentDate && slotStartTime >= currentTimeStr)) {
                                     availableSlots.push(`
                                         <div class="col-md-6">
                                             <label>
-                                                <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                                ${slotStartTime} - ${slotEndTime}
-                                            </label>
-                                        </div>
-                                    `);
-                                } else if (date > currentDate) {
-                                    
-                                    availableSlots.push(`
-                                        <div class="col-md-6">
-                                            <label>
-                                                <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
+                                                <input type="radio" name="time" value="${slotStartTime}-${slotEndTime}" />
                                                 ${slotStartTime} - ${slotEndTime}
                                             </label>
                                         </div>
@@ -71,22 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
-    function convertTo24HourFormat(timeStr) {
-        const [time, modifier] = timeStr.split(' ');
-        let [hours, minutes] = time.split(':');
-
-        if (hours === '12') {
-            hours = '00';
-        }
-
-        if (modifier === 'PM') {
-            hours = parseInt(hours, 10) + 12;
-        }
-
-        return `${String(hours).padStart(2, '0')}:${minutes}`;
-    }
-
     courtTypeSelect.addEventListener('change', fetchAvailableTimes);
     dateRadios.forEach(radio => {
         radio.addEventListener('change', () => {
@@ -98,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
+    // Initial fetch when the page loads
     const initialDate = document.querySelector('input[name="date"]:checked');
     if (initialDate) {
         selectedDateInput.value = initialDate.value;
