@@ -19,6 +19,7 @@ There are also a contact form that users can send questions to the club.
     * [Edit/delete booking](#editdelete-booking)
     * [About us page](#about-us-page)
     * [Contact us page](#contact-us-page)
+    * [Error pages](#error-pages)
 - [Design](#design)
     * [Logo](#logo)
     * [Colorscheme](#colorscheme)
@@ -39,7 +40,21 @@ There are also a contact form that users can send questions to the club.
 
 ## Database structure
 
-<img src="readme/database.png">
+### This is the structure I planned this project with
+<img src="readme/database.png"><br>
+### And this is how it turned out:<br><br>
+- For the "About us" and "Rules" page there´s only a TextField so that admins easily can change the content from the adminpanel.<br>
+<img src="readme/aboutmodels.png"><br>
+<img src="readme/rulesmodels.png"><br>
+- The structure of the articles was created as planned.<br>
+<img src="readme/articlemodels.png"><br>
+- The structure of the comments was also created as planned.<br>
+<img src="readme/commentmodels.png"><br>
+- The structure of the booking database got a little bit more fields than I expected.<br>
+- Since there are two types of courts that choice had to be done.<br>
+- Tried to make a function to calculate start_time and end_time with some parameters, but that didn´t go as I wanted. Instead I fed the database with the start and endtimes for the booking system.
+- When a user are booking a court the database stores: <br>- what courttype that has been booked<br>- what date the booking was made for<br>- start and endtime for the booking<br>- what user that made the booking
+<img src="readme/bookingmodels.png">
 <hr>
 
 ## Wireframes
@@ -59,6 +74,11 @@ Here you can check out my user stories on the canban-board<br>
 # Content
 
 ## Home page
+<img src="readme/homepage.png" height="300" width="auto"><br>
+When a user lands on the homepage on big screens, there are a header with a picture of a tennisplayer on the top of the page. A menu are shown to the left and a footer will be at the bottom of the page (not visual on the picture). In the content area of the homepage are articles shown for the user and if there are more than 6 articles written there will be a "Next >>" button visual to show the rest of the articles.<br>
+<hr>
+<img src="readme/homepage2.png" height="300" width="auto"><br>
+For user that goes to this page on smallest screens, the menu has gone up to the top of the page as a dropdown menu and all articles are now on top of eachother instead of three by three on the rows. The footer remains on the bottom of the page.
 
 ## Rules page
 
@@ -71,6 +91,8 @@ Here you can check out my user stories on the canban-board<br>
 ## About us page
 
 ## Contact us page
+
+## Error pages
 
 # Design
 

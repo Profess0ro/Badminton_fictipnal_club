@@ -18,7 +18,7 @@
                                 </a>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <div class="image-container">
                                         <a href="{% url 'article_detail' article.slug %}">
                                             {% if "placeholder" in article.featured_image.url %}
@@ -31,7 +31,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-6 card-text">
+                                <div class="col-md-6 card-text">
                                     <div class="image-flash">
                                         <!-- Instead of using an excerpt as a preamble to the article, 
                                             '{{ article.content|striptags|slice:":60" }}' are used 
