@@ -10,7 +10,15 @@ There are also a contact form that users can send questions to the club.
 - [Project planning](#project-planning)
     * [Database structure](#database-structure)
     * [Wireframes](#wireframes)
-    * [User stories](https://https://github.com/users/Profess0ro/projects/6)
+    * [User stories](#user-stories)
+- [Content](#content)
+    * [Home page](#home-page)
+    * [Rules page](#rules-page)
+    * [Booking form](#booking-form)
+    * [Booking success](#booking-success)
+    * [Edit/delete booking](#editdelete-booking)
+    * [About us page](#about-us-page)
+    * [Contact us page](#contact-us-page)
 - [Design](#design)
     * [Logo](#logo)
     * [Colorscheme](#colorscheme)
@@ -23,6 +31,7 @@ There are also a contact form that users can send questions to the club.
     * [Github](#github)
     * [Deploy in development environment](#deploy-in-development-environment)
     * [Heroku](#heroku)
+- [Testing]()
 - [Problems encountered](#problems-encountered)
 - [Credits](#credits)
 
@@ -41,6 +50,27 @@ Worked after this model as much as I could for the basic structure.<br>
 <img src="readme/wireframe_mobile.png"><br>
 <img src="readme/wireframe_tablet.png"><br>
 <img src="readme/wireframe_big_screens.png"><br>
+
+## User Stories
+
+Here you can check out my user stories on the canban-board<br>
+[Canban-board](https://github.com/users/Profess0ro/projects/6/views/1)
+
+# Content
+
+## Home page
+
+## Rules page
+
+## Booking form
+
+## Booking success
+
+## Edit/delete booking
+
+## About us page
+
+## Contact us page
 
 # Design
 
@@ -81,7 +111,8 @@ This font are used on titles, links and the author info on articles. The font ca
 [Font Awesome](https://www.fontawesome.com) - Icon library<br>
 [Kittl](https://www.kittl.com/) - Logo creator<br>
 [Neon](https://neon.tech/) - Database<br>
-[Mailtrap](https://mailtrap.io/) - SMTP for the contactform
+[Mailtrap](https://mailtrap.io/) - SMTP for the contactform<br>
+[Cloudinary](https://cloudinary.com/) - Database storage for images
 
 # Technologies
 
@@ -225,7 +256,10 @@ Since `comments.js` are loaded into `base.html` it kept searching for the modal 
         deleteModal = new bootstrap.Modal(deleteModalElement);
     }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.
 
+- Problems generating available times.
+The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function a span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.
 # Credits
 
-[Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)
+- [Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)
+- Rohit Sharma - My mentor, for great meetings and helpful tips
 
