@@ -136,6 +136,7 @@ Even here the image has `display: none;` on smaller screens<br><br>
 <img src="readme/contuspage2.png" height="300" width="auto"><br><br>
 If the form is successfully filled, the user will be directed to a page that confirms that the form has been filled in and the mail has been sent<br><br>
 <img src="readme/contactuspage3.png" height="300" width="auto">
+
 ## Error pages
 
 # Design
@@ -323,7 +324,7 @@ Since `comments.js` are loaded into `base.html` it kept searching for the modal 
     }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.
 
 - Problems generating available times.
-The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function a span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.
+The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function the span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.
 # Credits
 
 - [Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)

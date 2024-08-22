@@ -4,7 +4,8 @@
 <div class="container card-body no-margin-left article-post">
     <h1>Whoopsie!</h1>
     <img src="{% static 'images/error.jpg' %}" class="card-img-top" alt="error">
-    <p class="card-text">We're sorry, but the page you were looking for doesn't exist.</p>
+    <p class="card-text">We're sorry, but this page you don´t have permission to access.<br>
+    If you think this is something we shall look in to, please contact us!</p>
     <h2><a href="{% url 'index' %}" class="article-link">Return to the homepage</a></h2>
 </div>
 {% endblock %}
