@@ -139,6 +139,9 @@ If the form is successfully filled, the user will be directed to a page that con
 
 ## Error pages
 
+<img src="readme/errorpage.png" height="300" width="auto"><br><br>
+I have the same error page for the following errors:<br>- **403:** When a user doesn´t have the permission to go to that specific page.<br>- **404:** When a page doesn´t exist that the user was directed to.<br>- **500:** When the database doesn´t connect.<br>- **504:** Network issues with the server.
+
 # Design
 
 ## Logo
