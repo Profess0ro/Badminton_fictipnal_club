@@ -134,7 +134,8 @@ This page shows the content of what has been written in the adminpanel. In this 
 When a user wants to contact about any questions to the club, this form comes up on the screen. There are 3 different subjects to choose from so that the recievers know what type of question it regards.<br>
 Even here the image has `display: none;` on smaller screens<br><br>
 <img src="readme/contuspage2.png" height="300" width="auto"><br><br>
-
+If the form is successfully filled, the user will be directed to a page that confirms that the form has been filled in and the mail has been sent<br><br>
+<img src="readme/contactuspage3.png" height="300" width="auto">
 ## Error pages
 
 # Design
