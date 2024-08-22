@@ -16,7 +16,8 @@ There are also a contact form that users can send questions to the club.
     * [Rules page](#rules-page)
     * [Booking form](#booking-form)
     * [Booking success](#booking-success)
-    * [Edit/delete booking](#editdelete-booking)
+    * [Edit booking](#edit-booking)
+    * [Delete booking](#delete-booking)
     * [About us page](#about-us-page)
     * [Contact us page](#contact-us-page)
     * [Error pages](#error-pages)
@@ -105,7 +106,20 @@ When a date are chosen, the system searching for booked times and calculates if 
 If all goes through with valid data input to the form the user will get directed to a page that confirms the booking. All data that was selected and who that made the booking will be visualised on this page. There are also a button back to the form if the user will make another booking of the court.
 
 
-## Edit/delete booking
+## Edit booking
+<img src="readme/profile.png"><br>
+When a user wants to see their booking that they have made there is a menu that comes down if you click on the profile image in the main menu. Here are an option that´s named "my bookings"<br>
+<img src="readme/editbooking.png"><br>
+After the user has clicked on "my bookings" this view comes up and listing all of the bookings made by this specific user. Behind every booking there are options to either edit or delete a booking. If a user clicks on "Edit" the view below comes up.
+<img src="readme/editbooking2.png" height="300" width="auto"><br>
+This view is similar to the booking form with a small change that it updates the current booking and as the button says "update booking" this will update and change the time of the booking that was chosen.
+<img src="readme/editbooking3.png"><br>
+As you can see here the booking that was chosen differ from the first images time/date info on the specific booking.
+
+## Delete booking
+<img src="readme/deletebooking.png"><br>
+If a user wants to delete a booking by pressing "Delete" in the list of their bookings, this view comes up and asking the user if they are sure if they want to delete the booking. Here are also a option for the user to cancel this deletion if they don´t want to delete that specific booking.
+
 
 ## About us page
 
