@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (date && courtTypeId) {
             const url = `/bookings/get-available-times/?court_type=${courtTypeId}&date=${date}`;
-            
+
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const slotStartTime = slot.start_time;
                                 const slotEndTime = slot.end_time;
 
+                                // Convert times to 24-hour format for comparison
                                 const slotStartTime24 = convertTo24HourFormat(slotStartTime);
+                                const slotEndTime24 = convertTo24HourFormat(slotEndTime);
 
                                 if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
                                     availableSlots.push(`
@@ -85,12 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    availableTimesDiv.addEventListener('change', (event) => {
-        console.log('Change event detected');  // Debugging statement
-        const selectedRadio = event.target.closest('input[name="time"]');
-        if (selectedRadio) {
-            console.log(`Selected time slot: ${selectedRadio.value}`);  // Debugging statement
-            selectedTimeInput.value = selectedRadio.value;
+    availableTimesDiv.addEventListener('change', (e) => {
+        if (e.target.name === 'time') {
+            selectedTimeInput.value = e.target.value;
         }
     });
 

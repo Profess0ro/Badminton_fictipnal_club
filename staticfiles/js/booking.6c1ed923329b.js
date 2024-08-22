@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (date && courtTypeId) {
             const url = `/bookings/get-available-times/?court_type=${courtTypeId}&date=${date}`;
-            
+
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -26,17 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         data.time_grid.forEach((slots) => {
                             slots.forEach((slot) => {
-                                const slotStartTime = slot.start_time;
-                                const slotEndTime = slot.end_time;
-
-                                const slotStartTime24 = convertTo24HourFormat(slotStartTime);
+                                const slotStartTime24 = convertTo24HourFormat(slot.start_time);
 
                                 if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
                                     availableSlots.push(`
                                         <div class="col-md-6">
                                             <label>
                                                 <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                                ${slotStartTime} - ${slotEndTime}
+                                                ${slot.start_time} - ${slot.end_time}
                                             </label>
                                         </div>
                                     `);
@@ -46,6 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (availableSlots.length > 0) {
                             availableTimesDiv.innerHTML = availableSlots.join('');
+                            document.querySelectorAll('input[name="time"]').forEach(radio => {
+                                radio.addEventListener('change', () => {
+                                    selectedTimeInput.value = radio.value;
+                                });
+                            });
                         } else {
                             availableTimesDiv.innerHTML = '<p>No available times left for today.</p>';
                         }
@@ -63,12 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const [time, modifier] = timeStr.split(' ');
         let [hours, minutes] = time.split(':');
 
-        if (hours === '12') {
-            hours = '00';
-        }
-
-        if (modifier === 'PM') {
+        if (modifier === 'PM' && hours !== '12') {
             hours = parseInt(hours, 10) + 12;
+        } else if (modifier === 'AM' && hours === '12') {
+            hours = '00';
         }
 
         return `${String(hours).padStart(2, '0')}:${minutes}`;
@@ -83,15 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetchAvailableTimes();
             }
         });
-    });
-
-    availableTimesDiv.addEventListener('change', (event) => {
-        console.log('Change event detected');  // Debugging statement
-        const selectedRadio = event.target.closest('input[name="time"]');
-        if (selectedRadio) {
-            console.log(`Selected time slot: ${selectedRadio.value}`);  // Debugging statement
-            selectedTimeInput.value = selectedRadio.value;
-        }
     });
 
     const initialDate = document.querySelector('input[name="date"]:checked');

@@ -29,21 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const slotStartTime = slot.start_time;
                                 const slotEndTime = slot.end_time;
 
-                                
                                 const slotStartTime24 = convertTo24HourFormat(slotStartTime);
 
-                                
                                 if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
-                                    availableSlots.push(`
-                                        <div class="col-md-6">
-                                            <label>
-                                                <input type="radio" name="time" value="${slot.start_time}-${slot.end_time}" />
-                                                ${slotStartTime} - ${slotEndTime}
-                                            </label>
-                                        </div>
-                                    `);
-                                } else if (date > currentDate) {
-                                    
                                     availableSlots.push(`
                                         <div class="col-md-6">
                                             <label>
@@ -71,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
     function convertTo24HourFormat(timeStr) {
         const [time, modifier] = timeStr.split(' ');
         let [hours, minutes] = time.split(':');
@@ -98,7 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    
+    availableTimesDiv.addEventListener('change', (event) => {
+        console.log('Change event detected');  // Debugging statement
+        const selectedRadio = event.target.closest('input[name="time"]');
+        if (selectedRadio) {
+            console.log(`Selected time slot: ${selectedRadio.value}`);  // Debugging statement
+            selectedTimeInput.value = selectedRadio.value;
+        }
+    });
+
     const initialDate = document.querySelector('input[name="date"]:checked');
     if (initialDate) {
         selectedDateInput.value = initialDate.value;

@@ -5,16 +5,15 @@
 <div class="container card-body no-margin-left article-post">
     <div class="row">
         <h1>Book Our Court</h1>
-            <h5>How the booking system works:</h5>'
-            <hr class="text-separator">
-            <p class="about-text text-left">
+        <h5>How the booking system works:</h5>
+        <hr class="text-separator">
+        <p class="about-text text-left">
             - Dates for today and 14 days ahead are bookable.<br>
-            - Select court type so the system calculate times on the right court.<br>
-            - When you have picked a date our system will calculate which times are available to book. <i>(this can take a couple of seconds)</i><br>
-            - There are 1h and 2h slots available to book.<br>
-            - When you have selected a time to book click on "Book now" and the booking is successsful, 
-            you will be directed to a page that confirms your booking.<br>
-            - You can edit and delete your bookings in the profile menu to the left.
+            - Select court type so the system calculates times for the right court.<br>
+            - When you pick a date, our system will calculate which times are available to book. <i>(this can take a couple of seconds)</i><br>
+            - There are 1-hour and 2-hour slots available to book.<br>
+            - After selecting a time to book, click on "Book now" to complete the booking. You will be directed to a confirmation page.<br>
+            - You can edit and delete your bookings in the profile menu.
         </p>
     </div>
     <div class="row">
@@ -34,27 +33,24 @@
                     {% for date in dates %}
                         <label>
                             <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" />
-                            {{ date|date:"F j, Y" }} 
+                            {{ date|date:"F j, Y" }}
                         </label><br/>
                     {% endfor %}
                 </div>
                 <input type="hidden" id="selected-date" name="date" value="">
                 <input type="hidden" id="selected-time" name="time" value="">
-                
-        </div>
-        <div class="col-md"></div>
-
-        <div class="col-md-7 col-s-12 times times-right">
-            <div id="time-selection">
-                <h5>Available times:</h5>
-                <div id="available-times" class="time-slot-grid">
-                    <!-- This div will be filled after the booking.js are done with the calculation -->
-                </div>
-                <button type="submit" class="btn btn-signup btn-lg">Book Now</button>
-            </form>
             </div>
+            <div class="col-md"></div>
+            <div class="col-md-7 col-s-12 times times-right">
+                <div id="time-selection">
+                    <h5>Available Times:</h5>
+                    <div id="available-times" class="time-slot-grid">
+                        <!-- This div will be populated by JavaScript -->
+                    </div>
+                    <button type="submit" class="btn btn-signup btn-lg">Book Now</button>
+                </div>
+            </form>
         </div>
-    </div>
     </div>
 </div>
 {% endblock %}

@@ -5,16 +5,14 @@
 <div class="container card-body no-margin-left article-post">
     <div class="row">
         <div class="container">
+            <div class="times success">
             <h1>Booking Confirmed!</h1>
-            <p>Thank you {{ user.username }} for your booking. Here are your booking details:</p>
-    
-            <ul>
-                <li><strong>Court Type:</strong> {{ booking.court_type }}</li>
-                <li><strong>Date:</strong> {{ booking.date }}</li>
-                <li><strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}</li>
-            </ul>
-    
-            <a href="{% url 'booking_view' %}">Make another booking</a>
+            <p class="about-text">Thank you <strong>{{ user.username }}</strong> for your booking. Here are your booking details:</p>    
+                <strong>Court Type:</strong><br> {{ booking.court_type }}<br>
+                <strong>Date:</strong><br> {{ booking.date }}<br>
+                <strong>Time:</strong><br> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}<br>
+                <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg">Make another booking</button></a>
+            </div>
         </div>
     </div>
 </div>

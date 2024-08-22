@@ -82,9 +82,28 @@ For user that goes to this page on smallest screens, the menu has gone up to the
 
 ## Rules page
 
+<img src="readme/rulespage.png" height="300" width="auto"><br>
+When a user click on "Book our court" they are arriving on a page that displaying rules and general info about our court and how to gain access, pay for the booking and that there are equipment to borrow if they want that.
+This page is available to all user, but if they click on "Book now" the next page (booking form) are only available to the user that are logged in.
+<hr>
+<img src="readme/rulespage2.png" height="300" width="auto"><br>
+For user that are going to this page on smaller screens the image isn´t visual so that image doesn´t take up to much space for the user.
+
 ## Booking form
+<img src="readme/signinpage.png" height="300" width="auto"><br>
+If a user trying to book a court without being signed in first they will get directed to the sign in page.<br>
+<hr>
+<img src="readme/bookform1.png" height="300" width="auto"><br>
+But if a user are signed in, they will be directed to the booking form. Here are the booking system explained for the user on how it works. Since the booking system only allows bookings to be booked maximum 14 days ahead. The function calculates and display only dates from today (22 august) and 14 days ahead. So the first choice a user has to do is to pick what type of court they want to play on, then a date they want to book.<br>
+<img src="readme/bookform2.png" height="300" width="auto"><br>
+When a date are chosen, the system searching for booked times and calculates if there are any available times that date. Those times are then filled in the area for available times for the user. Now the user has to choose what time they want to play on. 
 
 ## Booking success
+
+<img src="readme/bookingsuccess.png" height="300" width="auto">
+<img src="readme/bookingsuccess2.png" height="300" width="auto"><br>
+If all goes through with valid data input to the form the user will get directed to a page that confirms the booking. All data that was selected and who that made the booking will be visualised on this page. There are also a button back to the form if the user will make another booking of the court.
+
 
 ## Edit/delete booking
 

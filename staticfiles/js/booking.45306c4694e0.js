@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     availableTimesDiv.addEventListener('change', (event) => {
-        console.log('Change event detected');  // Debugging statement
         const selectedRadio = event.target.closest('input[name="time"]');
         if (selectedRadio) {
             console.log(`Selected time slot: ${selectedRadio.value}`);  // Debugging statement

@@ -12,33 +12,36 @@ def booking_view(request):
     if request.method == 'POST':
         court_type_id = request.POST.get('court_type')
         date_str = request.POST.get('date')
-        time_slot = request.POST.get('time') 
+        time_slot = request.POST.get('time')
 
-        
         print(f"court_type_id: {court_type_id}")
         print(f"date_str: {date_str}")
         print(f"time_slot: {time_slot}")
 
-        
+        if not time_slot:
+            return HttpResponse("Time slot is empty.", status=400)
+
         try:
             date = datetime.strptime(date_str, '%Y-%m-%d').date()
-        except ValueError as e:
-            print(f"Date parsing error: {e}")
+        except ValueError:
             return HttpResponse("Invalid date format.", status=400)
         
         try:
             start_time_str, end_time_str = time_slot.split('-')
+            print(f"Start time string: {start_time_str}")
+            print(f"End time string: {end_time_str}")
             start_time_24 = datetime.strptime(start_time_str.strip(), '%I:%M %p').time()
             end_time_24 = datetime.strptime(end_time_str.strip(), '%I:%M %p').time()
-        except ValueError as e:
-            print(f"Time parsing error: {e}")
+            print(f"Parsed start time: {start_time_24}")
+            print(f"Parsed end time: {end_time_24}")
+        except ValueError:
             return HttpResponse("Invalid time slot format.", status=400)
 
-        # Fetch the start and end times from the database
         try:
             start_time = StartTimes.objects.get(start_time=start_time_24)
             end_time = EndTimes.objects.get(end_time=end_time_24)
-        except (StartTimes.DoesNotExist, EndTimes.DoesNotExist):
+        except (StartTimes.DoesNotExist, EndTimes.DoesNotExist) as e:
+            print(f"Database lookup error: {e}")
             return HttpResponse("Invalid time slot.", status=400)
 
         court_type = get_object_or_404(CourtType, id=court_type_id)
@@ -48,7 +51,6 @@ def booking_view(request):
         if (end_datetime - start_datetime).total_seconds() > 2 * 60 * 60:
             return HttpResponse("Booking can only be made for a maximum of 2 hours.", status=400)
 
-        # Check for overlapping bookings
         overlapping_bookings = Booking.objects.filter(
             court_type=court_type,
             date=date,
@@ -58,7 +60,6 @@ def booking_view(request):
         if overlapping_bookings.exists():
             return HttpResponse("This time slot is already booked or overlaps with an existing booking.", status=400)
 
-        # Create the booking
         booking = Booking.objects.create(
             court_type=court_type,
             date=date,
@@ -69,12 +70,14 @@ def booking_view(request):
         return redirect('booking_success', booking_id=booking.id)
 
     else:
-        # Display the booking form
         context = {
             'court_types': CourtType.objects.all(),
             'dates': [datetime.now().date() + timedelta(days=i) for i in range(15)],
         }
         return render(request, 'booking_form.html', context)
+
+
+
 
 def booking_success(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
@@ -100,7 +103,6 @@ def get_available_times(request):
         row = []
         for end_time in end_times:
             if start_time.start_time < end_time.end_time and (end_time.end_time.hour - start_time.start_time.hour) <= 2:
-                # Check if this time slot is booked or overlaps with any existing booking
                 overlapping_bookings = bookings.filter(
                     start_time__start_time__lt=end_time.end_time,
                     end_time__end_time__gt=start_time.start_time
@@ -115,13 +117,9 @@ def get_available_times(request):
 
     return JsonResponse({'time_grid': time_grid})
 
-
-
 @login_required
 def my_bookings(request):
-    # Fetch bookings for the current user
     bookings = Booking.objects.filter(booked_by=request.user)
-    
     context = {
         'bookings': bookings
     }
@@ -130,13 +128,12 @@ def my_bookings(request):
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, booked_by=request.user)
-    
+
     if request.method == 'POST':
         court_type_id = request.POST.get('court_type')
         date_str = request.POST.get('date')
-        time_slot = request.POST.get('time')  
+        time_slot = request.POST.get('time')
 
-        # Convert date from string to datetime object
         try:
             date = datetime.strptime(date_str, '%Y-%m-%d').date()
         except ValueError:
@@ -146,13 +143,15 @@ def edit_booking(request, booking_id):
             start_time_str, end_time_str = time_slot.split('-')
             start_time_24 = datetime.strptime(start_time_str.strip(), '%I:%M %p').time()
             end_time_24 = datetime.strptime(end_time_str.strip(), '%I:%M %p').time()
-        except ValueError:
+        except ValueError as e:
+            print(f"Time parsing error: {e}")
             return HttpResponse("Invalid time slot format.", status=400)
 
         try:
             start_time = StartTimes.objects.get(start_time=start_time_24)
             end_time = EndTimes.objects.get(end_time=end_time_24)
-        except (StartTimes.DoesNotExist, EndTimes.DoesNotExist):
+        except (StartTimes.DoesNotExist, EndTimes.DoesNotExist) as e:
+            print(f"Database lookup error: {e}")
             return HttpResponse("Invalid time slot.", status=400)
 
         court_type = get_object_or_404(CourtType, id=court_type_id)
@@ -180,7 +179,7 @@ def edit_booking(request, booking_id):
         booking.end_time = end_time
         booking.save()
 
-        return redirect('my_bookings')  
+        return redirect('my_bookings')
 
     context = {
         'booking': booking,
