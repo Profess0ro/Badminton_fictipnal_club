@@ -107,13 +107,13 @@ If all goes through with valid data input to the form the user will get directed
 
 
 ## Edit booking
-<img src="readme/profile.png"><br>
-When a user wants to see their booking that they have made there is a menu that comes down if you click on the profile image in the main menu. Here are an option that´s named "my bookings"<br>
-<img src="readme/editbooking.png"><br>
-After the user has clicked on "my bookings" this view comes up and listing all of the bookings made by this specific user. Behind every booking there are options to either edit or delete a booking. If a user clicks on "Edit" the view below comes up.
-<img src="readme/editbooking2.png" height="300" width="auto"><br>
-This view is similar to the booking form with a small change that it updates the current booking and as the button says "update booking" this will update and change the time of the booking that was chosen.
-<img src="readme/editbooking3.png"><br>
+<img src="readme/profile.png"><br><br>
+When a user wants to see their booking that they have made there is a menu that comes down if you click on the profile image in the main menu. Here are an option that´s named "my bookings"<br><br>
+<img src="readme/editbooking.png"><br><br>
+After the user has clicked on "my bookings" this view comes up and listing all of the bookings made by this specific user. Behind every booking there are options to either edit or delete a booking. If a user clicks on "Edit" the view below comes up.<br><br>
+<img src="readme/editbooking2.png" height="300" width="auto"><br><br>
+This view is similar to the booking form with a small change that it updates the current booking and as the button says "update booking" this will update and change the time of the booking that was chosen.<br><br>
+<img src="readme/editbooking3.png"><br><br>
 As you can see here the booking that was chosen differ from the first images time/date info on the specific booking.
 
 ## Delete booking
