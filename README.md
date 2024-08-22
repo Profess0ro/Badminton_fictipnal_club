@@ -124,7 +124,16 @@ If a user wants to delete a booking by pressing "Delete" in the list of their bo
 
 ## About us page
 
+<img src="readme/aboutuspage.png" height="300" width="auto"><br><br>
+This page shows the content of what has been written in the adminpanel. In this way it´s easier for the admins to update the content. On smaller screens the image has `display: none;` <br><br>
+<img src="readme/aboutuspage2.png" height="300" width="auto"><br><br>
+
 ## Contact us page
+
+<img src="readme/contactpage.png" height="300" width="auto"><br><br>
+When a user wants to contact about any questions to the club, this form comes up on the screen. There are 3 different subjects to choose from so that the recievers know what type of question it regards.<br>
+Even here the image has `display: none;` on smaller screens<br><br>
+<img src="readme/contuspage2.png" height="300" width="auto"><br><br>
 
 ## Error pages
 
