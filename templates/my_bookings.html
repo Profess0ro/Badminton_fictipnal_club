@@ -5,16 +5,18 @@
 
 <div class="container card-body no-margin-left article-post">
     <h1>My Bookings</h1>
-    <ul>
+    <div>
         {% for booking in bookings %}
-            <li>
-                Court Type: {{ booking.court_type }} | Date: {{ booking.date }} | Time: {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}
-                <a href="{% url 'edit_booking' booking.id %}">Edit</a>
-                <a href="{% url 'delete_booking' booking.id %}">Delete</a>
-            </li>
+            <p class="card-text">
+                <strong>Court Type:</strong> {{ booking.court_type }} | <strong>Date:</strong> {{ booking.date }} | <strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}
+                <a href="{% url 'edit_booking' booking.id %}"><button class="btn btn-edit">Edit</button></a>
+                <a href="{% url 'delete_booking' booking.id %}"><button class="btn btn-delete">Delete</button></a>
+                <br>
+                <hr class="text-separator">
+            </p>
         {% empty %}
-            <li>You have no bookings.</li>
+            <h5>You have no bookings.</h5>
         {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endblock %}
