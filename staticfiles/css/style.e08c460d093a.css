@@ -28,7 +28,7 @@ html, body {
 header {
     height: 200px;
     display: none;
-    background-image: url(../images/header.png);
+    background-image: url("../images/header.d051fc8b9045.png");
     background-size: auto;
     background-repeat: no-repeat;
     border-bottom: 3px solid #2B3960;
@@ -154,11 +154,9 @@ h1, h5, h4, .nav-link {
 }
 
 .times {
-    padding: 10px;
+    padding: 20px;
     border: 3px solid #2B3960;
     border-radius: 10px;
-    width: 95%;
-    margin: 10px;
 }
 
 .card-body, .signup-body {
@@ -379,14 +377,10 @@ h1, h5, h4, .nav-link {
     }
     .times-left {
         margin-left: 10px;
-        width: auto;
     }
+
     .times-right {
         margin-right: 10px;
-    }
-    .times {
-        width: 500px;
-        margin: none;
     }
 }
 
