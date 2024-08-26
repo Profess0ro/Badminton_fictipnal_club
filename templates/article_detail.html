@@ -66,7 +66,7 @@
             <form id="commentForm" method="post" style="margin-top: 1.3em;" class="content-text comment-text">
               {% csrf_token %}
               {{ comment_form | crispy }}
-              <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+              <button id="submitButton" type="submit" class="btn btn-signup btn-lg blue-border">Submit</button>
             </form>
           {% else %}
             <p>Log in to leave a comment</p>
