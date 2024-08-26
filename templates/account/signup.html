@@ -5,9 +5,9 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container no-margin-left signup-body blue-border white-bakground-2 fullview-small">
+<div class="container no-margin-left signup-body blue-border white-background-2 fullview-small">
   <div class="row">
-    <div class="col card-text">
+    <div class="col content-text">
       <h3 class="nav-font">{% trans "Sign Up" %}</h3>
       <hr class="text-separator">
       <p>{% blocktrans %}
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col card-text">
+    <div class="col content-text">
       <form class="signup" id="signup_form" method="post"
         action="{% url 'account_signup' %}">
         {% csrf_token %}
