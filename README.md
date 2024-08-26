@@ -98,7 +98,8 @@ If a user trying to book a court without being signed in first they will get dir
 <img src="readme/bookform1.png" height="300" width="auto"><br><br>
 But if a user are signed in, they will be directed to the booking form. Here are the booking system explained for the user on how it works. Since the booking system only allows bookings to be booked maximum 14 days ahead. The function calculates and display only dates from today (22 august) and 14 days ahead. So the first choice a user has to do is to pick what type of court they want to play on, then a date they want to book.<br><br>
 <img src="readme/bookform2.png" height="300" width="auto"><br><br>
-When a date are chosen, the system searching for booked times and calculates if there are any available times that date. Those times are then filled in the area for available times for the user. Now the user has to choose what time they want to play on. 
+When a date are chosen, the system searching for booked times and calculates if there are any available times that date. Those times are then filled in the area for available times for the user. Now the user has to choose what time they want to play on. <br>
+<img src="readme/bookform3.png" height="300" width="auto">
 
 ## Booking success
 
@@ -111,6 +112,7 @@ If all goes through with valid data input to the form the user will get directed
 <img src="readme/profile.png"><br><br>
 When a user wants to see their booking that they have made there is a menu that comes down if you click on the profile image in the main menu. Here are an option that´s named "my bookings"<br><br>
 <img src="readme/editbooking.png"><br><br>
+<img src="readme/mybookings2.png"><br><br>
 After the user has clicked on "my bookings" this view comes up and listing all of the bookings made by this specific user. Behind every booking there are options to either edit or delete a booking. If a user clicks on "Edit" the view below comes up.<br><br>
 <img src="readme/editbooking2.png" height="300" width="auto"><br><br>
 This view is similar to the booking form with a small change that it updates the current booking and as the button says "update booking" this will update and change the time of the booking that was chosen.<br><br>
@@ -140,6 +142,7 @@ If the form is successfully filled, the user will be directed to a page that con
 ## Error pages
 
 <img src="readme/errorpage.png" height="300" width="auto"><br><br>
+<img src="readme/errorpage2.png" height="300" width="auto"><br><br>
 I have the same error page for the following errors:<br>- **403:** When a user doesn´t have the permission to go to that specific page.<br>- **404:** When a page doesn´t exist that the user was directed to.<br>- **500:** When the database doesn´t connect.<br>- **504:** Network issues with the server.
 
 # Design
