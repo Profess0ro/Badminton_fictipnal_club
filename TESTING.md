@@ -30,6 +30,36 @@ Since the code for bootstrap modal 'deleteModal' are in the article_detail.html 
 <img src="readme/testing/html3.png"><br>
 <h2>Booking form</h2>
 <img src="readme/testing/html4.png"><br>
+<h2>Successful booking</h2>
+<img src="readme/testing/html5.png"><br>
+<h2>About us page</h2>
+<img src="readme/testing/html6.png"><br>
+<h2>Contact us page</h2>
+<img src="readme/testing/html7.png"><br>
+<h2>Contact us success page</h2>
+<img src="readme/testing/html8.png"><br>
+<h2>Log out profile page</h2>
+<img src="readme/testing/html9.png"><br>
+<h2>Sign up page</h2>
+<img src="readme/testing/html10.png"><br>
+Here it seems to be some error with the generated tags in signup.html
+Can´t find where I can change this and as visualised in the image below, all elements seems to be there.
+<img src="readme/testing/html11.png"><br>
+<h2>Log in profile page</h2>
+<img src="readme/testing/html12.png"><br>
+<h2>My bookings page</h2>
+<img src="readme/testing/html13.png"><br>
+<h2>Edit booking page</h2>
+<img src="readme/testing/html14.png"><br>
+<h2>Delete booking page</h2>
+<img src="readme/testing/html15.png"><br>
+</details>
+
+### Python files
+<details>
+<summary>CSS File</summary>
+<br>
+
 </details>
 
 
