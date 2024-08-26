@@ -302,6 +302,10 @@ pip3 freeze > requirements.txt
 7. To create the Procfile use `echo web: node index.js > Procfile` at the terminal in VS Code/GitPod.
 8. To deploy your repository to your Heroku account there are two ways. First go to **'Deploy'** in your Heroku application then scroll down and choose one of these options:<br>- **'Enable Automatic Deploys':** If you want that everytime you use `git push` in VS Code/GitPod that it deploys to Heroku<br>- **'Deploy Branch':** If you want to manually deploy your changes and have control when the code should or shouldn´t been deployed.
 
+# Testing
+
+I´ve made an external markdown file for testing and validation This file can be found [here](TESTING.md).
+
 # Problems encountered
 
 <img src="readme/problem1.png"><br><br>
