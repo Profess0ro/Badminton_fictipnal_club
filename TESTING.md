@@ -56,13 +56,31 @@ Can´t find where I can change this and as visualised in the image below, all el
 </details>
 
 ### Python files
+Screenshots from CI Python Linter validation
 <details>
-<summary>CSS File</summary>
+<summary>Projects .py-files</summary>
 <br>
+<h2>settings.py</h2>
+<img src="readme/testing/linter1.png"><br>
+<h2>urls.py</h2>
+<img src="readme/testing/linter2.png"><br>
+</details>
 
+<details>
+<summary>About us app</summary>
+<br>
+<h2>admin.py</h2>
+<img src="readme/testing/linter3.png"><br>
+<h2>models.py</h2>
+<img src="readme/testing/linter4.png"><br>
+<h2>urls.py</h2>
+<img src="readme/testing/linter5.png"><br>
+<h2>views.py</h2>
+<img src="readme/testing/linter6.png"><br>
 </details>
 
 
 # Resources
 [W3C css validator](https://jigsaw.w3.org/css-validator/validator)<br>
 [JShint](https://jshint.com/)<br>
+[CI Python Linter](https://pep8ci.herokuapp.com/)
