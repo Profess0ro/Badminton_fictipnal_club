@@ -7,10 +7,10 @@
 
 {% block content %}
 <div class="fullview-small">
-<div class="container no-margin-left signup-body">
+<div class="container no-margin-left signup-body blue-border white-background-2">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2 card-text">
-            <h3 class="nav-font">{% trans "Sign In" %}</h3>
+        <div class="col-md-8 mt-3 offset-md-2 content-text">
+            <h3 class="nav-font darkblue">{% trans "Sign In" %}</h3>
             <hr class="text-separator">
             <p>{% blocktrans %}Welcome back to Racket Club.<br>To leave a comment or like a post, please log in.<br>
                 If you have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
@@ -19,14 +19,14 @@
     </div>
     <hr class="text-separator">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2 signin-form">
+        <div class="col-md-8 mt-3 offset-md-2 signin-form content-text">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-signup right blue-border" type="submit">{% trans "Sign In" %}</button>
             </form>
         </div>
     </div>

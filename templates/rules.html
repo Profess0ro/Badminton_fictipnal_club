@@ -2,17 +2,17 @@
 
 {% block content %}
 {% load static %}
-<div class="container card-body no-margin-left article-post">
+<div class="container card-body blue-border no-margin-left white-background-2">
     <div class="row">
         <div class="col-md-6 col-s-12">
-            <h1 class="title">Rules on our courts</h1>
-            <article class="about-text">
+            <h1 class="nav-font">Rules on our courts</h1>
+            <article class="content-text">
             {{ content.content|safe }}
             </article>
-            <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg">Book Now</button></a>
+            <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg blue-border">Book Now</button></a>
         </div>
         <div class="col-md-6 booking-image">
-            <img src="{% static 'images/rules.png' %}" class="card-img-top" alt="Rules">
+            <img src="{% static 'images/rules.png' %}" class="card-img-top blue-border" alt="Rules">
         </div>
     </div>
 </div>

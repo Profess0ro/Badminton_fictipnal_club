@@ -3,14 +3,14 @@
 {% block content %}
 {% load static %}
 
-<div class="container card-body no-margin-left article-post">
+<div class="container card-body blue-border no-margin-left white-background-2">
     <div class="row">
         <div class="col-md-4 col-s-12">
-            <img src="{% static 'images/tennisballs.png' %}" class="card-img-top booking-image" alt="tennisballs">
+            <img src="{% static 'images/tennisballs.png' %}" class="card-img-top booking-image blue-border" alt="tennisballs">
         </div>
-        <div class="col-md-8 col-s-12">
-            <h1 class"title">The Racket Club</h1>
-            <article class="about-text">
+        <div class="col-md-8 col-s-12 nav-font">
+            <h1>The Racket Club</h1>
+            <article class="content-text">
                 {{ content.content|safe }}
             </article>
         </div>

@@ -2,12 +2,12 @@
 
 {% block content %}
 {% load static %}
-<div class="container card-body no-margin-left article-post">
-    <div class="row">
+<div class="container card-body blue-border no-margin-left article-post white-background-2">
+    <div class="row nav-font">
         <h1>Book Our Court</h1>
         <h5>How the booking system works:</h5>
         <hr class="text-separator">
-        <p class="about-text text-left">
+        <p class="content-text text-left">
             - Dates for today and 14 days ahead are bookable.<br>
             - Select court type so the system calculates times for the right court.<br>
             - When you pick a date, our system will calculate which times are available to book. <i>(this can take a couple of seconds)</i><br>
@@ -17,19 +17,19 @@
         </p>
     </div>
     <div class="row">
-        <div class="col-md-4 col-s-12 times times-left">
+        <div class="col-md-4 col-s-12 times times-left blue-border nav-font">
             <form id="booking-form" method="POST" action="{% url 'booking_view' %}">
                 {% csrf_token %}
                 <div id="court-selection">
-                    <label for="court-type"><h5>Select Court Type:</h5></label>
-                    <select id="court-type" name="court_type">
+                    <label for="court-type"><h5 class="nav-font">Select Court Type:</h5></label><br>
+                    <select id="court-type" name="court_type" class="content-text">
                         {% for court_type in court_types %}
                             <option value="{{ court_type.id }}">{{ court_type }}</option>
                         {% endfor %}
-                    </select>
+                    </select><br>
                 </div>
                 <div id="date-selection">
-                    <h4>Select a Date:</h4>
+                    <h4 class="nav-font">Select a Date:</h4>
                     {% for date in dates %}
                         <label>
                             <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" />
@@ -41,13 +41,13 @@
                 <input type="hidden" id="selected-time" name="time" value="">
             </div>
             <div class="col-md"></div>
-            <div class="col-md-7 col-s-12 times times-right">
+            <div class="col-md-7 col-s-12 times blue-border times-right">
                 <div id="time-selection">
-                    <h5>Available Times:</h5>
-                    <div id="available-times" class="time-slot-grid">
+                    <h5 class="nav-font">Available Times:</h5>
+                    <div id="available-times" class="time-slot-grid nav-font">
                         <!-- This div will be populated by JavaScript -->
                     </div>
-                    <button type="submit" class="btn btn-signup btn-lg">Book Now</button>
+                    <button type="submit" class="btn btn-signup btn-lg blue-border">Book Now</button>
                 </div>
             </form>
         </div>

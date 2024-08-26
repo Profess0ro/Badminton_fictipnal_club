@@ -3,13 +3,13 @@
 {% block content %}
 {% load static %}
 
-<div class="container card-body no-margin-left article-post">
+<div class="container card-body blue-border no-margin-left white-background-2">
     <h1>Whoopsie!</h1>
-    <img src="{% static 'images/error.png' %}" class="card-img-top" alt="error">
-    <p class="about-text">We're sorry, but we think the ball went out!<br>
+    <img src="{% static 'images/error.png' %}" class="card-img-top blue-border" alt="error">
+    <p class="content-text">We're sorry, but we think the ball went out!<br>
     If you think this problem are something we shall look in to, please contact us!</p></p>
-    <h2><a href="{% url 'index' %}" class="article-link">Return to the homepage</a>  |  
-        <a href="{% url 'contact' %}" class="article-link">Contact us</a></h2>
+    <h2><a href="{% url 'index' %}" class="article-link darkblue">Return to the homepage</a>  |  
+        <a href="{% url 'contact' %}" class="article-link darkblue">Contact us</a></h2>
 
 </div>
 {% endblock %}

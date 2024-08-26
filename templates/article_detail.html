@@ -6,26 +6,26 @@
 
 
 <div>
-  <div class="container card-body no-margin-left article-post">
+  <div class="container card-body blue-border no-margin-left article-post white-background-2">
     <div class="row">
       <div class="col">
         {% if "placeholder" in article.featured_image.url %}
-          <img class="card-img-top" src="{% static 'images/logo.png' %}" alt="logo">
+          <img class="card-img-top blue-border" src="{% static 'images/logo.png' %}" alt="logo">
         {% else %}
-          <img class="card-img-top" src="{{ article.featured_image.url }}" alt="{{ article.title }}">
+          <img class="card-img-top blue-border" src="{{ article.featured_image.url }}" alt="{{ article.title }}">
         {% endif %}
       </div>
     </div>
     <hr class="text-separator-img">
     <div class="row">
       <div class="col text-created">
-        <h1 class="title">{{ article.title }}</h1>
+        <h1 class="title nav-font">{{ article.title }}</h1>
         <hr class="text-separator">
         <p class="article-subtitle">{{ article.created_on }}, <br>Written by:     {{ article.author }} </p>
       </div>
     </div>
     <div class="row">
-      <article class="card-text">
+      <article class="content-text">
         {{ article.content | safe }}
       </article>
       <hr class="text-separator">
@@ -33,7 +33,7 @@
   </div>
   <!-- Approved comments on articles will be shown here -->
   <div class="container comments">
-    <div class="row card-body">
+    <div class="row card-body blue-border">
       <div class="col-md-8">
         <div class="">
           <i class="far fa-comments"></i>  {{ comment_count }}
@@ -42,7 +42,7 @@
           {% for comment in comments %}
           <div class="p-2 comment-entry {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
               <p class="font-weight-bold">{{ comment.author }}<br><span class="font-weight-normal">{{ comment.created_on }}</span>
-              <div id="comment{{ comment.id }}" class="comment-text">{{ comment.content | linebreaks }}</div>
+              <div id="comment{{ comment.id }}" class="content-text comment-text">{{ comment.content | linebreaks }}</div>
               <!-- If a comment is done by the user who is logged in, delete/edit buttons will be shown -->
               {% if user.is_authenticated and comment.author == user %}
                 <button class="btn btn-delete"
@@ -57,13 +57,13 @@
         </div>
       </div>
         <!-- Comment form for logged in user otherwise a text asking the user to login to leave a comment -->
-        <div class="col-md-4 commenting">
+        <div class="col-md-4 commenting white-bakground-2">
           {% if user.is_authenticated %}
             <h3>Leave a comment:</h3>
-            <p class="comment-text comment-username">Commenting as:</p>{{ user.username }}
+            <p class="content-text comment-text comment-username">Commenting as:</p>{{ user.username }}
             <hr class="text-separator text-separator-comments">
-            <p class="comment-text review-text">Your comment will be reviewed before shown on the page</p>
-            <form id="commentForm" method="post" style="margin-top: 1.3em;" class="comment-text">
+            <p class="content-text comment-text review-text">Your comment will be reviewed before shown on the page</p>
+            <form id="commentForm" method="post" style="margin-top: 1.3em;" class="content-text comment-text">
               {% csrf_token %}
               {{ comment_form | crispy }}
               <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>

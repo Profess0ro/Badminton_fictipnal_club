@@ -3,12 +3,12 @@
 {% block content %}
 {% load static %}
 
-<div class="container card-body no-margin-left article-post">
+<div class="container card-body blue-border no-margin-left article-post">
     <h1>Delete Booking</h1>
-    <p class="card-text">Are you sure you want to delete this booking?</p>
-    <p class="card-text"><strong>Court Type:</strong><br> {{ booking.court_type }}</p>
-    <p class="card-text"><strong>Date: </strong><br>{{ booking.date }}</p>
-    <p class="card-text"><strong>Time: </strong><br>{{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}</p>
+    <p class="content-text">Are you sure you want to delete this booking?</p>
+    <p class="content-text"><strong>Court Type:</strong><br> {{ booking.court_type }}</p>
+    <p class="content-text"><strong>Date: </strong><br>{{ booking.date }}</p>
+    <p class="content-text"><strong>Time: </strong><br>{{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}</p>
     <form method="POST" action="{% url 'delete_booking' booking.id %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-edit">Confirm Deletion</button>

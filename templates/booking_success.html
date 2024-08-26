@@ -2,16 +2,16 @@
 
 {% block content %}
 {% load static %}
-<div class="container card-body no-margin-left article-post">
-    <div class="row">
+<div class="container card-body blue-border no-margin-left article-post white-background-2 profile">
+    <div class="row profile">
         <div class="container">
-            <div class="times success col-md">
-            <h1>Booking Confirmed!</h1>
-            <p class="about-text">Thank you <strong>{{ user.username }}</strong> for your booking. Here are your booking details:</p>    
+            <div class="times blue-border success col-md">
+            <h1 class="nav-font">Booking Confirmed!</h1>
+            <p class="content-text">Thank you <strong>{{ user.username }}</strong> for your booking.<br> Here are your booking details:<br><br>
                 <strong>Court Type:</strong><br> {{ booking.court_type }}<br>
                 <strong>Date:</strong><br> {{ booking.date }}<br>
-                <strong>Time:</strong><br> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}<br>
-                <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg">Make another booking</button></a>
+                <strong>Time:</strong><br> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}<br></p> 
+                <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg blue-border">Make another booking</button></a>
             </div>
         </div>
     </div>

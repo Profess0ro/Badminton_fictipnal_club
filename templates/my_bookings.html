@@ -2,11 +2,11 @@
 
 {% block content %}
 {% load static %}
-<div class="container card-body no-margin-left article-post">
+<div class="container card-body blue-border no-margin-left white-background-2">
     <h1>My Bookings</h1>
     <div>
         {% for booking in bookings %}
-            <p class="card-text">
+            <p class="content-text">
                 <strong>Court Type:</strong> {{ booking.court_type }} | <strong>Date:</strong> {{ booking.date }} | <strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}
                 <a href="{% url 'edit_booking' booking.id %}"><button class="btn btn-edit">Edit</button></a>
                 <a href="{% url 'delete_booking' booking.id %}"><button class="btn btn-delete">Delete</button></a>

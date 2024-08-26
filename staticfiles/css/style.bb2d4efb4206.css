@@ -13,10 +13,11 @@ html, body {
     margin: 0;
 }
 
+
 header {
     height: 200px;
     display: none;
-    background-image: url(../images/header.png);
+    background-image: url("../images/header.d051fc8b9045.png");
     background-size: auto;
     background-repeat: no-repeat;
     border-bottom: 3px solid #2B3960;
@@ -175,6 +176,7 @@ h1, h5, h4, .darkblue{
     width: auto;
 }
 
+
 .times {
     padding: 10px;
     width: 95%;
@@ -184,6 +186,7 @@ h1, h5, h4, .darkblue{
 .card-body, .signup-body {
     padding: 5px;
 }
+
 
 .slice-text, a:has(.slice-text) {
     margin-top: 5px;
@@ -198,6 +201,8 @@ h1, h5, h4, .darkblue{
 .author {
     font-weight: 700;
 }
+
+
 
 .text-created {
     top: 120px;
@@ -242,6 +247,8 @@ h1, h5, h4, .darkblue{
     color: #602b2b;
     background-color: #d15151;
 }
+
+
 
 .big-nav a:hover {
     color:#E8B272;
@@ -380,7 +387,7 @@ h1, h5, h4, .darkblue{
     }
     .times {
         width: 500px;
-        margin: 10px;
+        margin: none;
     }
 }
 
