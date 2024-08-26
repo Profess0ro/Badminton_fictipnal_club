@@ -20,12 +20,16 @@ Since the code for bootstrap modal 'deleteModal' are in the article_detail.html 
 
 ### Html files
 <details>
-<summary>Screenshots result for all templates</summary>
+<summary>Screenshot results for all templates</summary>
 <br>
-<b>Start page</b><br>
+<h2>Start page</h2><br>
 <img src="readme/testing/html1.png"><br>
-<b>Random article</b>
+<h2>Random article</h2>
 <img src="readme/testing/html2.png"><br>
+<h2>Rules page</h2>
+<img src="readme/testing/html3.png"><br>
+<h2>Booking form</h2>
+<img src="readme/testing/html4.png"><br>
 </details>
 
 
