@@ -37,7 +37,7 @@
       <div class="col-md-8">
         <div class="">
           <i class="far fa-comments"></i>  {{ comment_count }}
-          <h3>Comments:</h3>
+          <h3 class="nav-font">Comments:</h3>
           <hr class="text-separator">
           {% for comment in comments %}
           <div class="p-2 comment-entry {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
@@ -57,10 +57,10 @@
         </div>
       </div>
         <!-- Comment form for logged in user otherwise a text asking the user to login to leave a comment -->
-        <div class="col-md-4 commenting white-bakground-2">
+        <div class="col-md-4 commenting white-background-2">
           {% if user.is_authenticated %}
-            <h3>Leave a comment:</h3>
-            <p class="content-text comment-text comment-username">Commenting as:</p>{{ user.username }}
+            <h3 class="nav-font">Leave a comment:</h3>
+            <p class="content-text comment-text comment-username">Commenting as:</p><strong>{{ user.username }}</strong>
             <hr class="text-separator text-separator-comments">
             <p class="content-text comment-text review-text">Your comment will be reviewed before shown on the page</p>
             <form id="commentForm" method="post" style="margin-top: 1.3em;" class="content-text comment-text">
