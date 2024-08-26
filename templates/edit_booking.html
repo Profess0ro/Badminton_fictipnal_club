@@ -5,13 +5,13 @@
 
 <div class="container card-body blue-border no-margin-left white-background-2">
     <div class="row">
-        <h1>Edit Booking</h1>
-        <div class="col-md-6 col-s-12">
+        <h1 class="nav-font">Edit Booking</h1>
+        <div class="col-md-6 col-s-12 content-text blue-border times">
             <form method="POST" action="{% url 'edit_booking' booking.id %}">
                 {% csrf_token %}
                 
                 <div id="court-selection">
-                    <label for="court-type">Select Court Type:</label>
+                    <label for="court-type" class="nav-font"><h5 class="nav-font">Select Court Type:</h5></label><br>
                     <select id="court-type" name="court_type">
                         {% for court_type in court_types %}
                             <option value="{{ court_type.id }}" {% if court_type.id == booking.court_type.id %}selected{% endif %}>
@@ -21,23 +21,23 @@
                     </select>
                 </div>
 
-                <div id="date-selection">
-                    <p>Select a Date:</p>
+                <div id="date-selection nav-font">
+                    <p class="nav-font"><h4 class="nav-font">Select a Date:</h4></p>
                     {% for date in dates %}
-                        <label>
+                        <label class="nav-font">
                             <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" {% if date == booking.date %}checked{% endif %} />
                             {{ date|date:"F j, Y" }}
                         </label><br/>
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-6 col-s-12">
+            <div class="col-md-6 col-s-12 blue-border times nav-font">
                 <div id="time-selection">
-                    <p>Available times:</p>
+                    <h4>Available times:</h4>
                     <div id="available-times" class="time-slot-grid">
                         <!-- Available times will be populated here by JavaScript -->
                     </div>
-                    <button type="submit" class="btn btn-signup btn-lg">Update Booking</button>
+                    <button type="submit" class="btn btn-signup btn-lg blue-border">Update Booking</button>
                 </div>
 
                 <!-- Hidden inputs for JavaScript -->
