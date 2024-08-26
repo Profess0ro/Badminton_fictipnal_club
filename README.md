@@ -1,4 +1,5 @@
 # Racket Club
+<img src="readme/responsive.png" width="auto" height="300"><br><br>
 
 This is a page about a fictional Racket club that have some tennis courts that everyone can book to play on.
 The Club also have members that play semi-professional Tennis with great results.
@@ -330,7 +331,15 @@ Since `comments.js` are loaded into `base.html` it kept searching for the modal 
     }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.
 
 - Problems generating available times.
-The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function the span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.
+The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function the span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.<br>
+
+- Responsiveness on tablets.<br><br>
+<img src="readme/responsive_tablet2.png" height="300" width="auto"><br>
+Saw that if a user a tablet vertically there will be a problem with the article posts.<br>
+**Solution:**<br>
+If the user instead rotates the tablet and use it horizontally it looks better.<br>
+<img src="readme/responsive_tablet.png" height="300" width="auto"><br>
+
 # Credits
 
 - [Mailtrap tutorial to create contactform](https://www.youtube.com/watch?v=5XFiqc8HlkE)
