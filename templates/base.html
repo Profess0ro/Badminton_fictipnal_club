@@ -55,7 +55,7 @@
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-user"></i>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu nav-font">
                 <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
                 <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_login' %}">Login</a></li>
                 {% if user.is_authenticated %}
@@ -104,7 +104,7 @@
             <a class="darkblue dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-user"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu nav-font">
               <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
               <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_login' %}">Login</a></li>
               {% if user.is_authenticated %}
