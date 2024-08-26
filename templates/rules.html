@@ -9,7 +9,8 @@
             <article class="content-text">
             {{ content.content|safe }}
             </article>
-            <a href="{% url 'booking_view' %}"><button class="btn btn-signup btn-lg blue-border">Book Now</button></a>
+            <button class="btn btn-signup btn-lg blue-border" 
+            onclick="window.location.href='{% url 'booking_view' %}';">Book Now</button>
         </div>
         <div class="col-md-6 booking-image">
             <img src="{% static 'images/rules.png' %}" class="card-img-top blue-border" alt="Rules">
