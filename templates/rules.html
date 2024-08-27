@@ -9,8 +9,14 @@
             <article class="content-text">
             {{ content.content|safe }}
             </article>
+            {% if user.is_authenticated %}
             <button class="btn btn-signup btn-lg blue-border" 
             onclick="window.location.href='{% url 'booking_view' %}';">Book Now</button>
+            {% else %}
+            <br><p class="nav-font blue-border darkblue">You must be logged in to book a court<br>
+                <a class="article-link darkblue" href="{% url 'account_login' %}">Click here to log in!</a>
+            </p>
+            {% endif %}
         </div>
         <div class="col-md-6 booking-image">
             <img src="{% static 'images/rules.png' %}" class="card-img-top blue-border" alt="Rules">
