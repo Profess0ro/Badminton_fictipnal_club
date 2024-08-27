@@ -1,4 +1,15 @@
+[Validation](#validation)
+*   [CSS and JS](#css-and-js)
+*   [HTML files](#html-files)
+*   [Python files](#python-files)
+
+[Manual testing](#manual-testing)<br>
+[Resources](#resources)
+
+
 # Validation
+
+### CSS and JS
 
 <details>
 <summary>CSS File</summary>
@@ -18,7 +29,7 @@ Since the js-file are loaded into the base.html the jshint found a problem that 
 Since the code for bootstrap modal 'deleteModal' are in the article_detail.html there seems to be a confusing problem for the jshint.
 </details>
 
-### Html files
+### HTML files
 <details>
 <summary>Screenshot results for all templates</summary>
 <br>
@@ -43,7 +54,7 @@ Since the code for bootstrap modal 'deleteModal' are in the article_detail.html 
 <h2>Sign up page</h2>
 <img src="readme/testing/html10.png"><br>
 Here it seems to be some error with the generated tags in signup.html
-Can´t find where I can change this and as visualised in the image below, all elements seems to be there.
+Can´t find where I can change this and as shown in the image below, all elements seems to be there.
 <img src="readme/testing/html11.png"><br>
 <h2>Log in profile page</h2>
 <img src="readme/testing/html12.png"><br>
@@ -116,6 +127,21 @@ Screenshots from CI Python Linter validation
 <img src="readme/testing/linter17.png"><br>
 </details>
 
+# Manual testing
+
+### Home page
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Navigate to the booking system | When clicking on "Book our court" a page with the rules will show | Clicked on "Book our court" | A page with rules and a button with "Book Now" was shown | Pass |
+| Navigate to About us | When clicking on "About us" a page with the information about the club will show | Clicked on "About us" | A page with information about the club was shown | Pass |
+| Navigate to the contact form | When clicking on "Contact us" a page with a contact form will show | Clicked on "Contact us" | A page with a contact form was shown | Pass |
+| Navigate to an article by clicking on a image | When clicking on an image in a article card, that specific article will show | Clicked on an image within an article card | That specific article was shown | Pass |
+| Navigate to an article by clicking on a title | When clicking on a title in a article card, that specific article will show | Clicked on a title within an article card | That specific article was shown | Pass |
+| Navigate to an article by clicking on a slice text | When clicking on a slice text in a article card, that specific article will show | Clicked on a slice text within an article card | That specific article was shown | Pass |
+| See more articles by clicking on the "Next"-button | When clicking on the "Next"-button, more articles will be shown | Clicked on the "Next"-button | More articles was shown | Pass |
+| See more articles by clicking on the "Prev"-button | When clicking on the "Prev"-button, articles on the previous page will be shown | Clicked on the "Prev"-button | The previous article page was shown | Pass |
+| Navigate to the sign up form | When clicking on "Signup" in the profile menu, a sign up form to create a user will be shown | Clicked on "Signup" in the profile menu | A sign up form to create a user was shown | Pass |
+| Navigate to the log in page | When clicking on "Login" in the profile menu, a login page will be shown | Clicked on "Login" in the profile menu | A login page was shown | Pass |
 
 # Resources
 [W3C css validator](https://jigsaw.w3.org/css-validator/validator)<br>
