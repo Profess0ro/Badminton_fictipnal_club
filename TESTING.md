@@ -79,6 +79,43 @@ Screenshots from CI Python Linter validation
 <img src="readme/testing/linter6.png"><br>
 </details>
 
+<details>
+<summary>Articles app</summary>
+<br>
+<h2>admin.py</h2>
+<img src="readme/testing/linter7.png"><br>
+<h2>forms.py</h2>
+<img src="readme/testing/linter8.png"><br>
+<h2>models.py</h2>
+<img src="readme/testing/linter9.png"><br>
+<h2>urls.py</h2>
+<img src="readme/testing/linter10.png"><br>
+<h2>views.py</h2>
+<img src="readme/testing/linter11.png"><br>
+</details>
+
+<details>
+<summary>Bookings app</summary>
+<br>
+<h2>admin.py</h2>
+<img src="readme/testing/linter12.png"><br>
+<h2>models.py</h2>
+<img src="readme/testing/linter13.png"><br>
+<h2>urls.py</h2>
+<img src="readme/testing/linter14.png"><br>
+<h2>views.py</h2>
+<img src="readme/testing/linter15.png"><br>
+</details>
+
+<details>
+<summary>Contact app</summary>
+<br>
+<h2>forms.py</h2>
+<img src="readme/testing/linter16.png"><br>
+<h2>views.py</h2>
+<img src="readme/testing/linter17.png"><br>
+</details>
+
 
 # Resources
 [W3C css validator](https://jigsaw.w3.org/css-validator/validator)<br>

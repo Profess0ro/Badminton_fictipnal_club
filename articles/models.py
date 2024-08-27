@@ -12,14 +12,16 @@ class Article(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     slug = models.SlugField(unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name='articles')
 
     def __str__(self):
         return self.title
 
-    
+
 class Comment(models.Model):
-    article = models.ForeignKey(Article, related_name='comments', on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, related_name='comments',
+                                on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

@@ -4,7 +4,7 @@ from django import forms
 
 class CommentForm(forms.ModelForm):
     """
-    Form class for users to comment on a post 
+    Form class for users to comment on a post
     """
     class Meta:
         """

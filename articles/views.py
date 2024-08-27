@@ -11,10 +11,12 @@ class ArticleList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
+
 class ArticleDetail(View):
     def get(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
-        comments = article.comments.filter(approved=True).order_by('created_on')
+        comments = article.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = comments.count()
         return render(
             request,
@@ -30,13 +32,15 @@ class ArticleDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
-        comments = article.comments.filter(approved=True).order_by('created_on')
+        comments = article.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = comments.count()
 
         if 'edit_comment_content' in request.POST:
             comment_id = request.POST.get('comment_id')
             new_content = request.POST.get('edit_comment_content')
-            comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+            comment = get_object_or_404(
+                Comment, id=comment_id, author=request.user)
             comment.body = new_content
             comment.save()
             messages.success(request, "Comment updated successfully")
@@ -54,7 +58,8 @@ class ArticleDetail(View):
             messages.success(request, "Comment posted successfully")
             return redirect('article_detail', slug=slug)
         else:
-            messages.error(request, "Failed to post comment. Please check the form.")
+            messages.error(
+                request, "Failed to post comment. Please check the form.")
             return render(
                 request,
                 "article_detail.html",
@@ -67,36 +72,40 @@ class ArticleDetail(View):
                 },
             )
 
+
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     if request.method == "POST":
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            return redirect('article_detail', slug=comment.article.slug)  
+            return redirect('article_detail', slug=comment.article.slug)
     else:
         form = CommentForm(instance=comment)
-    
+
     return render(request, 'edit_comment.html', {'form': form})
+
 
 def delete_comment(request, comment_id):
     if request.method == 'POST':
         comment = get_object_or_404(Comment, id=comment_id)
         article = get_object_or_404(Article, id=comment.article.id)
-        
+
         if comment.author == request.user:
             comment.delete()
             messages.success(request, 'Comment deleted successfully.')
         else:
-            messages.error(request, 'You do not have permission to delete this comment.')
+            messages.error(
+                request, 'You do not have permission to delete this comment.')
 
         return redirect('article_detail', slug=article.slug)
     else:
         return redirect('article_detail', slug=article.slug)
-    
-    
+
+
 def error_404(request, exception):
     return render(request, '404.html', status=404)
- 
+
+
 def error_500(request):
     return render(request, '404.html', status=500)
