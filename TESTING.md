@@ -3,7 +3,9 @@
 *   [HTML files](#html-files)
 *   [Python files](#python-files)
 
-[Manual testing](#manual-testing)<br>
+[Manual testing](#manual-testing)
+*   [Home page](#home-page)
+
 [Resources](#resources)
 
 
@@ -144,6 +146,6 @@ Screenshots from CI Python Linter validation
 | Navigate to the log in page | When clicking on "Login" in the profile menu, a login page will be shown | Clicked on "Login" in the profile menu | A login page was shown | Pass |
 
 # Resources
-[W3C css validator](https://jigsaw.w3.org/css-validator/validator)<br>
-[JShint](https://jshint.com/)<br>
-[CI Python Linter](https://pep8ci.herokuapp.com/)
+[W3C css validator](https://jigsaw.w3.org/css-validator/validator) - Validating CSS file<br>
+[JShint](https://jshint.com/) - Validate JS file<br>
+[CI Python Linter](https://pep8ci.herokuapp.com/) - Validate python files
