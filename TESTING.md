@@ -14,7 +14,7 @@
 <details>
 <summary>CSS File</summary>
 <br>
-<img src="readme/css_validation.png">
+<img src="readme/testing/css_validation.png">
 When I ran the css code in W3C css validator, it didn´t find anything that was wrong.
 </details>
 

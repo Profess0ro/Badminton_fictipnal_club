@@ -34,7 +34,7 @@ There are also a contact form that users can send questions to the club.
     * [Github](#github)
     * [Deploy in development environment](#deploy-in-development-environment)
     * [Heroku](#heroku)
-- [Testing]()
+- [Testing](#testing)
 - [Problems encountered](#problems-encountered)
 - [Credits](#credits)
 
