@@ -15,7 +15,8 @@ class ArticleList(generic.ListView):
 class ArticleDetail(View):
     def get(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
-        comments = article.comments.filter(approved=True).order_by('created_on')
+        comments = article.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = comments.count()
         comment_posted = request.GET.get('comment_posted', False)
 
@@ -27,19 +28,21 @@ class ArticleDetail(View):
                 "comments": comments,
                 "comment_count": comment_count,
                 "comment_form": CommentForm(),
-                "comment_posted": comment_posted,  # Pass the flag to the template
+                "comment_posted": comment_posted,
             },
         )
 
     def post(self, request, slug, *args, **kwargs):
         article = get_object_or_404(Article, slug=slug, status=1)
-        comments = article.comments.filter(approved=True).order_by('created_on')
+        comments = article.comments.filter(
+            approved=True).order_by('created_on')
         comment_count = comments.count()
 
         if 'edit_comment_content' in request.POST:
             comment_id = request.POST.get('comment_id')
             new_content = request.POST.get('edit_comment_content')
-            comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+            comment = get_object_or_404(
+                Comment, id=comment_id, author=request.user)
             comment.body = new_content
             comment.save()
             messages.success(request, "Comment updated successfully")
@@ -59,7 +62,8 @@ class ArticleDetail(View):
             # Redirect with a flag indicating the comment was posted
             return redirect(f'{request.path}?comment_posted=True')
         else:
-            messages.error(request, "Failed to post comment. Please check the form.")
+            messages.error(
+                request, "Failed to post comment. Please check the form.")
             return render(
                 request,
                 "article_detail.html",
@@ -95,7 +99,8 @@ def delete_comment(request, comment_id):
             comment.delete()
             messages.success(request, 'Comment deleted successfully.')
         else:
-            messages.error(request, 'You do not have permission to delete this comment.')
+            messages.error(
+                request, 'You do not have permission to delete this comment.')
 
         return redirect('article_detail', slug=article.slug)
     else:

@@ -187,11 +187,14 @@ Those are the biggest issues the result came up to.
 | Can´t comment on an article when not logged in | When not logged in, a text will tell the user to login before they can comment | Scrolled down in an article to the comment section without logged in before | There was a text telling me to log in before commenting | Pass |
 | Comment textarea visual | When logged in there will be information about who is commenting and a textarea visual to comment the article | Logged in and scrolled down to the commenting section | The comment section told me who was logged in, that the comment will be reviewed and a textarea to comment | Pass |
 | Try to comment with empty textarea | When submitting an empty textarea, there will be a message telling to fill in the textarea | Pressed "Submit" with an empty textarea | There was a message telling me that the textarea can´t be empty | Pass |
-
+| Confirmation when posted a comment | When clicking on the "Submit"-button a message shall confirm the post | Posting a comment by clicking "Submit" | A message shown up when the page has been reloaded, that my comment has been confirmed but waiting approval | Pass |
+| "Edit/delete"-buttons beside my own comments only | "Edit/delete"-buttons shall only be visual on my own comments and not other users comments | Scrolled down to the comment section where two different users had comment | Only on my own comment there was "edit/delete"-buttons visual | Pass |
+| Edit a comment | When clicking on "Edit" the comment will jump back to the textarea and the "submit"-button change text to "update". Clicking on the "update"-button will update the comment | Clicked on the "edit"-button next to my comment | My comments content jumped back to the textarea and the "submit"-button changed to "update". Changed the content and pressed "update", the page reloaded and the comment was updated | Pass |
+| Delete a comment | Clicking on the "delete"-button will open up a modal asking the user if they are sure to delete the comment | Clicked the "delete"-button next to my comment | A modal was asking me if I wanted to delete the comment that was chosen. When confirming the delete, comment was deleted | Pass | 
 
 </details>
 
 # Resources
-[W3C css validator](https://jigsaw.w3.org/css-validator/validator) - Validating CSS file<br>
+[W3C css validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - Validating CSS file<br>
 [JShint](https://jshint.com/) - Validate JS file<br>
 [CI Python Linter](https://pep8ci.herokuapp.com/) - Validate python files
