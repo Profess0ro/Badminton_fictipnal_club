@@ -1,12 +1,11 @@
-[Validation](#validation)
-*   [CSS and JS](#css-and-js)
-*   [HTML files](#html-files)
-*   [Python files](#python-files)
-
-[Manual testing](#manual-testing)
-*   [Home page](#home-page)
-
-[Resources](#resources)
+- [Validation](#validation)
+    * [CSS and JS](#css-and-js)
+    * [HTML files](#html-files)
+    * [Python files](#python-files)
+- [Performance](#performance)
+- [Manual testing](#manual-testing)
+    * [Home page](#home-page)
+- [Resources](#resources)
 
 
 # Validation
@@ -129,6 +128,15 @@ Screenshots from CI Python Linter validation
 <img src="readme/testing/linter17.png"><br>
 </details>
 
+# Performance 
+
+### Lighthouse
+<img src="readme/testing/lighthouse.png"><br><br>
+The result wants me to use article images with the right size. These card-images on the homepage are downsized from 675px height to 279px height, since the code takes original cloudinary-uploaded image and transform it to the card-size.<br>
+It also wants me to not load unnecessary css/js files, all these files are loaded in to base.html so that they are in a "standby-mode" until they are needed. The js-files have a if statement to search for an element before loaded and working at the pages.
+Those are the biggest issues the result came up to.
+
+
 # Manual testing
 
 ### Home page
@@ -164,7 +172,7 @@ Screenshots from CI Python Linter validation
 | "Book now" button shown | When logged in at the rules a button with the text "Book now" should be visual | Logged in and went to the rules page | A button with the text "Book now" was shown | Pass |
 | No timeslots that have been past can be booked | Now when the time is 11:47 AM no times with starttime before 12.00 PM should be visual when selecting todays date | Selected todays date | The first time available was 12:00 PM - 01:00 PM | Pass |
 | Successfully book a time | Select a date and time to play on and click "Book now". Then be navigated to a confirmation page | Selected a date and time and clicked "Book now" | Was navigated to a page confirming the booking with booking info. | Pass |
-| No booked times are available | When booking a time there should not be booked time visual for users | Since there was a time booked in the previous test on todays test between 03:00 - 05:00 PM on grass court, there should not be any times visual within this span. | Selected todays date and no starting times between 03:00 - 05:00 PM was shown, but if you choosed the gravel court there was times available within that timeslot. | Pass |
+| No booked times are available | When booking a time, there should not be booked times visual for other users | Since there was a time booked in the previous test on todays test between 03:00 - 05:00 PM on grass court, there should not be any times visual within this span. | Selected todays date and no starting times between 03:00 - 05:00 PM was shown, but if you choosed the gravel court there was times available within that timeslot. | Pass |
 
 
 
