@@ -48,7 +48,7 @@
                 hidden
               {% endif %}
             {% endif %}">
-              <p class="font-weight-bold">{{ comment.author }}<br><span class="font-weight-normal">{{ comment.created_on }}</span>
+              <p class="font-weight-bold"><strong>{{ comment.author }}</strong> wrote:<br><span class="font-weight-normal">{{ comment.created_on }}</span>
               <div id="comment{{ comment.id }}" class="content-text comment-text">{{ comment.content | linebreaks }} </div>
               <!-- If a comment is done by the user who is logged in, delete/edit buttons will be shown -->
               {% if user.is_authenticated and comment.author == user %}
@@ -105,9 +105,27 @@
     </div>
   </div>
 
+  <div class="modal fade" id="commentSuccessModal" tabindex="-1" aria-labelledby="commentSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title nav-font" id="commentSuccessModalLabel">Comment Submitted</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your comment has been successfully posted and is awaiting approval.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock content %}
 
 {% block extras %}
+
 <script src="{% static 'js/comments.js' %}"></script>
 
 {% endblock %}

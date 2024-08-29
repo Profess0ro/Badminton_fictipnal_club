@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     /*
     Assign background colors to comment entries based on their index.
-    So even if a user deletes their comment there won´t be the same
-    background color on top of eachother.
+    So even if a user deletes their comment there won’t be the same
+    background color on top of each other.
     */
     const commentEntries = document.getElementsByClassName("comment-entry");
     for (let i = 0; i < commentEntries.length; i++) {
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     /*
     Check if deleteModal exists before initializing it. 
-    Otherwise there will be an error when there are no 'deleteModal'
-    in the html code.
+    Otherwise, there will be an error when there are no 'deleteModal'
+    in the HTML code.
     */
     const deleteModalElement = document.getElementById("deleteModal");
     let deleteModal = null;
@@ -32,6 +32,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const commentText = document.getElementById("id_content");
     const submitButton = document.getElementById("submitButton");
     const commentForm = document.getElementById("commentForm");
+    const commentSuccessModalElement = document.getElementById("commentSuccessModal");
+    let commentSuccessModal = null;
+
+    if (commentSuccessModalElement) {
+        commentSuccessModal = new bootstrap.Modal(commentSuccessModalElement);
+    }
   
     /*
     When a user wants to edit their own comment by pressing the edit button, this specific
@@ -57,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     /*
-    When pressing "delete" on a comment a modal will be shown. 
-    In that modal this specific comment will be shown and asking 
+    When pressing "delete" on a comment, a modal will be shown. 
+    In that modal, this specific comment will be shown and ask 
     the user if they are sure to delete their comment or not.
     */
     for (let button of deleteButtons) {
@@ -78,5 +84,14 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-  });
-  
+
+    /*
+    Check if the comment success modal should be shown based on the URL parameter.
+    */
+    const urlParams = new URLSearchParams(window.location.search);
+    const commentPosted = urlParams.get('comment_posted');
+
+    if (commentPosted === 'True' && commentSuccessModal) {
+        commentSuccessModal.show();
+    }
+});
