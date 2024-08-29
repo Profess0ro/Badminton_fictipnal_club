@@ -168,15 +168,28 @@ Those are the biggest issues the result came up to.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Try to book a time when not logged in | When not logged in a text will tell the user to login before they can book | Went to the rules page before logged in | A text told me to login before booking a time | Pass |
+| Can´t book a time when not logged in | When not logged in, a text will tell the user to login before they can book | Went to the rules page before logged in | A text told me to login before booking a time | Pass |
 | "Book now" button shown | When logged in at the rules a button with the text "Book now" should be visual | Logged in and went to the rules page | A button with the text "Book now" was shown | Pass |
 | No timeslots that have been past can be booked | Now when the time is 11:47 AM no times with starttime before 12.00 PM should be visual when selecting todays date | Selected todays date | The first time available was 12:00 PM - 01:00 PM | Pass |
 | Successfully book a time | Select a date and time to play on and click "Book now". Then be navigated to a confirmation page | Selected a date and time and clicked "Book now" | Was navigated to a page confirming the booking with booking info. | Pass |
 | No booked times are available | When booking a time, there should not be booked times visual for other users | Since there was a time booked in the previous test on todays test between 03:00 - 05:00 PM on grass court, there should not be any times visual within this span. | Selected todays date and no starting times between 03:00 - 05:00 PM was shown, but if you choosed the gravel court there was times available within that timeslot. | Pass |
 
+</details>
+
+### Commenting an article
+
+<details>
+<summary>Manual test on the commenting system on an article</summary>
+<br>
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Can´t comment on an article when not logged in | When not logged in, a text will tell the user to login before they can comment | Scrolled down in an article to the comment section without logged in before | There was a text telling me to log in before commenting | Pass |
+| Comment textarea visual | When logged in there will be information about who is commenting and a textarea visual to comment the article | Logged in and scrolled down to the commenting section | The comment section told me who was logged in, that the comment will be reviewed and a textarea to comment | Pass |
+| Try to comment with empty textarea | When submitting an empty textarea, there will be a message telling to fill in the textarea | Pressed "Submit" with an empty textarea | There was a message telling me that the textarea can´t be empty | Pass |
 
 
-</detail>
+</details>
 
 # Resources
 [W3C css validator](https://jigsaw.w3.org/css-validator/validator) - Validating CSS file<br>

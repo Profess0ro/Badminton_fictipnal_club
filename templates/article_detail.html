@@ -40,9 +40,16 @@
           <h3 class="nav-font">Comments:</h3>
           <hr class="text-separator">
           {% for comment in comments %}
-          <div class="p-2 comment-entry {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
+          <div class="p-2 comment-entry 
+            {% if not comment.approved %}
+              {% if comment.author.username == user.username %}
+                faded
+              {% else %}
+                hidden
+              {% endif %}
+            {% endif %}">
               <p class="font-weight-bold">{{ comment.author }}<br><span class="font-weight-normal">{{ comment.created_on }}</span>
-              <div id="comment{{ comment.id }}" class="content-text comment-text">{{ comment.content | linebreaks }}</div>
+              <div id="comment{{ comment.id }}" class="content-text comment-text">{{ comment.content | linebreaks }} </div>
               <!-- If a comment is done by the user who is logged in, delete/edit buttons will be shown -->
               {% if user.is_authenticated and comment.author == user %}
                 <button class="btn btn-delete"
