@@ -1,34 +1,39 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="container no-margin-left signup-body blue-border white-background-2 fullview-small">
   <div class="row">
     <div class="col content-text">
-      <h3 class="nav-font darkblue">Sign Up</h3>
+      <h3 class="nav-font darkblue">{% trans "Sign Up" %}</h3>
       <hr class="text-separator">
       <p>
-        Welcome back to the Racket Club<br>
-        Do you already have an account?<br>Then please
-        <a class="link" href="{{ login_url }}">sign in</a>
-        instead.
+        {% trans "Welcome to the Racket Club!" %}<br>
+        {% trans "Do you already have an account?" %}<br>
+        {% trans "Then please " %}<a class="link" href="{{ login_url }}">{% trans "sign in" %}</a> {% trans "instead." %}
       </p>
     </div>
   </div>
   <div class="row">
     <div class="col content-text">
-      <form class="signup" id="signup_form" method="post"
-        action="{% url 'account_signup' %}" onsubmit="window.sessionStorage.setItem('accountCreated', 'true');">
+      <form id="signupForm" method="POST" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}"
-          value="{{ redirect_field_value }}" />
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-signup blue-border right" type="submit">
-          Sign Up</button>
+        <button class="btn btn-signup blue-border right" type="submit">{% trans "Sign Up" %}</button>
       </form>
     </div>
   </div>
+  {% if messages %}
+  <div id="signupSuccess" style="display:none;">
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        {{ message }}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
-
 {% endblock %}

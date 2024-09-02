@@ -197,6 +197,26 @@ Those are the biggest issues the result came up to.
 
 </details>
 
+### Sign up / Log in / Log out
+
+<details>
+<summary>Manual test on the account pages</summary>
+<br>
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Fill in form with invalid | Fill in the form with 
+</details>
+
+### Links in the menus
+
+<details>
+<summary>Manual test on the menus for big and small screens</summary>
+<br>
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+
+</details><br>
+
 # Resources
 [W3C css validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - Validating CSS file<br>
 [JShint](https://jshint.com/) - Validate JS file<br>

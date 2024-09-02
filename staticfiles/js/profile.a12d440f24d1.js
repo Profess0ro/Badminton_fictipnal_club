@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Function to show a modal with a specific message
     function showModal(message) {
         const modalHtml = `
             <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
@@ -23,23 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.show();
     }
 
-    if (window.sessionStorage.getItem('userLoggedIn')) {
+    // Check for signup success
+    if (document.getElementById('signupSuccess')) {
+        sessionStorage.setItem('accountCreated', 'true');
+    }
+
+    // Check for login success
+    if (document.getElementById('loginSuccess')) {
+        sessionStorage.setItem('userLoggedIn', 'true');
+    }
+
+    // Show modal if account created
+    if (sessionStorage.getItem('accountCreated') === 'true') {
+        showModal("Your account has been created successfully! You can now log in to comment on articles and book court times.");
+        sessionStorage.removeItem('accountCreated');
+    }
+
+    // Show modal if user logged in
+    if (sessionStorage.getItem('userLoggedIn') === 'true') {
         showModal("Welcome back! You can now comment on articles and book court times.");
-        window.sessionStorage.removeItem('userLoggedIn');
+        sessionStorage.removeItem('userLoggedIn');
     }
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    /* 
-    When you signing up an account and the form is valid it will add
-    "signup_success" into the URL and if this is added the modal
-    with the information under will be shown
-    */
-    const signupSuccess = urlParams.get('signup_success');
-
-    if (signupSuccess === 'True') {
-        showModal(
-            "Congratulations! You can now log in to comment on articles and book court times.");
-    }
-
 });

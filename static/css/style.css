@@ -74,10 +74,6 @@ h1, h5, h4, .darkblue{
     background-color: #F0FBFF;
 }
 
-.faded {
-    opacity: 0.5;
-}
-
 /* ------------------------------------------------------------------------ Text */
 
 .slice-text, .content-text, input, textarea {

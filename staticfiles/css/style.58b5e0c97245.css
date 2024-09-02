@@ -32,7 +32,7 @@ header {
     margin-left: 0;
 }
 
-.hidden {
+.hidden, .form-label{
     display: none;
 }
 
@@ -72,6 +72,15 @@ h1, h5, h4, .darkblue{
 
 .white-background-2 {
     background-color: #F0FBFF;
+}
+
+.faded {
+    opacity: 0.5;
+}
+
+::marker {
+    color: #fd2525;
+    font-weight: 900;
 }
 
 /* ------------------------------------------------------------------------ Text */

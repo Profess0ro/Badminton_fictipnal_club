@@ -43,6 +43,7 @@ CSRF_TRUSTED_ORIGINS = [
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.auth.password_validation',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -147,6 +148,9 @@ AUTH_PASSWORD_VALIDATORS = [
             'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+ACCOUNT_SIGNUP_REDIRECT_URL = '/?signup_success=True'
 
 
 # Internationalization

@@ -75,7 +75,12 @@ h1, h5, h4, .darkblue{
 }
 
 .faded {
-    color: #807e7e;
+    opacity: 0.5;
+}
+
+.errorlist {
+    color: #fd2525;
+    font-weight: 900;
 }
 
 /* ------------------------------------------------------------------------ Text */
