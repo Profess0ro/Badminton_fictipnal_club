@@ -27,7 +27,10 @@ When I ran the css code in W3C css validator, it didn´t find anything that was 
 Since the js-file are loaded into the base.html the jshint found a problem that the functions are after the if statement where it searches for elements that starts the functions to operate.<br><br>
 <b>comments.js:</b><br>
 <img src="readme/testing/jshint2.png" height="300" width="auto"><br>
-Since the code for bootstrap modal 'deleteModal' are in the article_detail.html there seems to be a confusing problem for the jshint.
+Bootstrap modal function is the only thing it found.<br>
+<b>profile.js:</b><br>
+<img src="readme/testing/jshint3.png" height="300" width="auto"><br>
+Bootstrap modal function is the only thing it found.<br>
 </details>
 
 ### HTML files
