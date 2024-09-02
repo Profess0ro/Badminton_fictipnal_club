@@ -98,6 +98,10 @@ h1, h5, h4, .darkblue{
     height: auto;
 }
 
+.dropdown-toggle {
+    text-decoration: none;
+}
+
 .container-nav {
     margin:0;
     padding-left: 10px;

@@ -223,6 +223,7 @@ Those are the biggest issues the result came up to.
 <details>
 <summary>Manual test on the menus for big and small screens</summary>
 <br>
+<strong>These tests are made on both small and big screens.</Strong>
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
