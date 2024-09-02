@@ -20,7 +20,7 @@
     <hr class="text-separator">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2 signin-form content-text">
-            <form class="login" method="POST" action="{% url 'account_login' %}" onsubmit="window.sessionStorage.setItem('userLoggedIn', 'true');">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}

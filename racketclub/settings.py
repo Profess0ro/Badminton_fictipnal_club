@@ -151,7 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 ACCOUNT_SIGNUP_REDIRECT_URL = '/?signup_success=True'
-
+LOGIN_REDIRECT_URL = '/?login_success=True'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

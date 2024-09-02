@@ -23,23 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.show();
     }
 
-    if (window.sessionStorage.getItem('userLoggedIn')) {
-        showModal("Welcome back! You can now comment on articles and book court times.");
-        window.sessionStorage.removeItem('userLoggedIn');
-    }
-    
     const urlParams = new URLSearchParams(window.location.search);
-    
-    /* 
-    When you signing up an account and the form is valid it will add
-    "signup_success" into the URL and if this is added the modal
-    with the information under will be shown
-    */
-    const signupSuccess = urlParams.get('signup_success');
 
-    if (signupSuccess === 'True') {
-        showModal(
-            "Congratulations! You can now log in to comment on articles and book court times.");
+    const loginSuccess = urlParams.get('login_success');
+    if (loginSuccess === 'True') {
+        showModal("Welcome back! You can now comment on articles and book court times.");
     }
-
+    
+    const signupSuccess = urlParams.get('signup_success');
+    if (signupSuccess === 'True') {
+        showModal("Congratulations! You can now log in to comment on articles and book court times.");
+    }
 });
