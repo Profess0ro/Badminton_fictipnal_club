@@ -16,7 +16,7 @@ html, body {
 header {
     height: 200px;
     display: none;
-    background-image: url(../images/header.png);
+    background-image: url("../images/header.d051fc8b9045.png");
     background-size: auto;
     background-repeat: no-repeat;
     border-bottom: 3px solid #2B3960;
@@ -121,7 +121,7 @@ h1, h5, h4, .darkblue{
 
 .big-screens-nav {
     flex: 1;
-    display: block;
+    display: flex;
     flex-direction: row;
 }
 
@@ -348,7 +348,7 @@ h1, h5, h4, .darkblue{
 @media screen and (min-width: 480px) {
 
     .big-screens-nav {
-        display: flex;
+        display: block;
     }
     header, .big-nav {
         display: none;

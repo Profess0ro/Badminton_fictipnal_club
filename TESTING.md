@@ -5,6 +5,10 @@
 - [Performance](#performance)
 - [Manual testing](#manual-testing)
     * [Home page](#home-page)
+    * [Booking system](#booking-system)
+    * [Commenting an article](#commenting-an-article)
+    * [Sign up / Sign in / Sign out](#sign-up--sign-in--sign-out)
+    * [Links in the menus](#links-in-the-menus)
 - [Resources](#resources)
 
 
@@ -197,14 +201,21 @@ Those are the biggest issues the result came up to.
 
 </details>
 
-### Sign up / Log in / Log out
+### Sign up / Sign in / Sign out
 
 <details>
 <summary>Manual test on the account pages</summary>
 <br>
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Fill in form with invalid | Fill in the form with 
+| Fill in form with invalid when signing up | When signing up for an account with invalid form data there will be a message telling the user what need to be corrected | Tried to create an account with 1 character in the password | Message told me that the password is to short and only numeric | Pass |
+| Signing up with valid data | When signing up for an account successfully, there will be a modal telling the user that they now can comment and book times | Created an account with valid data | Modal congratulated me on creating an account and told me that I can now comment and book times | Pass |
+| Sign in with invalid account data | When signing in with invalid data, there will be a message telling the user what´s wrong. | Trying to log in with invalid data | A message told me that the username or password was not correct | Pass |
+| Sign in with valid data | When signing in with valid data, the user will have a modal showing up telling them that they now can comment and book times | Signed in with valid data and a modal showed me that I now can comment and book times | Pass |
+| Signing out | When clicking on "Sign out" you will be directed to a page asking the user if they are sure to sign out. When sure to sign out the account will log out | Clicked on "Sign out" and then confirming the sign out | First I was directed to a page asking me if I´m sure to Sign out, then I was signed out when confirming | Pass | 
+
+
 </details>
 
 ### Links in the menus
@@ -212,8 +223,17 @@ Those are the biggest issues the result came up to.
 <details>
 <summary>Manual test on the menus for big and small screens</summary>
 <br>
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
+| Directed to Home page | Directed to the Home page when clicking on "Home" or the logo | Clicked on "Home" and logo | Was directed to the Home page when both clicking on "Home" and the logo | Pass |
+| Directed to Rules page | Directed to the rules when clicking on "Book our courts" | Clicked on "Book our courts" | Was directed to the rules page | Pass |
+| Directed to about us page | Directed to about us page when clicking on "About us" | Clicked on "About us" | Was directed to the about us page | Pass |
+| Directed to the contact form | Directed to the contact form when clicking on "contact us" | Clicked on "Contact us" | Was directed to the contact form | Pass |
+| Directed to sign up form | Directed to the sign up form when clicking on "Sign up" | Clicked on "Sign up" | Was directed to the sign up form | Pass |
+| Directed to sign in page | Directed to sign in page when clicking on "Sign in" | Clicked on "Sign in" | Was directed to the sign in page | Pass |
+| Directed to Sign out page | Directed to the sign out page when clicking on "Sign out" | Clicked on "Sign out" | Was directed to sign out page | Pass |
+| Directed to My bookings | Directed to the page with my bookings when clicking on "My bookings" | Clicked on "My bookings" | Was directed to the page listing my bookings | Pass |
 
 </details><br>
 

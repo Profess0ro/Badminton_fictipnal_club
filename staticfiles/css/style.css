@@ -121,7 +121,7 @@ h1, h5, h4, .darkblue{
 
 .big-screens-nav {
     flex: 1;
-    display: flex;
+    display: block;
     flex-direction: row;
 }
 
@@ -347,6 +347,9 @@ h1, h5, h4, .darkblue{
 
 @media screen and (min-width: 480px) {
 
+    .big-screens-nav {
+        display: flex;
+    }
     header, .big-nav {
         display: none;
     }

@@ -55,14 +55,14 @@
               <i class="fa-solid fa-user"></i>
               </a>
               <ul class="dropdown-menu nav-font">
-                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
-                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_login' %}">Login</a></li>
+                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_signup' %}">Sign up</a></li>
+                <li><a class="dropdown-item {% if user.is_authenticated %} hidden {% endif %}" href="{% url 'account_login' %}">Sign in</a></li>
                 {% if user.is_authenticated %}
-                <li>Logged in as: {{ user.username }}</li>
+                <li>Signed in as: {{ user.username }}</li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -106,14 +106,14 @@
           <i class="fa-solid fa-user"></i>
           </a>
           <ul class="dropdown-menu nav-font">
-            <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_signup' %}">Signup</a></li>
-            <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_login' %}">Login</a></li>
+            <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_signup' %}">Sign up</a></li>
+            <li><a class="dropdown-item {% if user.is_authenticated %}hidden{% endif %}" href="{% url 'account_login' %}">Sign in</a></li>
             {% if user.is_authenticated %}
-            <li>Logged in as: {{ user.username }}</li>
+            <li>Signed in as: {{ user.username }}</li>
             <li>
               <hr class="dropdown-divider dropdown-item">
             </li>
-            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
