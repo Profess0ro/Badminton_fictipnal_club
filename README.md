@@ -174,7 +174,7 @@ The usage of this color except from the logo is the hovering effect on links and
 **#F0FBFF**
 This is the background color of the navigation bars and the content divs. It´s not far from the white color (#FFFFFF) but enough difference so that it divides the comment entries from eachoter.<br> 
 **#789EA7**
-This color has a honorable mention since it´s only in the logo as a small line.
+This color has a honorable mention since it´s only in the logo as a small line.<br>
 **#FFFFFF**
 This is the background color of the "main content" area and also background color of the uneven comment entries on articles.
 <hr>
