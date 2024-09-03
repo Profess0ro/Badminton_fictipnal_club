@@ -146,6 +146,23 @@ h1, h5, h4, .darkblue{
 .profile {
     align-content: center;
 }
+/* ------------------------------------------------------------------------ Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0FBFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2B3960;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #E8B272;
+}
 
 /* ------------------------------------------------------------------------ Article cards */
 
