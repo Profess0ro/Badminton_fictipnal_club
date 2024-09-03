@@ -14,6 +14,7 @@ There are also a contact form that users can send questions to the club.
     * [User stories](#user-stories)
 - [Content](#content)
     * [Home page](#home-page)
+    * [Article page](#article-page)
     * [Rules page](#rules-page)
     * [Booking form](#booking-form)
     * [Booking success](#booking-success)
@@ -59,6 +60,8 @@ There are also a contact form that users can send questions to the club.
 <img src="readme/bookingmodels.png">
 <hr>
 
+- ### [Go back to the content list](#content)
+
 ## Wireframes
 
 This was my vision on how this project would be visual for the user.
@@ -68,10 +71,14 @@ Worked after this model as much as I could for the basic structure.<br>
 <img src="readme/wireframe_tablet.png"><br>
 <img src="readme/wireframe_big_screens.png"><br>
 
+- ### [Go back to the content list](#content)
+
 ## User Stories
 
 Here you can check out my user stories on the canban-board<br>
 [Canban-board](https://github.com/users/Profess0ro/projects/6/views/1)
+
+- ### [Go back to the content list](#content)
 
 # Content
 
@@ -155,6 +162,8 @@ If the form is successfully filled, the user will be directed to a page that con
 <img src="readme/errorpage2.png" height="300" width="auto"><br><br>
 I have the same error page for the following errors:<br>- **403:** When a user doesn´t have the permission to go to that specific page.<br>- **404:** When a page doesn´t exist that the user was directed to.<br>- **500:** When the database doesn´t connect.<br>- **504:** Network issues with the server.
 
+- ### [Go back to the content list](#content)
+
 # Design
 
 ## Logo
@@ -179,13 +188,15 @@ This color has a honorable mention since it´s only in the logo as a small line.
 This is the background color of the "main content" area and also background color of the uneven comment entries on articles.
 <hr>
 
+- ### [Go back to the content list](#content)
+
 ## Fonts
 **[Raleway](https://fonts.google.com/specimen/Raleway?query=raleway)**
 This font is in my opinion a very readable font, thats why I choosed to have that on the content texts.<br>
 **[Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue?query=Bebas+Neue)**
 This font are used on titles, links and the author info on articles. The font catched my eye when I browsed through fonts and really looked nice as a title text.
 
-
+- ### [Go back to the content list](#content)
 
 # Resources
 
@@ -196,6 +207,8 @@ This font are used on titles, links and the author info on articles. The font ca
 [Neon](https://neon.tech/) - Database<br>
 [Mailtrap](https://mailtrap.io/) - SMTP for the contactform<br>
 [Cloudinary](https://cloudinary.com/) - Database storage for images
+
+- ### [Go back to the content list](#content)
 
 # Technologies
 
@@ -223,6 +236,7 @@ After every time `pip3 install <package>` are used, ensure to use `pip3 freeze -
 - [whitenoise](https://pypi.org/project/whitenoise/)
 - [python-dateutil](https://pypi.org/project/python-dateutil/)
 
+- ### [Go back to the content list](#content)
 
 # Deployment
 
@@ -297,6 +311,8 @@ pip3 freeze > requirements.txt
 - Make sure that in the `settings.py` you have: `DEBUG=False` 
 12. Commit and push to GitHub.
 
+- ### [Go back to the content list](#content)
+
 ### Heroku
 1. Log in to your Heroku account
 2. Go to the **'Heroku dashboard'** and click **'New'** and then **'Create new app'**
@@ -314,6 +330,8 @@ pip3 freeze > requirements.txt
 # Testing
 
 I´ve made an external markdown file for testing and validation This file can be found [here](TESTING.md).
+
+- ### [Go back to the content list](#content)
 
 # Problems encountered
 
@@ -361,6 +379,8 @@ If the user instead rotates the tablet and use it horizontally it looks better.<
 `today = now().date()`<br>`
     bookings = Booking.objects.filter(booked_by=request.user, date__gte=today)`<br>
 So that bookings from yesterday and earlier are excluded in the list.
+
+- ### [Go back to the content list](#content)
 
 # Credits
 
