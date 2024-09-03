@@ -162,7 +162,7 @@ h1, h5, h4, .darkblue{
 }
 
 .card-img-top {
-    max-width: 400px;
+    max-width: 160px;
     margin-top: 15px;
 }
 
@@ -389,6 +389,9 @@ h1, h5, h4, .darkblue{
     .times {
         width: 500px;
         margin: 10px;
+    }
+    .card-img-top {
+        max-width: 400px;
     }
 }
 
