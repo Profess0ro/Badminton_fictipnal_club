@@ -329,7 +329,7 @@ pip3 freeze > requirements.txt
 
 # Testing
 
-I´ve made an external markdown file for testing and validation This file can be found [here](TESTING.md).
+I´ve made an external markdown file for testing and validation. <br>This file can be found [here](TESTING.md).
 
 - ### [Go back to the content list](#content)
 
