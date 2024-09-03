@@ -259,10 +259,14 @@ h1, h5, h4, .darkblue{
     color: #E8B272;
 }
 
-.btn-delete:hover {
+.btn-delete:hover, .btn-big-delete:hover {
     border: 1px solid #602b2b;
     color: #602b2b;
     background-color: #d15151;
+}
+
+.btn-big-delete:hover {
+    border: 3px solid #602b2b;
 }
 
 .big-nav a:hover {
