@@ -115,7 +115,7 @@ When a date are chosen, the system searching for booked times and calculates if 
 
 <img src="readme/bookingsuccess.png" height="300" width="auto">
 <img src="readme/bookingsuccess2.png" height="300" width="auto"><br><br>
-If all goes through with valid data input to the form the user will get directed to a page that confirms the booking. All data that was selected and who that made the booking will be visualised on this page. There are also a button back to the form if the user will make another booking of the court.
+If all goes through with valid data input to the form the user will get directed to a page that confirms the booking. All data that was selected and who that made the booking will be visualised on this page. There are two buttons here if the user wants to make another booking or view their bookings.
 
 
 ## Edit booking

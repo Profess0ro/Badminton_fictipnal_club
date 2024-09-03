@@ -7,12 +7,14 @@
         <div class="container">
             <div class="times blue-border success col-md">
             <h1 class="nav-font">Booking Confirmed!</h1>
-            <p class="content-text">Thank you <strong>{{ user.username }}</strong> for your booking.<br> Here are your booking details:<br><br>
+            <p class="content-text darkblue">Thank you <strong>{{ user.username }}</strong> for your booking.<br> Here are your booking details:<br><br>
                 <strong>Court Type:</strong><br> {{ booking.court_type }}<br>
                 <strong>Date:</strong><br> {{ booking.date }}<br>
                 <strong>Time:</strong><br> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}<br></p> 
                 <button class="btn btn-signup btn-lg blue-border" 
             onclick="window.location.href='{% url 'booking_view' %}';">Make another booking</button>
+                <button class="btn btn-signup btn-lg blue-border" 
+            onclick="window.location.href='{% url 'my_bookings' %}';">View my bookings</button>
             </div>
         </div>
     </div>

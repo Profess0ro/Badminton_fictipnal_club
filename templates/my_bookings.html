@@ -6,7 +6,7 @@
     <h1 class="nav-font">My Bookings</h1>
     <div>
         {% for booking in bookings %}
-            <p class="content-text">
+            <p class="content-text darkblue">
                 <strong>Court Type:</strong> {{ booking.court_type }} | <strong>Date:</strong> {{ booking.date }} | <strong>Time:</strong> {{ booking.start_time.start_time }} - {{ booking.end_time.end_time }}
                 <a href="{% url 'edit_booking' booking.id %}"><button class="btn btn-edit">Edit</button></a>
                 <a href="{% url 'delete_booking' booking.id %}"><button class="btn btn-delete">Delete</button></a>
@@ -14,7 +14,7 @@
                 <hr class="text-separator">
             </p>
         {% empty %}
-            <h5>You have no bookings.</h5>
+            <h5 class="content-text darkblue">You have no bookings.</h5>
         {% endfor %}
     </div>
 </div>
