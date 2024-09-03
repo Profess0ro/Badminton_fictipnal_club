@@ -4,14 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const availableTimesDiv = document.getElementById('available-times');
     const selectedDateInput = document.getElementById('selected-date');
     const selectedTimeInput = document.getElementById('selected-time');
+    const submitButton = document.querySelector('button[type="submit"]');
 
     /*
     The if statement below checks if the necessary elements exist 
     before adding event listeners.
-    Otherwise there will be a error when the elements don´t exists,
-    Since this file are loaded in the base.html
+    Otherwise there will be an error when the elements don’t exist,
+    since this file is loaded in the base.html.
     */
     if (courtTypeSelect && dateRadios.length > 0 && availableTimesDiv && selectedDateInput && selectedTimeInput) {
+
+        // Initially hide the submit button
+        if (submitButton) {
+            submitButton.classList.add('hidden');
+        }
 
         // Function to fetch available times based on selected court type and date
         function fetchAvailableTimes() {
@@ -28,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         /*
                         This if statement processes the response data to extract available time slots and updates 
                         the availableTimesDiv with these slots. 
-                        It collects the current time a user are booking a time so that
-                        no times that has past are visualised. 
+                        It collects the current time a user is booking a time so that
+                        no times that have passed are visualized. 
                         */
                         if (data.time_grid && Array.isArray(data.time_grid)) {
                             const currentTime = new Date();
@@ -46,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const slotStartTime24 = convertTo24HourFormat(slotStartTime);
 
                                     /* 
-                                    Only times that´s not booked before and future times will be 
-                                    calculated and show in the availableTimesDiv as radiobuttons.
+                                    Only times that are not booked before and future times will be 
+                                    calculated and shown in the availableTimesDiv as radio buttons.
                                     */
                                     if (date > currentDate || (date === currentDate && slotStartTime24 >= currentTimeStr)) {
                                         availableSlots.push(`
@@ -99,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         /*
-        Add eventlisteners so when choosing court type and date
-        it will calculate available times on the choices that has
+        Add event listeners so when choosing court type and date
+        it will calculate available times based on the choices that have
         been made. 
         */
         courtTypeSelect.addEventListener('change', fetchAvailableTimes);
@@ -113,16 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
         /*
-        In the booking_form.html there are a hidden div that collects the selected time
+        In the booking_form.html there is a hidden div that collects the selected time
         when a radio button is selected.
-        This eventlistener changes the value in that div, so the right information is
-        sent to the database when the form getting posted.
+        This event listener changes the value in that div, so the right information is
+        sent to the database when the form is posted.
         */
         availableTimesDiv.addEventListener('change', (event) => {
             const selectedRadio = event.target.closest('input[name="time"]');
             if (selectedRadio) {
                 selectedTimeInput.value = selectedRadio.value;
+                if (submitButton) {
+                    submitButton.classList.remove('hidden');
+                }
             }
         });
 
