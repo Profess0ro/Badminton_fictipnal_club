@@ -311,15 +311,15 @@ I´ve made an external markdown file for testing and validation This file can be
 <img src="readme/problem1.png"><br><br>
 - Suddenly the database didn´t cooperate with the page and started to search for other columns.<br>
 **Solution:**<br>
-Deleted and created a new database and migrated my models. Then the page found the right columns and content without changing anything of the codes.
+Deleted and created a new database and migrated my models. Then the page found the right columns and content without changing anything of the codes.<hr>
 
 
 - When trying to edit a comment on an article nothing happened when I pressed the button. No content appeared in the commentform to edit.<br>
 **Solution:**<br>
-Noticed that the `comments.js` searched for the wrong classnames and that´s why nothing happened. Changed name in `document.getElementsByClassName("")` and all worked again.
+Noticed that the `comments.js` searched for the wrong classnames and that´s why nothing happened. Changed name in `document.getElementsByClassName("")` and all worked again.<hr>
 
 - When I created "About us" and was going to preview how the content was shown after installing the `SummernoteModelAdmin` I saw that all codetags was visual.<br>**Solution:**<br>
-Adding `|safe` after, so that the code looks like this in the html-file: `{{ content.content|safe }}`
+Adding `|safe` after, so that the code looks like this in the html-file: `{{ content.content|safe }}`<hr>
 
 - Noticed after I´ve created the modal for deleting a comment this error occured:<br>
 `modal.js:158 Uncaught TypeError: Cannot read properties of undefined (reading 'backdrop')
@@ -332,17 +332,26 @@ Since `comments.js` are loaded into `base.html` it kept searching for the modal 
     let deleteModal = null;
     if (deleteModalElement) {
         deleteModal = new bootstrap.Modal(deleteModalElement);
-    }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.
+    }` was added into `comments.js` so if the html-file doesn´t have a modal with the name `deleteModal` it doesnt initialize the modal element.<hr>
 
 - Problems generating available times.
-The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function the span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.<br>
+The final app for booking is my 4th try to make a booking system. On the first 3 times I´ve tried to give a function the span of starting and end times that it should calculate with. But after the 3rd try I came up with a solution to feed the database with start and end times that a function could calculate with. That really solved my problem with the booking system that now easier can calculate available times for the users.<br><hr>
 
 - Responsiveness on tablets.<br><br>
-<img src="readme/responsive_tablet2.png" height="300" width="auto"><br>
+
 Saw that if a user a tablet vertically there will be a problem with the article posts.<br>
+<img src="readme/responsive_tablet2.png" height="300" width="auto"><br>
 **Solution:**<br>
 If the user instead rotates the tablet and use it horizontally it looks better.<br>
 <img src="readme/responsive_tablet.png" height="300" width="auto"><br>
+<hr>
+
+- When listing my bookings the list included times that had expired.<br>
+**Solution:** <br>
+`from django.utils.timezone import now` imported now and used that to filter the bookings made with this code : <br>
+`today = now().date()`<br>`
+    bookings = Booking.objects.filter(booked_by=request.user, date__gte=today)`<br>
+So that bookings from yesterday and earlier are excluded in the list.
 
 # Credits
 

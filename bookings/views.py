@@ -3,7 +3,7 @@ from .models import CourtType, StartTimes, EndTimes, Booking
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from datetime import datetime, timedelta
-
+from django.utils.timezone import now
 
 def rules_view(request):
     return render(request, 'rules.html')
@@ -131,7 +131,8 @@ def get_available_times(request):
 
 @login_required
 def my_bookings(request):
-    bookings = Booking.objects.filter(booked_by=request.user)
+    today = now().date()
+    bookings = Booking.objects.filter(booked_by=request.user, date__gte=today)
     context = {
         'bookings': bookings
     }
