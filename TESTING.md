@@ -212,7 +212,7 @@ Those are the biggest issues the result came up to.
 | Fill in form with invalid when signing up | When signing up for an account with invalid form data there will be a message telling the user what need to be corrected | Tried to create an account with 1 character in the password | Message told me that the password is to short and only numeric | Pass |
 | Signing up with valid data | When signing up for an account successfully, there will be a modal telling the user that they now can comment and book times | Created an account with valid data | Modal congratulated me on creating an account and told me that I can now comment and book times | Pass |
 | Sign in with invalid account data | When signing in with invalid data, there will be a message telling the user what´s wrong. | Trying to log in with invalid data | A message told me that the username or password was not correct | Pass |
-| Sign in with valid data | When signing in with valid data, the user will have a modal showing up telling them that they now can comment and book times | Signed in with valid data and a modal showed me that I now can comment and book times | Pass |
+| Sign in with valid data | When signing in with valid data, the user will have a modal showing up telling them that they now can comment and book times | Signed in with valid data | A modal showed me that I now can comment and book times | Pass |
 | Signing out | When clicking on "Sign out" you will be directed to a page asking the user if they are sure to sign out. When sure to sign out the account will log out | Clicked on "Sign out" and then confirming the sign out | First I was directed to a page asking me if I´m sure to Sign out, then I was signed out when confirming | Pass | 
 
 
