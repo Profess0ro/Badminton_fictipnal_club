@@ -236,6 +236,19 @@ Those are the biggest issues the result came up to.
 | Directed to Sign out page | Directed to the sign out page when clicking on "Sign out" | Clicked on "Sign out" | Was directed to sign out page | Pass |
 | Directed to My bookings | Directed to the page with my bookings when clicking on "My bookings" | Clicked on "My bookings" | Was directed to the page listing my bookings | Pass |
 
+</details>
+
+### 404 Error
+
+<details>
+<summary>Manually forcing 404 Error</summary>
+<br>
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| 404 page shown | When typing in an URL that doesn´t exists, the 404 page will be shown telling the user that something went wrong | Typed in an URL that doesn´t exist | A 404 page told me that something went wrong and that I could go back to the homepage or to the contact form | Pass |
+| Testing the links on the error pages | When clicking on the links at the bottom of the errorpage, you will be correctly directed | Clicked on the links at the bottom of the errorpage | Got directed correctly to the homepage and the contact form | Pass |
+
 </details><br>
 
 # Resources
