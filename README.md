@@ -83,6 +83,15 @@ When a user lands on the homepage on big screens, there are a header with a pict
 <img src="readme/homepage2.png" height="300" width="auto"><br><br>
 For user that goes to this page on smallest screens, the menu has gone up to the top of the page as a dropdown menu and all articles are now on top of eachother instead of three by three on the rows. The footer remains on the bottom of the page.
 
+## Article page
+
+When a user click on an article card, they will get into this view:<br><br>
+<img src="readme/articlepage1.png" height="300" width="auto"><br><br>
+First they will se the attached image, then the title and after that the author and when it was created. I´ve put the image on top because when a user wants to read the article it more suitable to have the image on top of the title so it doesn´t interrupting with a space between title and content.<br><br><img src="readme/articlepage2.png" height="300" width="auto"><br><br>
+Further down on the article page there is a commenting function only available for the user that are signed in.<br>
+For the user on smaller screens the image are smaller so it won´t take that much of space on the screen.<br>
+<img src="readme/articlepage3.png" height="300" width="auto"><br><br>
+
 ## Rules page
 
 <img src="readme/rulespage.png" height="300" width="auto"><br><br>
@@ -113,7 +122,7 @@ If all goes through with valid data input to the form the user will get directed
 <img src="readme/profile.png"><br><br>
 When a user wants to see their booking that they have made there is a menu that comes down if you click on the profile image in the main menu. Here are an option that´s named "my bookings"<br><br>
 <img src="readme/editbooking.png"><br><br>
-<img src="readme/mybookings2.png"><br><br>
+<img src="readme/mybookings2.png" height="300"><br><br>
 After the user has clicked on "my bookings" this view comes up and listing all of the bookings made by this specific user. Behind every booking there are options to either edit or delete a booking. If a user clicks on "Edit" the view below comes up.<br><br>
 <img src="readme/editbooking2.png" height="300" width="auto"><br><br>
 This view is similar to the booking form with a small change that it updates the current booking and as the button says "update booking" this will update and change the time of the booking that was chosen.<br><br>
