@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <div class="container card-body blue-border no-margin-left article-post white-background-2">
-    <div class="row nav-font">
+    <div class="row nav-font darkblue">
         <h1>Book Our Court</h1>
         <h5>How the booking system works:</h5>
         <hr class="text-separator">
@@ -12,7 +12,7 @@
             - Select court type so the system calculates times for the right court.<br>
             - When you pick a date, our system will calculate which times are available to book. <i>(this can take a couple of seconds)</i><br>
             - There are 1-hour and 2-hour slots available to book.<br>
-            - After selecting a time to book, click on "Book now" to complete the booking. You will be directed to a confirmation page.<br>
+            - After selecting a time to book, click on "Book now" to complete the booking.<br> You will directed to a confirmation page.<br>
             - You can edit and delete your bookings in the profile menu.
         </p>
     </div>
@@ -20,18 +20,18 @@
         <div class="col-md-4 col-s-12 times times-left blue-border nav-font">
             <form id="booking-form" method="POST" action="{% url 'booking_view' %}">
                 {% csrf_token %}
-                <div id="court-selection">
+                <div id="court-selection darkblue">
                     <label for="court-type"><h5 class="nav-font">Select Court Type:</h5></label><br>
                     <select id="court-type" name="court_type" class="content-text">
                         {% for court_type in court_types %}
                             <option value="{{ court_type.id }}">{{ court_type }}</option>
                         {% endfor %}
-                    </select><br>
-                </div>
-                <div id="date-selection">
-                    <h4 class="nav-font">Select a Date:</h4>
+                    </select>
+                </div><br>
+                <div id="date-selection darkblue">
+                    <h4 class="nav-font darkblue">Select a Date:</h4>
                     {% for date in dates %}
-                        <label>
+                        <label class="darkblue">
                             <input type="radio" name="date" value="{{ date|date:"Y-m-d" }}" />
                             {{ date|date:"F j, Y" }}
                         </label><br/>
@@ -43,8 +43,8 @@
             <div class="col-md"></div>
             <div class="col-md-7 col-s-12 times blue-border times-right">
                 <div id="time-selection">
-                    <h5 class="nav-font">Available Times:</h5>
-                    <div id="available-times" class="time-slot-grid nav-font">
+                    <h5 class="nav-font darkblue">Available Times:</h5>
+                    <div id="available-times" class="time-slot-grid nav-font darkblue">
                         <!-- This div will be populated by JavaScript -->
                     </div>
                     <button type="submit" class="btn btn-signup btn-lg blue-border">Book Now</button>
