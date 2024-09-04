@@ -5,12 +5,30 @@ from django.http import HttpResponse, JsonResponse
 from datetime import datetime, timedelta
 from django.utils.timezone import now
 
+
 def rules_view(request):
     return render(request, 'rules.html')
 
 
 @login_required
 def booking_view(request):
+    """
+    Handles the court booking process.
+    This will display a form for the users to select a court type, date,
+    and time to book.
+    When submitting, it processes the booking request by validating the inputs,
+    checking for overlaps with existing bookings.
+    If everything is valid it will send a booking to the database.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+
+    Returns:
+        HttpResponse: The rendered booking form on GET request.
+        HttpResponse: Redirects to the booking success page,
+                      if the booking is successful on POST request.
+        HttpResponse: Returns an error message if the booking is invalid.
+    """
     if request.method == 'POST':
         court_type_id = request.POST.get('court_type')
         date_str = request.POST.get('date')
@@ -87,11 +105,34 @@ def booking_view(request):
 
 
 def booking_success(request, booking_id):
+    """
+    Renders a success page if the booking is successful.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+        booking_id (int): The ID of the successfully created booking.
+
+    Returns:
+        HttpResponse: 'booking_success.html' template with the booking info.
+    """
     booking = get_object_or_404(Booking, id=booking_id)
     return render(request, 'booking_success.html', {'booking': booking})
 
 
 def get_available_times(request):
+    """
+    Returns available time slots for a specific court and date
+    as a JSON response.
+    This is a dynamic booking system, enabling users to see available
+    times on a specific court, date and time that has been selected.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+
+    Returns:
+        JsonResponse: A JSON response containing available time slots
+        for the specified court type and date.
+    """
     court_type_id = request.GET.get('court_type')
     date_str = request.GET.get('date')
 
@@ -131,6 +172,17 @@ def get_available_times(request):
 
 @login_required
 def my_bookings(request):
+    """
+    Displays a list of the bookings that are upcoming.
+    With the filter it only displays bookings from today and forward.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+
+    Returns:
+        HttpResponse: The rendered 'my_bookings.html' template
+        with the users bookings.
+    """
     today = now().date()
     bookings = Booking.objects.filter(booked_by=request.user, date__gte=today)
     context = {
@@ -141,6 +193,23 @@ def my_bookings(request):
 
 @login_required
 def edit_booking(request, booking_id):
+    """
+    Allows users to edit an existing booking.
+    Validates the new details just like when a user makes a new booking,
+    checks for any conflicts with other bookings before saving the changes.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+        booking_id (int): The ID of the booking to be edited.
+
+    Returns:
+        HttpResponse: The rendered 'edit_booking.html' template
+                      with the booking details on GET request.
+        HttpResponse: Redirects to the 'my_bookings' page if
+                      the update is successful on POST request.
+        HttpResponse: Returns an error message if the update request
+                      is invalid.
+    """
     booking = get_object_or_404(Booking, id=booking_id, booked_by=request.user)
 
     if request.method == 'POST':
@@ -213,6 +282,24 @@ def edit_booking(request, booking_id):
 
 @login_required
 def delete_booking(request, booking_id):
+    """
+    Handles the deletion of a specific booking by the user.
+
+    This view allows users to delete their own bookings.
+    It first checks if the booking exists to the current user.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+        booking_id (int): The ID of the booking to be deleted.
+
+    Returns:
+        HttpResponse:
+            - If the request method is POST:
+              Redirects to 'my_bookings' page after deletion.
+            - If the request method is GET:
+              Renders the 'delete_booking.html' template
+              to confirm the deletion.
+    """
     booking = get_object_or_404(Booking, id=booking_id, booked_by=request.user)
     if request.method == 'POST':
         booking.delete()
