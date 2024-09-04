@@ -4,6 +4,22 @@ from django.core.mail import EmailMessage
 
 
 def contact(request):
+    """
+    Handle the contact form submission and send an email.
+
+    This view processes the contact form submission.
+    If the form is submitted and valid, it sends an email with the form details
+    to a specified reciever and redirects the user to a success page.
+    If the form is invalid, it renders the contact form page again.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+
+    Returns:
+        HttpResponse: The contact form page rendered with an empty form.
+        HttpResponseRedirect: Redirect to the success page
+                              after a successful form submission.
+    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -25,4 +41,16 @@ def contact(request):
 
 
 def success(request):
+    """
+    Render the success page when the contact form submission is valid.
+
+    This view renders a simple success page to inform the user that their
+    contact form submission was successful.
+
+    Args:
+        request (HttpRequest): The request object used to generate this view.
+
+    Returns:
+        HttpResponse: The rendered success page.
+    """
     return render(request, 'success.html')
