@@ -29,6 +29,7 @@ There are also a contact form that users can send questions to the club.
 - [Design](#design)
     * [Logo](#logo)
     * [Colorscheme](#colorscheme)
+    * [Scrollbar](#scrollbar)
     * [Fonts](#fonts)
 - [Resources](#resources)
 - [Technologies](#technologies)
@@ -190,6 +191,10 @@ This color has a honorable mention since it´s only in the logo as a small line.
 **#FFFFFF**
 This is the background color of the "main content" area and also background color of the uneven comment entries on articles.
 <hr>
+
+## Scrollbar
+
+Styled the scrollbar to match the design of the page with a backgroundcolor (#F0FBFF), the body of the scrollbar has the darkblue color of the colorscheme (#2B3860) and if you hover over the scrollbar it changes to the golden color of the colorscheme (#E8B272)
 
 - ### [Go back to the content list](#content)
 
